@@ -1,0 +1,121 @@
+/* various */
+:root {
+    --color--primary: #6D6AFE;
+    --color--red: #FF5B56;
+    --color--black: #111322;
+    --color--white: #ffffff;
+    --color--gray-100: #3E3E43;
+    --color--gray-60: #9FA6B2;
+    --color--gray-20: #CCD5E3;
+    --color--gray-10: #E7EFFB;
+    --color--gray-bg: #F0F6FF;
+
+    --button-gradation:linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+}
+
+.blind {position: absolute;width: 1px;height: 1px;margin: -1px;overflow: hidden;clip: rect(0 0 0 0);}
+
+/* button */
+.gradient_btn {
+    background: var(--button-gradation);
+    border-radius: 8px;
+    line-height: 1;
+    height: 5.4rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    font-size: 1.8rem;
+}
+.gradient_btn.w_s {
+    min-width: 12.8rem;
+}
+.gradient_btn.w_l {
+    max-width: 35rem;
+    width: 100%;
+}
+.gradient_btn.w_xl {
+    max-width: 40rem;
+    width: 100%;
+}
+
+/* max-width */
+.width_large {
+    max-width: 120rem;
+    width: 100%;
+    margin: 0 auto;
+}
+.width_midium {
+    max-width: 99.8rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* gray box */
+.gray_border_box {
+    background: var(--color--gray-10);
+    border: 1px solid var(--color--gray-20);
+    border-radius: 8px;
+    padding: 1.2rem 2.4rem;
+}
+
+/* header */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999999;
+}
+
+nav {
+    padding: 2rem 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav h1 {
+    width: 13.3rem;
+    height: 2.4rem;
+}
+
+
+/* footer */
+footer {
+    padding: 3.2rem 10.4rem 10.8rem;
+    background: #111322;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .footer_sns {
+    display: flex;
+    align-items: center;
+    gap: 0 12px;
+}
+
+footer .footer_sns img {
+    width: 20px;
+}
+
+footer .footer_ttl span {
+    color: #676767;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+footer .footer_link {
+    display: flex;
+    align-items: center;
+    gap: 0 30px;
+}
+
+footer .footer_link a{
+    color: #CFCFCF;
+    font-size: 16px;
+    font-weight: 400;
+}
