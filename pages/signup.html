@@ -1,51 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입하기</title>
-    <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/sign.css">
-</head>
-<body>
-    <section class="sign_sec">
-        <h1>
-            <a href="/">
-                <img src="../assets/images/logo.svg" alt="홈으로 연결된 Linkbrary 로고">
-            </a>
-        </h1>
-        <div class="check_memb">
-            <p>이미 회원이신가요?</p>
-            <a href="./signin.html">로그인 하기</a>
-        </div>
-        <form>
-            <label for="email">이메일</label>
-            <Input type="email" id="email" placeholder="codeit@codeit.com"/>
-            <label for="password">비밀번호</label>
-            <div class="input_password">
-                <Input type="password" id="password" placeholder="비밀번호 입력"/>
-                <div class="eye" aria-label="비밀번호 숨김 표시 해제하려면 클릭"></div>
-            </div>
-            <label for="password_confirm">비밀번호 확인</label>
-            <div class="input_password">
-                <Input type="password" id="password_confirm" class="error" placeholder="비밀번호를 한번 더 입력해 확인하세요."/>
-                <div class="eye" aria-label="비밀번호 숨김 표시 해제하려면 클릭"></div>
-            </div>
-            <p class="error_msg">비밀번호가 같지 않습니다. 다시 확인해 주세요.</p>
-            <button type="submit" class="gradient_btn w_xl">로그인</button>
-        </form>
-        <div class="gray_border_box social">
-            <h6>다른 방식으로 가입하기</h5>
-            <div class="social_box">
-                <a href="https://www.google.com/" target="_blank">
-                    <img src="../assets/images/google_sns.svg" alt="구글 로그인 이동 이미지">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>회원가입하기</title>
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/sign.css" />
+    </head>
+    <body>
+        <section class="sign_sec">
+            <h1>
+                <a href="/">
+                    <img
+                        src="../assets/images/logo.svg"
+                        alt="홈으로 연결된 Linkbrary 로고"
+                    />
                 </a>
-                <a href="https://www.kakaocorp.com/page/" target="_blank">
-                    <img src="../assets/images/kakao_sns.svg" alt="카카오톡 로그인 이동 이미지">
-                </a>
+            </h1>
+            <div class="check_memb">
+                <p>이미 회원이신가요?</p>
+                <a href="./signin.html">로그인 하기</a>
             </div>
-        </div>
-    </section>
-</body>
+            <form>
+                <label for="email">이메일</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="codeit@codeit.com"
+                />
+                <label for="password">비밀번호</label>
+                <div class="input_password">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="비밀번호 입력"
+                    />
+                    <div
+                        class="eye"
+                        aria-label="비밀번호 숨김 표시 해제하려면 클릭"
+                    ></div>
+                </div>
+                <label for="password_confirm">비밀번호 확인</label>
+                <div class="input_password">
+                    <input
+                        type="password"
+                        id="password_confirm"
+                        class="error"
+                        placeholder="비밀번호를 한번 더 입력해 확인하세요."
+                    />
+                    <div
+                        class="eye"
+                        aria-label="비밀번호 숨김 표시 해제하려면 클릭"
+                    ></div>
+                </div>
+                <p class="error_msg">
+                    비밀번호가 같지 않습니다. 다시 확인해 주세요.
+                </p>
+                <button type="submit" class="gradient_btn w_xl">로그인</button>
+            </form>
+            <div class="gray_border_box social">
+                <h6>다른 방식으로 가입하기</h6>
+                <div class="social_box">
+                    <a href="https://www.google.com/" target="_blank">
+                        <img
+                            src="../assets/images/google_sns.svg"
+                            alt="구글 로그인 이동 이미지"
+                        />
+                    </a>
+                    <a href="https://www.kakaocorp.com/page/" target="_blank">
+                        <img
+                            src="../assets/images/kakao_sns.svg"
+                            alt="카카오톡 로그인 이동 이미지"
+                        />
+                    </a>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
