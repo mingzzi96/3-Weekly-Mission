@@ -1,19 +1,26 @@
 /* various */
 :root {
-    --color--primary: #6D6AFE;
-    --color--red: #FF5B56;
+    --color--primary: #6d6afe;
+    --color--red: #ff5b56;
     --color--black: #111322;
     --color--white: #ffffff;
-    --color--gray-100: #3E3E43;
-    --color--gray-60: #9FA6B2;
-    --color--gray-20: #CCD5E3;
-    --color--gray-10: #E7EFFB;
-    --color--gray-bg: #F0F6FF;
+    --color--gray-100: #3e3e43;
+    --color--gray-60: #9fa6b2;
+    --color--gray-20: #ccd5e3;
+    --color--gray-10: #e7effb;
+    --color--gray-bg: #f0f6ff;
 
-    --button-gradation:linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    --button-gradation: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
 
-.blind {position: absolute;width: 1px;height: 1px;margin: -1px;overflow: hidden;clip: rect(0 0 0 0);}
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
 
 /* button */
 .gradient_btn {
@@ -81,7 +88,6 @@ nav h1 {
     height: 2.4rem;
 }
 
-
 /* footer */
 footer {
     padding: 3.2rem 10.4rem 10.8rem;
@@ -114,8 +120,8 @@ footer .footer_link {
     gap: 0 30px;
 }
 
-footer .footer_link a{
-    color: #CFCFCF;
+footer .footer_link a {
+    color: #cfcfcf;
     font-size: 16px;
     font-weight: 400;
 }
