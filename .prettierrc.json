@@ -1,20 +1,20 @@
 {
-    "arrowParens": "always", // 함수의 매개변수에 항상 괄호를 감싸도록
-    "bracketSameLine": false, // > 기호를 한줄에 사용할지 한줄 내려서 사용할지를 결정 false가 디폴트
-    "bracketSpacing": true, // 객체 괄호 양 끝 사이의 간격 사용여부
-    "embeddedLanguageFormatting": "auto", // prettier가 인식가능한 코드는 포맷팅함
-    "htmlWhitespaceSensitivity": "css", // html 코드에 대한 설정. css의 display 속성에 따라 포맷팅
-    "insertPragma": false, // 미리 정의된 @format marker의 사용 여부
-    "jsxSingleQuote": false, // JSX 문법 내의 큰 따옴표대신 작음 따옴표 쓰고 싶으면 True
-    "printWidth": 80, // 코드가 보여지는 너비 (기본이 80이고 더 커지면 가독성이 떨어질 수 있으니 주의)
-    "proseWrap": "preserve", // 텍스트의 줄바꿈 형식 설정 (always:PrintWidth에 맞춤, never:한줄로 맞춤, preserve:사용자 마음대로 적용)
-    "quoteProps": "as-needed", // 객체의 속성을 표현할 때, 따옴표를 적용하는 조건
-    "requirePragma": false, // 파일 상단에 미리 정의된 주석을 작성하고 Pragma로 포맷팅 사용 여부 지정
-    "semi": true, // 기본값 True. 코드 끝날때 세미콜론 찍어줌
-    "singleAttributePerLine": false, // HTML, Vue, JSX에서 속성(attribute) 각각 한줄 적용하고 싶으면 true
-    "singleQuote": false, // 큰 따옴표대신 작음 따옴표 쓰고 싶으면 True
-    "tabWidth": 4, // 들여쓰기 간격
-    "trailingComma": "es5", // 객체의 마지막 속성 뒤에 쉼표를 입력할지를 결정한다. (none:안 붙임/Es5:붙임/all:함수 파라미터에도 붙임)
-    "useTabs": false, // 띄어쓰기 말고 tab 쓰고 싶을때 True로 변경한다. 대체로 사용되지 않는다.
-    "jsxBracketSameLine": false // jsx에서 > 기호를 한줄에 사용할지 한줄 내려서 사용할지를 결정 false가 디폴트
+    "arrowParens": "always",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "embeddedLanguageFormatting": "auto",
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "jsxSingleQuote": false,
+    "printWidth": 80,
+    "proseWrap": "preserve",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "semi": true,
+    "singleAttributePerLine": false,
+    "singleQuote": false,
+    "tabWidth": 4,
+    "trailingComma": "es5", 
+    "useTabs": false,
+    "jsxBracketSameLine": false
 }
