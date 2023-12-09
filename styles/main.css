@@ -1,7 +1,7 @@
 @import url(./common.css);
 
 .stkyblue_sec {
-    padding: 13.4rem 13.4rem 0;
+    padding: 134px 134px 0;
     background: var(--color--gray-bg);
 }
 .stkyblue_sec .width_large {
@@ -15,7 +15,7 @@
     font-size: 6.4rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 8rem; /* 125% */
+    line-height: 8rem;
 }
 .stkyblue_sec h2 span {
     background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
@@ -24,7 +24,7 @@
     -webkit-text-fill-color: transparent;
 }
 .stkyblue_sec .gradient_btn {
-    margin-top: 4rem;
+    margin-top: 40px;
 }
 
 .stkyblue_sec img {
@@ -33,7 +33,7 @@
 }
 
 .white_sec {
-    padding: 12rem 0 17rem;
+    padding: 120px 0 170px;
 }
 
 .white_sec ul li {
@@ -58,7 +58,7 @@
 }
 
 .white_sec ul li ~ li {
-    margin-top: 9rem;
+    margin-top: 90px;
 }
 .white_sec ul li img {
     width: 550px;
