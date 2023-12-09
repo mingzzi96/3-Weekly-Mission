@@ -1,0 +1,93 @@
+@import url(./common.css);
+
+.stkyblue_sec {
+    padding: 13.4rem 13.4rem 0;
+    background: var(--color--gray-bg);
+}
+.stkyblue_sec .width_large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.stkyblue_sec h2 {
+    text-align: center;
+    font-size: 6.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 8rem; /* 125% */
+}
+.stkyblue_sec h2 span {
+    background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.stkyblue_sec .gradient_btn {
+    margin-top: 4rem;
+}
+
+.stkyblue_sec img {
+    max-width: 95%;
+    width: 100%;
+}
+
+.white_sec {
+    padding: 12rem 0 17rem;
+}
+
+.white_sec ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.white_sec ul li:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+.white_sec ul li h3 {
+    font-size: 4.8rem;
+    color: #000;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+.white_sec ul li p {
+    font-size: 1.6rem;
+    margin-top: 10px;
+    color: #6b6b6b;
+    font-weight: 500;
+}
+
+.white_sec ul li ~ li {
+    margin-top: 9rem;
+}
+.white_sec ul li img {
+    width: 550px;
+}
+.white_sec ul li:nth-child(1) span {
+    background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.white_sec ul li:nth-child(2) span {
+    background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.white_sec ul li:nth-child(3) span {
+    background: linear-gradient(
+        99deg,
+        #6d7ccd 19.76%,
+        rgba(82, 136, 133, 0.22) 52.69%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.white_sec ul li:nth-child(4) span {
+    background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
