@@ -12,6 +12,12 @@
 
     --button-gradation: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
+br.mob_none {
+    display: block;
+}
+br.mob{
+    display: none;
+} 
 
 .blind {
     position: absolute;
@@ -93,6 +99,7 @@ nav h1 {
 
 /* footer */
 footer {
+    position: relative;
     padding: 32px 104px 108px;
     background: #111322;
     display: flex;
@@ -125,6 +132,50 @@ footer .footer_link {
 
 footer .footer_link a {
     color: #cfcfcf;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
+}
+/* tablet */
+@media (max-width:1200px) {
+    .width_midium {
+        width: 90%;
+    }
+    nav {
+        max-width: 799px;
+    }
+}
+/* mobile */
+@media (max-width:767px) {
+    nav {
+        padding: 13px 32px;
+    }
+    br.mob_none {
+        display: none;
+    }
+    br.mob{
+        display: block;
+    } 
+    .gradient_btn {
+        font-size: 2.8rem;
+    }
+    nav .gradient_btn.w_s {
+        height: 37px;
+        min-width: 80px;
+    }
+    nav h1 {
+        width: 89px;
+        height: 16px;
+    }
+    footer {
+        padding: 32px 32px 92px;
+    }
+    footer .footer_link a,
+    footer .footer_ttl span {
+        font-size: 3.2rem;
+    }
+    footer .footer_ttl {
+        position: absolute;
+        bottom: 32px;
+        left: 32px;
+    }
 }
