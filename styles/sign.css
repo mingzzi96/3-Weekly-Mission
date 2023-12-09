@@ -112,7 +112,7 @@ form button {
 }
 
 /* tablet */
-@media (max-width:1024px) {
+@media (max-width:1200px) {
     .sign_sec {
         padding-top: 200px;
         padding-bottom: 290px;
