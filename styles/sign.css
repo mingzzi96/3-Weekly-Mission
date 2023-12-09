@@ -110,3 +110,21 @@ form button {
     text-decoration: underline;
     font-weight: 600;
 }
+
+/* tablet */
+@media (max-width:1024px) {
+    .sign_sec {
+        padding-top: 200px;
+        padding-bottom: 290px;
+    }
+}
+/* mobile */
+@media (max-width:767px) {
+    body {
+        padding: 0 32px;
+    }
+    .sign_sec {
+        padding-top: 120px;
+        padding-bottom: 233px;
+    }
+}
