@@ -112,6 +112,9 @@
     .stkyblue_sec {
         padding: 91px 0 0;
     }
+    .stkyblue_sec h2 {
+        line-height: 8.4rem;
+    }
     .stkyblue_sec img {
         max-width: 325px;
     }
