@@ -92,7 +92,7 @@
     -webkit-text-fill-color: transparent;
 }
 /* tablet */
-@media (max-width:1200px) {
+@media (max-width: 1200px) {
     .stkyblue_sec {
         padding: 133px 0 0;
     }
@@ -108,7 +108,7 @@
     }
 }
 /* mobile */
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .stkyblue_sec {
         padding: 91px 0 0;
     }

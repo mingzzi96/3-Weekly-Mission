@@ -12,12 +12,12 @@
 
     --button-gradation: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
-br.mob_none {
+br.mobile_hidden {
     display: block;
 }
-br.mob{
+br.mobile {
     display: none;
-} 
+}
 
 .blind {
     position: absolute;
@@ -136,7 +136,7 @@ footer .footer_link a {
     font-weight: 400;
 }
 /* tablet */
-@media (max-width:1200px) {
+@media (max-width: 1200px) {
     .width_midium {
         width: 90%;
     }
@@ -145,16 +145,16 @@ footer .footer_link a {
     }
 }
 /* mobile */
-@media (max-width:767px) {
+@media (max-width: 767px) {
     nav {
         padding: 13px 32px;
     }
     br.mob_none {
         display: none;
     }
-    br.mob{
+    br.mob {
         display: block;
-    } 
+    }
     .gradient_btn {
         font-size: 2.8rem;
     }
