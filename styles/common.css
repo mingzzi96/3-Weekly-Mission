@@ -80,6 +80,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 99999999;
+    background: #f0f6ff;
 }
 
 nav {
