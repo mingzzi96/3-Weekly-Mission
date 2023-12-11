@@ -37,24 +37,34 @@
 }
 
 .white_sec ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-gap: 10px 157px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "a b"
+        "c b";
 }
-.white_sec ul li:nth-child(2n) {
+.white_sec ul li:nth-child(even) {
     flex-direction: row-reverse;
+    grid-template-areas:
+        "b a"
+        "b c";
 }
 .white_sec ul li h3 {
     font-size: 4.8rem;
     color: #000;
     font-weight: 700;
     letter-spacing: -0.3px;
+    grid-area: a;
+    align-self: end;
 }
 .white_sec ul li p {
     font-size: 1.6rem;
-    margin-top: 10px;
+    line-height: 24px;
     color: #6b6b6b;
     font-weight: 500;
+    grid-area: c;
+    align-self: start;
 }
 
 .white_sec ul li ~ li {
@@ -62,6 +72,7 @@
 }
 .white_sec ul li img {
     width: 550px;
+    grid-area: b;
 }
 .white_sec ul li:nth-child(1) span {
     background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
@@ -99,6 +110,12 @@
     .stkyblue_sec img {
         max-width: 698px;
     }
+    .white_sec .width_midium {
+        max-width: 698px;
+    }
+    .white_sec ul li {
+        grid-gap: 10px 50px;
+    }
     .white_sec ul li img {
         max-width: 385px;
         width: 100%;
@@ -128,22 +145,29 @@
     .white_sec {
         padding: 40px 0 80px;
     }
+    .white_sec ul li {
+        display: grid;
+        grid-gap: 20px 0 16px;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "a"
+            "b"
+            "c";
+    }
+    .white_sec ul li:nth-child(even) {
+        grid-template-areas:
+            "a"
+            "b"
+            "c";
+    }
     .white_sec ul li h3 {
         font-size: 2.4rem;
-    }
-    .white_sec ul li {
-        align-items: inherit;
-        flex-direction: column;
-    }
-    .white_sec ul li:nth-child(2n) {
-        flex-direction: column;
     }
     .white_sec ul li ~ li {
         margin-top: 80px;
     }
     .white_sec ul li p {
         font-size: 1.5rem;
-        margin-bottom: 24px;
     }
     .white_sec ul li img {
         max-width: 100%;
