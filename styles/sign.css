@@ -100,6 +100,11 @@ form button {
     gap: 8px;
 }
 
+.check_memb p,
+.check_memb a {
+    font-size: 1.6rem;
+}
+
 .check_memb a {
     color: var(--color--primary);
     text-decoration: underline;
