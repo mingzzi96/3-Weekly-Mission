@@ -113,6 +113,7 @@
         padding: 91px 0 0;
     }
     .stkyblue_sec h2 {
+        font-size: 3.2rem;
         line-height: 42px;
     }
     .stkyblue_sec img {
@@ -127,6 +128,9 @@
     .white_sec {
         padding: 40px 0 80px;
     }
+    .white_sec ul li h3 {
+        font-size: 2.4rem;
+    }
     .white_sec ul li {
         align-items: inherit;
         flex-direction: column;
@@ -138,7 +142,7 @@
         margin-top: 80px;
     }
     .white_sec ul li p {
-        font-size: 3rem;
+        font-size: 1.5rem;
         margin-bottom: 24px;
     }
     .white_sec ul li img {

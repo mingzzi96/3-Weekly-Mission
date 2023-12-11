@@ -100,11 +100,6 @@ form button {
     gap: 8px;
 }
 
-.check_memb p,
-.check_memb a {
-    font-size: 1.6rem;
-}
-
 .check_memb a {
     color: var(--color--primary);
     text-decoration: underline;
@@ -130,15 +125,15 @@ form button {
     form label,
     .gray_border_box.social h6,
     .error_msg {
-        font-size: 2.8rem; /* 14px */
+        font-size: 1.4rem;
     }
     .check_memb p,
     .check_memb a,
     form input {
-        font-size: 3.2rem; /* 16px */
+        font-size: 1.6rem;
     }
 
     form .gradient_btn.w_xl {
-        font-size: 3.6rem; /* 18px */
+        font-size: 1.8rem;
     }
 }

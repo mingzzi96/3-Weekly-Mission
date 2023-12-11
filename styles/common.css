@@ -150,14 +150,14 @@ footer .footer_link a {
     nav {
         padding: 13px 32px;
     }
-    br.mob_none {
+    br.mobile_hidden {
         display: none;
     }
-    br.mob {
+    br.mobile {
         display: block;
     }
     .gradient_btn {
-        font-size: 2.8rem;
+        font-size: 1.4rem;
     }
     nav .gradient_btn.w_s {
         height: 37px;
@@ -172,7 +172,7 @@ footer .footer_link a {
     }
     footer .footer_link a,
     footer .footer_ttl span {
-        font-size: 3.2rem;
+        font-size: 1.6rem;
     }
     footer .footer_ttl {
         position: absolute;

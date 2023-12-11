@@ -48,10 +48,3 @@ i[class*="ico-"] {
     display: inline-block;
     vertical-align: top;
 }
-/* mobile */
-@media (max-width: 767px) {
-    html,
-    body {
-        font-size: 31.25%;
-    }
-}
