@@ -12,6 +12,12 @@
 
     --button-gradation: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
+br.mobile_hidden {
+    display: block;
+}
+br.mobile {
+    display: none;
+}
 
 .blind {
     position: absolute;
@@ -27,34 +33,34 @@
     background: var(--button-gradation);
     border-radius: 8px;
     line-height: 1;
-    height: 5.4rem;
+    height: 54px;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 2rem;
+    padding: 0 20px;
     font-size: 1.8rem;
 }
 .gradient_btn.w_s {
-    min-width: 12.8rem;
+    min-width: 128px;
 }
 .gradient_btn.w_l {
-    max-width: 35rem;
+    max-width: 350px;
     width: 100%;
 }
 .gradient_btn.w_xl {
-    max-width: 40rem;
+    max-width: 400px;
     width: 100%;
 }
 
 /* max-width */
 .width_large {
-    max-width: 120rem;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
 .width_midium {
-    max-width: 99.8rem;
+    max-width: 998px;
     width: 100%;
     margin: 0 auto;
 }
@@ -64,7 +70,7 @@
     background: var(--color--gray-10);
     border: 1px solid var(--color--gray-20);
     border-radius: 8px;
-    padding: 1.2rem 2.4rem;
+    padding: 12px 24px;
 }
 
 /* header */
@@ -74,23 +80,28 @@ header {
     left: 0;
     width: 100%;
     z-index: 99999999;
+    background: #f0f6ff;
 }
 
 nav {
-    padding: 2rem 20rem;
+    max-width: 1520px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 nav h1 {
-    width: 13.3rem;
-    height: 2.4rem;
+    width: 133px;
+    height: 24px;
 }
 
 /* footer */
 footer {
-    padding: 3.2rem 10.4rem 10.8rem;
+    position: relative;
+    padding: 32px 104px 108px;
     background: #111322;
     display: flex;
     align-items: center;
@@ -122,6 +133,50 @@ footer .footer_link {
 
 footer .footer_link a {
     color: #cfcfcf;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
+}
+/* tablet */
+@media (max-width: 1200px) {
+    .width_midium {
+        width: 90%;
+    }
+    nav {
+        max-width: 799px;
+    }
+}
+/* mobile */
+@media (max-width: 767px) {
+    nav {
+        padding: 13px 32px;
+    }
+    br.mobile_hidden {
+        display: none;
+    }
+    br.mobile {
+        display: block;
+    }
+    .gradient_btn {
+        font-size: 1.4rem;
+    }
+    nav .gradient_btn.w_s {
+        height: 37px;
+        min-width: 80px;
+    }
+    nav h1 {
+        width: 89px;
+        height: 16px;
+    }
+    footer {
+        padding: 32px 32px 92px;
+    }
+    footer .footer_link a,
+    footer .footer_ttl span {
+        font-size: 1.6rem;
+    }
+    footer .footer_ttl {
+        position: absolute;
+        bottom: 32px;
+        left: 32px;
+    }
 }

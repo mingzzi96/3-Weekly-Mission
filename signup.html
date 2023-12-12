@@ -5,22 +5,22 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>회원가입하기</title>
-        <link rel="stylesheet" href="../styles/reset.css" />
-        <link rel="stylesheet" href="../styles/sign.css" />
+        <link rel="stylesheet" href="assets/css/reset.css" />
+        <link rel="stylesheet" href="assets/css/sign.css" />
     </head>
     <body>
         <section class="sign_sec">
             <h1>
                 <a href="/">
                     <img
-                        src="../assets/images/logo.svg"
+                        src="assets/images/logo.svg"
                         alt="홈으로 연결된 Linkbrary 로고"
                     />
                 </a>
             </h1>
             <div class="check_memb">
                 <p>이미 회원이신가요?</p>
-                <a href="./signin.html">로그인 하기</a>
+                <a href="signin.html">로그인 하기</a>
             </div>
             <form>
                 <label for="email">이메일</label>
@@ -54,8 +54,8 @@
                         aria-label="비밀번호 숨김 표시 해제하려면 클릭"
                     ></div>
                 </div>
-                <p class="error_msg">
-                    비밀번호가 같지 않습니다. 다시 확인해 주세요.
+                <p class="error_msg" aria-live="asserive">
+                    비밀번호가 다릅니다
                 </p>
                 <button type="submit" class="gradient_btn w_xl">로그인</button>
             </form>
@@ -64,13 +64,13 @@
                 <div class="social_box">
                     <a href="https://www.google.com/" target="_blank">
                         <img
-                            src="../assets/images/google_sns.svg"
+                            src="assets/images/google_sns.svg"
                             alt="구글 로그인 이동 이미지"
                         />
                     </a>
                     <a href="https://www.kakaocorp.com/page/" target="_blank">
                         <img
-                            src="../assets/images/kakao_sns.svg"
+                            src="assets/images/kakao_sns.svg"
                             alt="카카오톡 로그인 이동 이미지"
                         />
                     </a>

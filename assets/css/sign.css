@@ -5,32 +5,32 @@ body {
     background: var(--color--gray-bg);
 }
 .sign_sec {
-    padding-top: 23.8rem;
-    padding-bottom: 11.6rem;
+    padding-top: 238px;
+    padding-bottom: 116px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    max-width: 40rem;
+    max-width: 400px;
     width: 100%;
     margin: 0 auto;
 }
 h1 {
-    width: 21rem;
-    margin-bottom: 1.6rem;
+    width: 210px;
+    margin-bottom: 16px;
 }
 
 form {
-    margin: 3rem 0;
+    margin: 30px 0;
     width: 100%;
 }
 
 form label {
     font-size: 1.4rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 12px;
     display: block;
 }
 form label ~ label {
-    margin-top: 2.4rem;
+    margin-top: 24px;
 }
 form input {
     width: 100%;
@@ -52,10 +52,10 @@ form .input_password .eye {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    background: url(../images/eye-off.svg) no-repeat center;
+    background: url(../assets/images/eye-off.svg) no-repeat center;
 }
 form .input_password .eye.on {
-    background: url(../images/eye-on.svg) no-repeat center;
+    background: url(../assets/images/eye-on.svg) no-repeat center;
 }
 form input:focus {
     border: 1px solid var(--color--primary);
@@ -80,7 +80,7 @@ form button {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 1.2rem 2.4rem;
+    padding: 12px 24px;
 }
 .gray_border_box.social h6 {
     font-size: 1.4rem;
@@ -109,4 +109,36 @@ form button {
     color: var(--color--primary);
     text-decoration: underline;
     font-weight: 600;
+}
+
+/* tablet */
+@media (max-width: 1200px) {
+    .sign_sec {
+        padding-top: 200px;
+        padding-bottom: 290px;
+    }
+}
+/* mobile */
+@media (max-width: 767px) {
+    body {
+        padding: 0 32px;
+    }
+    .sign_sec {
+        padding-top: 120px;
+        padding-bottom: 233px;
+    }
+    form label,
+    .gray_border_box.social h6,
+    .error_msg {
+        font-size: 1.4rem;
+    }
+    .check_memb p,
+    .check_memb a,
+    form input {
+        font-size: 1.6rem;
+    }
+
+    form .gradient_btn.w_xl {
+        font-size: 1.8rem;
+    }
 }
