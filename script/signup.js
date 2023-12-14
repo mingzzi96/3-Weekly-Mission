@@ -15,7 +15,7 @@ let pwConfirmValid = false;
 let pwInputValue = "";
 let pwConfirmInputValue = "";
 
-const checkPwInputValue = (e) => {
+const handlePwInputValue = (e) => {
     // 비밀번호 입력 값 변수에 저장
     pwInputValue = e.target.value;
 };
@@ -25,7 +25,7 @@ const checkPwConfirmInputValue = (e) => {
     pwConfirmInputValue = e.target.value;
 };
 
-const emailFocusOutCheck = (e) => {
+const handleEmailFocusOut = (e) => {
     let target = e.target;
     let targetValue = target.value;
 
@@ -55,7 +55,7 @@ const emailFocusOutCheck = (e) => {
     }
 };
 
-const passwordFocusOutCheck = (e) => {
+const handlePasswordFocusOut = (e) => {
     let target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 값이 없을 경우 에러 표시
@@ -78,7 +78,7 @@ const passwordFocusOutCheck = (e) => {
     }
 };
 
-const passwordConfirmFocusOutCheck = (e) => {
+const handlepasswordConfirmFocusOut = (e) => {
     let target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 확인 값이 없을 경우 에러 표시
@@ -98,7 +98,7 @@ const passwordConfirmFocusOutCheck = (e) => {
     }
 };
 
-const submitUser = (e) => {
+const handleSubmit = (e) => {
     try {
         if (!emailValid) {
             emailInputEl.focus();
@@ -128,9 +128,9 @@ const submitUser = (e) => {
     }
 };
 
-emailInputEl.addEventListener("focusout", emailFocusOutCheck);
-pwInputEl.addEventListener("focusout", passwordFocusOutCheck);
-pwConfirmInputEl.addEventListener("focusout", passwordConfirmFocusOutCheck);
-pwInputEl.addEventListener("keyup", checkPwInputValue);
+emailInputEl.addEventListener("focusout", handleEmailFocusOut);
+pwInputEl.addEventListener("focusout", handlePasswordFocusOut);
+pwConfirmInputEl.addEventListener("focusout", handlepasswordConfirmFocusOut);
+pwInputEl.addEventListener("keyup", handlePwInputValue);
 pwConfirmInputEl.addEventListener("keyup", checkPwConfirmInputValue);
-submitButtonEl.addEventListener("click", submitUser);
+submitButtonEl.addEventListener("click", handleSubmit);
