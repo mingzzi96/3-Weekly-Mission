@@ -52,10 +52,10 @@ form .input_password .eye {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    background: url(../assets/images/eye-off.svg) no-repeat center;
+    background: url(../images/eye-off.svg) no-repeat center;
 }
 form .input_password .eye.on {
-    background: url(../assets/images/eye-on.svg) no-repeat center;
+    background: url(../images/eye-on.svg) no-repeat center;
 }
 form input:focus {
     border: 1px solid var(--color--primary);
