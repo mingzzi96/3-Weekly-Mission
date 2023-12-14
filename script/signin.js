@@ -1,3 +1,4 @@
+const formEl = document.querySelector("form");
 const emailInputEl = document.querySelector("#email");
 const pwInputEl = document.querySelector("#password");
 const emailErrorMessage = document.querySelector("#email_error");
@@ -100,9 +101,12 @@ const handleSubmit = (e) => {
             pwValid = false;
             return;
         }
-        window.location.href = "/folder.html";
     } catch (error) {
         console.log(error);
+    } finally {
+        formEl.action = "/folder.html";
+        formEl.mothod = "GET";
+        formEl.submit();
     }
 };
 
