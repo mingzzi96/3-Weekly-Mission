@@ -100,6 +100,22 @@ const handlepasswordConfirmFocusOut = (e) => {
     }
 };
 
+const handlePasswordShow = (e) => {
+    let pwInputElSaved = "password";
+    pwInputEl.type === pwInputElSaved
+        ? (pwInputEl.type = "text")
+        : (pwInputEl.type = "password");
+    e.target.classList.toggle("on");
+};
+
+const handlePasswordConfirmShow = (e) => {
+    let pwInputElSaved = "password";
+    pwConfirmInputEl.type === pwInputElSaved
+        ? (pwConfirmInputEl.type = "text")
+        : (pwConfirmInputEl.type = "password");
+    e.target.classList.toggle("on");
+};
+
 const handleSubmit = (e) => {
     try {
         if (!emailValid) {
@@ -128,22 +144,6 @@ const handleSubmit = (e) => {
     } catch (error) {
         console.log(error);
     }
-};
-
-const handlePasswordShow = (e) => {
-    let pwInputElSaved = "password";
-    pwInputEl.type === pwInputElSaved
-        ? (pwInputEl.type = "text")
-        : (pwInputEl.type = "password");
-    e.target.classList.toggle("on");
-};
-
-const handlePasswordConfirmShow = (e) => {
-    let pwInputElSaved = "password";
-    pwConfirmInputEl.type === pwInputElSaved
-        ? (pwConfirmInputEl.type = "text")
-        : (pwConfirmInputEl.type = "password");
-    e.target.classList.toggle("on");
 };
 
 emailInputEl.addEventListener("focusout", handleEmailFocusOut);
