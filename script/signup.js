@@ -122,6 +122,7 @@ const submitUser = (e) => {
             pwConfirmValid = false;
             return;
         }
+        window.location.href = "/folder.html";
     } catch (error) {
         console.log(error);
     }
