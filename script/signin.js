@@ -6,14 +6,22 @@ const submitButtonEl = document.querySelector("#formSubmit");
 
 const emailRegex =
     /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-const pwRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
+const pwRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 let emailValid = false;
 let pwValid = false;
+let emailInputValue = "";
 let pwInputValue = "";
+
+const checkEmailInputValue = (e) => {
+    // 비밀번호 입력 값 변수에 저장
+    emailInputValue = e.target.value;
+    console.log(emailInputValue);
+};
 
 const checkPwInputValue = (e) => {
     // 비밀번호 입력 값 변수에 저장
     pwInputValue = e.target.value;
+    console.log(pwInputValue);
 };
 
 const emailFocusOutCheck = (e) => {
@@ -32,12 +40,11 @@ const emailFocusOutCheck = (e) => {
         emailErrorMessage.textContent = "올바른 이메일 주소가 아닙니다.";
         emailErrorMessage.classList.add("show");
         emailValid = false;
-    } else if (targetValue === "test@codeit.com") {
-        // test@codeit.com라면 이미 사용중인 이메일 표시
-        emailInputEl.classList.add("error");
-        emailErrorMessage.textContent = "이메일을 확인해 주세요.";
-        emailErrorMessage.classList.add("show");
-        emailValid = false;
+    } else if (
+        emailInputValue === "test@codeit.com" &&
+        pwInputValue === "codeit101"
+    ) {
+        emailValid = true;
     } else {
         emailInputEl.classList.remove("error");
         emailErrorMessage.textContent = "";
@@ -86,6 +93,7 @@ const submitUser = (e) => {
             pwValid = false;
             return;
         }
+        window.location.href = "/folder.html";
     } catch (error) {
         console.log(error);
     }
@@ -93,6 +101,6 @@ const submitUser = (e) => {
 
 emailInputEl.addEventListener("focusout", emailFocusOutCheck);
 pwInputEl.addEventListener("focusout", passwordFocusOutCheck);
-pwInputEl.addEventListener("keyup", checkPwInputValue);
+emailInputEl.addEventListener("keyup", checkEmailInputValue);
 pwInputEl.addEventListener("keyup", checkPwInputValue);
 submitButtonEl.addEventListener("click", submitUser);
