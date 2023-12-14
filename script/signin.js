@@ -15,13 +15,11 @@ let pwInputValue = "";
 const checkEmailInputValue = (e) => {
     // 비밀번호 입력 값 변수에 저장
     emailInputValue = e.target.value;
-    console.log(emailInputValue);
 };
 
 const checkPwInputValue = (e) => {
     // 비밀번호 입력 값 변수에 저장
     pwInputValue = e.target.value;
-    console.log(pwInputValue);
 };
 
 const emailFocusOutCheck = (e) => {
