@@ -3,6 +3,7 @@ const pwInputEl = document.querySelector("#password");
 const emailErrorMessage = document.querySelector("#email_error");
 const pwErrorMessage = document.querySelector("#pw_error");
 const submitButtonEl = document.querySelector("#formSubmit");
+const pwShowButtonEl = document.querySelector("#eyePw");
 
 const emailRegex =
     /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
@@ -97,8 +98,17 @@ const handleSubmit = (e) => {
     }
 };
 
+const handlePasswordShow = (e) => {
+    let pwInputElSaved = "password";
+    pwInputEl.type === pwInputElSaved
+        ? (pwInputEl.type = "text")
+        : (pwInputEl.type = "password");
+    e.target.classList.toggle("on");
+};
+
 emailInputEl.addEventListener("focusout", handleEmailFocusOut);
 pwInputEl.addEventListener("focusout", handlePasswordFocusOut);
 emailInputEl.addEventListener("keyup", handleEmailInputValue);
 pwInputEl.addEventListener("keyup", handlePwInputValue);
 submitButtonEl.addEventListener("click", handleSubmit);
+pwShowButtonEl.addEventListener("click", handlePasswordShow);

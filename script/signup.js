@@ -5,6 +5,8 @@ const emailErrorMessage = document.querySelector("#email_error");
 const pwErrorMessage = document.querySelector("#pw_error");
 const pwConfirmErrorMessage = document.querySelector("#pwConfirm_error");
 const submitButtonEl = document.querySelector("#formSubmit");
+const pwShowButtonEl = document.querySelector("#eyePw");
+const pwConfirmShowButtonEl = document.querySelector("#eyePwConfirm");
 
 const emailRegex =
     /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
@@ -128,9 +130,27 @@ const handleSubmit = (e) => {
     }
 };
 
+const handlePasswordShow = (e) => {
+    let pwInputElSaved = "password";
+    pwInputEl.type === pwInputElSaved
+        ? (pwInputEl.type = "text")
+        : (pwInputEl.type = "password");
+    e.target.classList.toggle("on");
+};
+
+const handlePasswordConfirmShow = (e) => {
+    let pwInputElSaved = "password";
+    pwConfirmInputEl.type === pwInputElSaved
+        ? (pwConfirmInputEl.type = "text")
+        : (pwConfirmInputEl.type = "password");
+    e.target.classList.toggle("on");
+};
+
 emailInputEl.addEventListener("focusout", handleEmailFocusOut);
 pwInputEl.addEventListener("focusout", handlePasswordFocusOut);
 pwConfirmInputEl.addEventListener("focusout", handlepasswordConfirmFocusOut);
 pwInputEl.addEventListener("keyup", handlePwInputValue);
 pwConfirmInputEl.addEventListener("keyup", checkPwConfirmInputValue);
 submitButtonEl.addEventListener("click", handleSubmit);
+pwShowButtonEl.addEventListener("click", handlePasswordShow);
+pwConfirmShowButtonEl.addEventListener("click", handlePasswordConfirmShow);
