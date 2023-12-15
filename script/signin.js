@@ -15,7 +15,7 @@ let emailInputValue = "";
 let pwInputValue = "";
 
 const handleEmailInputValue = (e) => {
-    // 비밀번호 입력 값 변수에 저장
+    // 이메일 입력 값 변수에 저장
     emailInputValue = e.target.value;
 };
 
@@ -25,6 +25,7 @@ const handlePwInputValue = (e) => {
 };
 
 const handleEmailFocusOut = (e) => {
+    // 이메일 focus out 기능 구현
     let target = e.target;
     let targetValue = target.value;
 
@@ -44,6 +45,7 @@ const handleEmailFocusOut = (e) => {
         emailInputValue === "test@codeit.com" &&
         pwInputValue === "codeit101"
     ) {
+        // 특정 이메일과 비밀번호가 입력되면 emailValid ture 반환한다.
         emailValid = true;
     } else {
         emailInputEl.classList.remove("error");
@@ -54,6 +56,7 @@ const handleEmailFocusOut = (e) => {
 };
 
 const handlePasswordFocusOut = (e) => {
+    // 비밀번호 focus out 기능 구현
     let target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 값이 없을 경우 에러 표시
@@ -77,6 +80,7 @@ const handlePasswordFocusOut = (e) => {
 };
 
 const handlePasswordShow = (e) => {
+    // input type password 를 text로 바꿔준다.
     let pwInputElSaved = "password";
     pwInputEl.type === pwInputElSaved
         ? (pwInputEl.type = "text")
@@ -84,9 +88,11 @@ const handlePasswordShow = (e) => {
     e.target.classList.toggle("on");
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = () => {
+    // submit 버튼 기능 구현
     try {
         if (!emailValid) {
+            // emailValid가 false일때 동작
             emailInputEl.focus();
             emailInputEl.classList.add("error");
             emailErrorMessage.textContent = "이메일을 확인해 주세요.";
@@ -94,6 +100,7 @@ const handleSubmit = (e) => {
             emailValid = false;
             return;
         } else if (!pwValid) {
+            // pwValid가 false일때 동작
             pwInputEl.focus();
             pwInputEl.classList.add("error");
             pwErrorMessage.textContent = "비밀번호를 확인해 주세요.";
@@ -102,8 +109,10 @@ const handleSubmit = (e) => {
             return;
         }
     } catch (error) {
+        // error
         console.log(error);
     } finally {
+        // 문제 없다면 페이지 이동시킴
         formEl.action = "/folder.html";
         formEl.mothod = "GET";
         formEl.submit();

@@ -19,7 +19,7 @@ let pwInputValue = "";
 let pwConfirmInputValue = "";
 
 const handlePwInputValue = (e) => {
-    // 비밀번호 입력 값 변수에 저장
+    // 이메일 입력 값 변수에 저장
     pwInputValue = e.target.value;
 };
 
@@ -29,6 +29,7 @@ const checkPwConfirmInputValue = (e) => {
 };
 
 const handleEmailFocusOut = (e) => {
+    // 이메일 focus out 기능 구현
     let target = e.target;
     let targetValue = target.value;
 
@@ -59,6 +60,7 @@ const handleEmailFocusOut = (e) => {
 };
 
 const handlePasswordFocusOut = (e) => {
+    // 비밀번호 focus out 기능 구현
     let target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 값이 없을 경우 에러 표시
@@ -102,6 +104,7 @@ const handlepasswordConfirmFocusOut = (e) => {
 };
 
 const handlePasswordShow = (e) => {
+    // input #password의 type을 text로 바꿔준다.
     let pwInputElSaved = "password";
     pwInputEl.type === pwInputElSaved
         ? (pwInputEl.type = "text")
@@ -110,6 +113,7 @@ const handlePasswordShow = (e) => {
 };
 
 const handlePasswordConfirmShow = (e) => {
+    // input #passwordConfirm의 type을 text로 바꿔준다.
     let pwInputElSaved = "password";
     pwConfirmInputEl.type === pwInputElSaved
         ? (pwConfirmInputEl.type = "text")
@@ -117,9 +121,11 @@ const handlePasswordConfirmShow = (e) => {
     e.target.classList.toggle("on");
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = () => {
+    // submit 버튼 기능 구현
     try {
         if (!emailValid) {
+            // emailValid가 false일때 동작
             emailInputEl.focus();
             emailInputEl.classList.add("error");
             emailErrorMessage.textContent = "이메일을 확인해 주세요.";
@@ -127,6 +133,7 @@ const handleSubmit = (e) => {
             emailValid = false;
             return;
         } else if (!pwValid) {
+            // pwValid가 false일때 동작
             pwInputEl.focus();
             pwInputEl.classList.add("error");
             pwErrorMessage.textContent = "비밀번호를 확인해 주세요.";
@@ -134,6 +141,7 @@ const handleSubmit = (e) => {
             pwValid = false;
             return;
         } else if (!pwConfirmValid) {
+            // pwConfirmValid가 false일때 동작
             pwConfirmInputEl.focus();
             pwConfirmInputEl.classList.add("error");
             pwConfirmErrorMessage.textContent = "비밀번호를 확인해 주세요.";
@@ -143,8 +151,10 @@ const handleSubmit = (e) => {
         }
         window.location.href = "/folder.html";
     } catch (error) {
+        // error
         console.log(error);
     } finally {
+        // 문제 없다면 페이지 이동시킴
         formEl.action = "/folder.html";
         formEl.mothod = "GET";
         formEl.submit();
