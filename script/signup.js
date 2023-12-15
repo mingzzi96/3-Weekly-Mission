@@ -12,6 +12,7 @@ import {
     pwConfirmErrorMessage,
     pwConfirmShowButtonEl,
 } from "./common.js";
+import { handlePasswordShow, handlePasswordConfirmShow } from "./common.js";
 let emailValid = false;
 let pwValid = false;
 let pwConfirmValid = false;
@@ -103,24 +104,6 @@ const handlepasswordConfirmFocusOut = (e) => {
     }
 };
 
-const handlePasswordShow = (e) => {
-    // input #password의 type을 text로 바꿔준다.
-    let pwInputElSaved = "password";
-    pwInputEl.type === pwInputElSaved
-        ? (pwInputEl.type = "text")
-        : (pwInputEl.type = "password");
-    e.target.classList.toggle("on");
-};
-
-const handlePasswordConfirmShow = (e) => {
-    // input #passwordConfirm의 type을 text로 바꿔준다.
-    let pwInputElSaved = "password";
-    pwConfirmInputEl.type === pwInputElSaved
-        ? (pwConfirmInputEl.type = "text")
-        : (pwConfirmInputEl.type = "password");
-    e.target.classList.toggle("on");
-};
-
 const handleSubmit = () => {
     // submit 버튼 기능 구현
     try {
@@ -165,5 +148,7 @@ pwConfirmInputEl.addEventListener("focusout", handlepasswordConfirmFocusOut);
 pwInputEl.addEventListener("keyup", handlePwInputValue);
 pwConfirmInputEl.addEventListener("keyup", checkPwConfirmInputValue);
 submitButtonEl.addEventListener("click", handleSubmit);
+// #password의 input type password 를 text로 바꿔준다.
 pwShowButtonEl.addEventListener("click", handlePasswordShow);
+// input #passwordConfirm의 type을 text로 바꿔준다.
 pwConfirmShowButtonEl.addEventListener("click", handlePasswordConfirmShow);

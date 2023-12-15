@@ -13,6 +13,7 @@ import {
     emailRegex,
     pwRegex,
 } from "./common.js";
+import { handlePasswordShow } from "./common.js";
 // let은 값이 변경될 수 있으니까 따로 export 해주지 않았습니다.
 // 하지만 해당 변수들도 signin/signup에서 반복되는데 export 해주는게 좋을까요?
 let emailValid = false;
@@ -85,15 +86,6 @@ const handlePasswordFocusOut = (e) => {
     }
 };
 
-const handlePasswordShow = (e) => {
-    // input type password 를 text로 바꿔준다.
-    let pwInputElSaved = "password";
-    pwInputEl.type === pwInputElSaved
-        ? (pwInputEl.type = "text")
-        : (pwInputEl.type = "password");
-    e.target.classList.toggle("on");
-};
-
 const handleSubmit = () => {
     // submit 버튼 기능 구현
     try {
@@ -129,4 +121,5 @@ pwInputEl.addEventListener("focusout", handlePasswordFocusOut);
 emailInputEl.addEventListener("keyup", handleEmailInputValue);
 pwInputEl.addEventListener("keyup", handlePwInputValue);
 submitButtonEl.addEventListener("click", handleSubmit);
+// input type password 를 text로 바꿔준다.
 pwShowButtonEl.addEventListener("click", handlePasswordShow);

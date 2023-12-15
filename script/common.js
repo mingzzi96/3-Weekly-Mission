@@ -13,6 +13,24 @@ const emailRegex =
     /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
 const pwRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
+const handlePasswordShow = (e) => {
+    // input type password 를 text로 바꿔준다.
+    let pwInputElSaved = "password";
+    pwInputEl.type === pwInputElSaved
+        ? (pwInputEl.type = "text")
+        : (pwInputEl.type = "password");
+    e.target.classList.toggle("on");
+};
+
+const handlePasswordConfirmShow = (e) => {
+    // input #passwordConfirm의 type을 text로 바꿔준다.
+    let pwInputElSaved = "password";
+    pwConfirmInputEl.type === pwInputElSaved
+        ? (pwConfirmInputEl.type = "text")
+        : (pwConfirmInputEl.type = "password");
+    e.target.classList.toggle("on");
+};
+
 export {
     formEl,
     emailInputEl,
@@ -26,4 +44,6 @@ export {
     pwConfirmShowButtonEl,
     emailRegex,
     pwRegex,
+    handlePasswordShow,
+    handlePasswordConfirmShow,
 };
