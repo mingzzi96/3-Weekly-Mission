@@ -91,6 +91,7 @@ const handlepasswordConfirmFocusOut = (e) => {
     let target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 확인 값이 없을 경우 에러 표시
+        pwConfirmErrorMessage.textContent = "비밀번호를 확인해주세요.";
         pwConfirmValid = false;
     } else if (pwConfirmInputValue !== pwInputValue) {
         // 비밀번호와 비밀번호 확인 값이 다를 경우 에러 표시
