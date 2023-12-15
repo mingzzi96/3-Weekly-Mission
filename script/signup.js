@@ -101,6 +101,7 @@ const handlepasswordConfirmFocusOut = (e) => {
         pwConfirmValid = true;
     }
 
+    // 중복되는 css 제어 코드 한 블럭에 모으기
     if (!pwConfirmValid) {
         pwConfirmInputEl.classList.add("error");
         pwConfirmErrorMessage.classList.add("show");
