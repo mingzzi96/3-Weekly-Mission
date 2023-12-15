@@ -20,14 +20,14 @@ for (let pwInputContainerItem of pwInputContainer) {
     pwInputContainerItem.addEventListener("click", function (e) {
         if (e.target.classList.contains("eye")) {
             // 클릭된 target이 eye 라는 클래스를 가지고 있을때만 실행
-            let pwInputElSaved = "password";
-            let pwChildNodesInput = e.currentTarget.childNodes[1];
+            let inputType = "password";
+            let selectedInput = e.currentTarget.querySelector("input");
             // 선택된 pwInputContainer에 on 클래스 추가하여 눈 모양 아이콘 제어
             e.currentTarget.classList.toggle("on");
             // 선택된 pwInputContainer에 있는 Input의 type을 수정
-            pwChildNodesInput.type === pwInputElSaved
-                ? (pwChildNodesInput.type = "text")
-                : (pwChildNodesInput.type = pwInputElSaved);
+            selectedInput.type === inputType
+                ? (selectedInput.type = "text")
+                : (selectedInput.type = inputType);
         }
     });
 }
