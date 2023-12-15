@@ -3,7 +3,6 @@ const emailInputEl = document.querySelector("#email");
 const pwInputEl = document.querySelector("#password");
 const emailErrorMessage = document.querySelector("#email_error");
 const pwErrorMessage = document.querySelector("#pw_error");
-const submitButtonEl = document.querySelector("#formSubmit");
 const pwShowButtonEl = document.querySelector("#eyePw");
 const pwConfirmInputEl = document.querySelector("#password_confirm");
 const pwInputContainer = document.querySelectorAll(".input_password");
@@ -38,7 +37,6 @@ export {
     pwInputEl,
     emailErrorMessage,
     pwErrorMessage,
-    submitButtonEl,
     pwShowButtonEl,
     pwConfirmInputEl,
     pwConfirmErrorMessage,

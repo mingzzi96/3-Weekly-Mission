@@ -8,7 +8,6 @@ import {
     pwInputEl,
     emailErrorMessage,
     pwErrorMessage,
-    submitButtonEl,
     emailRegex,
     pwRegex,
 } from "./common.js";
@@ -89,8 +88,9 @@ const handlePasswordFocusOut = (e) => {
     }
 };
 
-const handleSubmit = () => {
+const handleSubmit = (e) => {
     // submit 버튼 기능 구현
+    e.preventDefault();
     try {
         if (!emailValid) {
             // emailValid가 false일때 동작
@@ -123,4 +123,4 @@ emailInputEl.addEventListener("focusout", handleEmailFocusOut);
 pwInputEl.addEventListener("focusout", handlePasswordFocusOut);
 emailInputEl.addEventListener("keyup", handleEmailInputValue);
 pwInputEl.addEventListener("keyup", handlePwInputValue);
-submitButtonEl.addEventListener("click", handleSubmit);
+formEl.addEventListener("submit", handleSubmit);
