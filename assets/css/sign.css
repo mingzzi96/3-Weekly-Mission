@@ -54,7 +54,7 @@ form .input_password .eye {
     transform: translateY(-50%);
     background: url(../images/eye-off.svg) no-repeat center;
 }
-form .input_password .eye.on {
+form .input_password.on .eye {
     background: url(../images/eye-on.svg) no-repeat center;
 }
 form input:focus {
