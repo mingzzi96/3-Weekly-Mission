@@ -114,14 +114,13 @@ const handleSubmit = () => {
             pwValid = false;
             return;
         }
-    } catch (error) {
-        // error
-        console.log(error);
-    } finally {
         // 문제 없다면 페이지 이동시킴
         formEl.action = "/folder.html";
         formEl.mothod = "GET";
         formEl.submit();
+    } catch (error) {
+        // error
+        console.log(error);
     }
 };
 
