@@ -12,7 +12,6 @@ import {
     emailRegex,
     pwRegex,
 } from "./common.js";
-// import { handlePasswordShow } from "./common.js";
 // let은 값이 변경될 수 있으니까 따로 export 해주지 않았습니다.
 // 하지만 해당 변수들도 signin/signup에서 반복되는데 export 해주는게 좋을까요?
 let emailValid = false;
