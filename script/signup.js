@@ -10,9 +10,9 @@ import {
     pwRegex,
     pwConfirmErrorMessage,
 } from "./common.js";
-let emailValid = false;
-let pwValid = false;
-let pwConfirmValid = false;
+let emailValid = true;
+let pwValid = true;
+let pwConfirmValid = true;
 let pwInputValue = "";
 let pwConfirmInputValue = "";
 
@@ -33,27 +33,28 @@ const handleEmailFocusOut = (e) => {
 
     if (target.value.length <= 0) {
         // email 입력이 되어있지 않은 경우 에러 표시
-        emailInputEl.classList.add("error");
         emailErrorMessage.textContent = "이메일을 입력해주세요.";
-        emailErrorMessage.classList.add("show");
         emailValid = false;
     } else if (emailRegex.test(targetValue) === false) {
         // 이메일 형식이 아닐 경우 에러 표시
-        emailInputEl.classList.add("error");
         emailErrorMessage.textContent = "올바른 이메일 주소가 아닙니다.";
-        emailErrorMessage.classList.add("show");
         emailValid = false;
     } else if (targetValue === "test@codeit.com") {
         // test@codeit.com라면 이미 사용중인 이메일 표시
-        emailInputEl.classList.add("error");
         emailErrorMessage.textContent = "이미 사용 중인 이메일입니다.";
-        emailErrorMessage.classList.add("show");
         emailValid = false;
+    } else {
+        emailValid = true;
+    }
+
+    // 중복되는 css 제어 한 블럭에 모으기
+    if (!emailValid) {
+        emailInputEl.classList.add("error");
+        emailErrorMessage.classList.add("show");
     } else {
         emailInputEl.classList.remove("error");
         emailErrorMessage.textContent = "";
         emailErrorMessage.classList.remove("show");
-        emailValid = true;
     }
 };
 
@@ -62,9 +63,7 @@ const handlePasswordFocusOut = (e) => {
     let target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 값이 없을 경우 에러 표시
-        pwInputEl.classList.add("error");
         pwErrorMessage.textContent = "비밀번호를 입력해주세요.";
-        pwErrorMessage.classList.add("show");
         pwValid = false;
     } else if (pwRegex.test(pwInputValue) === false) {
         // 영문, 숫자 조합 8자 이상의 값이 아닐 경우 에러 표시
@@ -74,10 +73,17 @@ const handlePasswordFocusOut = (e) => {
         pwErrorMessage.classList.add("show");
         pwValid = false;
     } else {
+        pwValid = true;
+    }
+
+    // 중복되는 css 제어 코드 한 블럭에 모으기
+    if (!pwValid) {
+        pwInputEl.classList.add("error");
+        pwErrorMessage.classList.add("show");
+    } else {
         pwInputEl.classList.remove("error");
         pwErrorMessage.textContent = "";
         pwErrorMessage.classList.remove("show");
-        pwValid = true;
     }
 };
 
@@ -85,19 +91,21 @@ const handlepasswordConfirmFocusOut = (e) => {
     let target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 확인 값이 없을 경우 에러 표시
-        pwConfirmInputEl.classList.add("error");
-        pwConfirmErrorMessage.classList.add("show");
         pwConfirmValid = false;
     } else if (pwConfirmInputValue !== pwInputValue) {
         // 비밀번호와 비밀번호 확인 값이 다를 경우 에러 표시
-        pwConfirmInputEl.classList.add("error");
         pwConfirmErrorMessage.textContent = "비밀번호가 일치하지 않아요.";
-        pwConfirmErrorMessage.classList.add("show");
         pwConfirmValid = false;
+    } else {
+        pwConfirmValid = true;
+    }
+
+    if (!pwConfirmValid) {
+        pwConfirmInputEl.classList.add("error");
+        pwConfirmErrorMessage.classList.add("show");
     } else {
         pwConfirmInputEl.classList.remove("error");
         pwConfirmErrorMessage.classList.remove("show");
-        pwConfirmValid = true;
     }
 };
 

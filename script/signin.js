@@ -14,8 +14,8 @@ import {
 } from "./common.js";
 // let은 값이 변경될 수 있으니까 따로 export 해주지 않았습니다.
 // 하지만 해당 변수들도 signin/signup에서 반복되는데 export 해주는게 좋을까요?
-let emailValid = false;
-let pwValid = false;
+let emailValid = true;
+let pwValid = true;
 let emailInputValue = "";
 let pwInputValue = "";
 
@@ -33,18 +33,13 @@ const handleEmailFocusOut = (e) => {
     // 이메일 focus out 기능 구현
     let target = e.target;
     let targetValue = target.value;
-
     if (target.value.length <= 0) {
         // email 입력이 되어있지 않은 경우 에러 표시
-        emailInputEl.classList.add("error");
         emailErrorMessage.textContent = "이메일을 입력해주세요.";
-        emailErrorMessage.classList.add("show");
         emailValid = false;
     } else if (emailRegex.test(targetValue) === false) {
         // 이메일 형식이 아닐 경우 에러 표시
-        emailInputEl.classList.add("error");
         emailErrorMessage.textContent = "올바른 이메일 주소가 아닙니다.";
-        emailErrorMessage.classList.add("show");
         emailValid = false;
     } else if (
         emailInputValue === "test@codeit.com" &&
@@ -53,10 +48,17 @@ const handleEmailFocusOut = (e) => {
         // 특정 이메일과 비밀번호가 입력되면 emailValid ture 반환한다.
         emailValid = true;
     } else {
+        emailValid = true;
+    }
+
+    // 중복되는 css 제어 한 블럭에 모으기
+    if (!emailValid) {
+        emailInputEl.classList.add("error");
+        emailErrorMessage.classList.add("show");
+    } else {
         emailInputEl.classList.remove("error");
         emailErrorMessage.textContent = "";
         emailErrorMessage.classList.remove("show");
-        emailValid = true;
     }
 };
 
@@ -65,22 +67,25 @@ const handlePasswordFocusOut = (e) => {
     let target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 값이 없을 경우 에러 표시
-        pwInputEl.classList.add("error");
         pwErrorMessage.textContent = "비밀번호를 입력해주세요.";
-        pwErrorMessage.classList.add("show");
         pwValid = false;
     } else if (pwRegex.test(pwInputValue) === false) {
         // 영문, 숫자 조합 8자 이상의 값이 아닐 경우 에러 표시
-        pwInputEl.classList.add("error");
         pwErrorMessage.textContent =
             "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-        pwErrorMessage.classList.add("show");
         pwValid = false;
+    } else {
+        pwValid = true;
+    }
+
+    // 중복되는 css 제어 한 블럭에 모으기
+    if (!pwValid) {
+        pwInputEl.classList.add("error");
+        pwErrorMessage.classList.add("show");
     } else {
         pwInputEl.classList.remove("error");
         pwErrorMessage.textContent = "";
         pwErrorMessage.classList.remove("show");
-        pwValid = true;
     }
 };
 
