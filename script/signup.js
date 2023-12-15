@@ -10,8 +10,8 @@ import {
     pwRegex,
     pwConfirmErrorMessage,
 } from "./common.js";
-let emailValid = true;
-let pwValid = true;
+let emailValid = false;
+let pwValid = false;
 let pwConfirmValid = true;
 let pwInputValue = "";
 let pwConfirmInputValue = "";
