@@ -14,7 +14,6 @@ const emailRegex =
 const pwRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
 // input 눈 아이콘 및 input type 변경 기능
-// 여긴 export 해주지 않았는데 어떻게 signin/signup 파일에 자동으로 적용되고 있는걸까요..?
 for (let pwInputContainerItem of pwInputContainer) {
     pwInputContainerItem.addEventListener("click", function (e) {
         if (e.target.classList.contains("eye")) {

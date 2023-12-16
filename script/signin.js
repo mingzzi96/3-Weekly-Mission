@@ -1,7 +1,3 @@
-// * as "something" 이런식으로 가져오기도 하는 것 같은데
-// 저는 가져온 변수들이 이 페이지에서 보였으면 좋겠어서 일일이 다 불러오게 되었습니다.
-// 새로운 이름 지정해주고 객체로 뽑아오면 자꾸 파일 왔다갔다하면서 뭐가 있는지 확인하는게 귀찮을 것 같았어요.
-// 어떤 방식이 더 나을까요?
 import {
     formEl,
     emailInputEl,
@@ -11,8 +7,6 @@ import {
     emailRegex,
     pwRegex,
 } from "./common.js";
-// let은 값이 변경될 수 있으니까 따로 export 해주지 않았습니다.
-// 하지만 해당 변수들도 signin/signup에서 반복되는데 export 해주는게 좋을까요?
 let emailValid = false;
 let pwValid = false;
 let emailInputValue = "";
