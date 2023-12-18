@@ -1,4 +1,4 @@
-const formElement = document.querySelector("form");
+const formElement = document.querySelector("#form");
 const emailInputElement = document.querySelector("#email");
 const passwordInputElement = document.querySelector("#password");
 const emailErrorMessage = document.querySelector("#email_error");
