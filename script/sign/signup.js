@@ -27,8 +27,8 @@ const checkPwConfirmInputValue = (e) => {
 
 const handleEmailFocusOut = (e) => {
     // 이메일 focus out 기능 구현
-    let target = e.target;
-    let targetValue = target.value;
+    const target = e.target;
+    const targetValue = target.value;
 
     if (target.value.length <= 0) {
         // email 입력이 되어있지 않은 경우 에러 표시
@@ -59,7 +59,7 @@ const handleEmailFocusOut = (e) => {
 
 const handlePasswordFocusOut = (e) => {
     // 비밀번호 focus out 기능 구현
-    let target = e.target;
+    const target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 값이 없을 경우 에러 표시
         pwErrorMessage.textContent = "비밀번호를 입력해주세요.";
@@ -87,7 +87,7 @@ const handlePasswordFocusOut = (e) => {
 };
 
 const handlepasswordConfirmFocusOut = (e) => {
-    let target = e.target;
+    const target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 확인 값이 없을 경우 에러 표시
         pwConfirmErrorMessage.textContent = "비밀번호를 확인해주세요.";
