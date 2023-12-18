@@ -80,7 +80,7 @@ const handleSubmit = (e) => {
             return;
         }
         // 문제 없다면 페이지 이동시킴
-        formElement.submit();
+        e.currentTarget.submit();
     } catch (error) {
         // error
         console.log(error);
