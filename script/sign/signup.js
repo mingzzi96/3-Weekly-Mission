@@ -8,7 +8,7 @@ import {
     emailRegex,
     pwRegex,
     pwConfirmErrorMessage,
-} from "./common.js";
+} from "./signCommon.js";
 let emailValid = false;
 let pwValid = false;
 let pwConfirmValid = true;

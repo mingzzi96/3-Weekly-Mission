@@ -6,7 +6,7 @@ import {
     pwErrorMessage,
     emailRegex,
     pwRegex,
-} from "./common.js";
+} from "./signCommon.js";
 let emailValid = false;
 let pwValid = false;
 let emailInputValue = "";
