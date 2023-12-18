@@ -70,7 +70,9 @@ const handleSubmit = (e) => {
             emailErrorMessage.classList.add("show");
             emailValid = false;
             return;
-        } else if (!passwordValid) {
+        }
+
+        if (!passwordValid) {
             // passwordValid가 false일때 동작
             passwordInputElement.focus();
             passwordInputElement.classList.add("error");

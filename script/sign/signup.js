@@ -106,7 +106,9 @@ const handleSubmit = (e) => {
             emailErrorMessage.classList.add("show");
             emailValid = false;
             return;
-        } else if (!passwordValid) {
+        }
+
+        if (!passwordValid) {
             // passwordValid가 false일때 동작
             passwordInputElement.focus();
             passwordInputElement.classList.add("error");
@@ -114,7 +116,9 @@ const handleSubmit = (e) => {
             passwordErrorMessage.classList.add("show");
             passwordValid = false;
             return;
-        } else if (!passwordConfirmValid) {
+        }
+
+        if (!passwordConfirmValid) {
             // passwordConfirmValid가 false일때 동작
             passwordConfirmInputElement.focus();
             passwordConfirmInputElement.classList.add("error");
