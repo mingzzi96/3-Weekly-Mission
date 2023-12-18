@@ -5,22 +5,9 @@ import {
     emailErrorMessage,
     passwordErrorMessage,
     emailRegex,
-    passwordRegex,
 } from "./signCommon.js";
 let emailValid = false;
 let passwordValid = false;
-let emailInputValue = "";
-let passwordInputValue = "";
-
-const handleEmailInputValue = (e) => {
-    // 이메일 입력 값 변수에 저장
-    emailInputValue = e.target.value;
-};
-
-const handlePasswordInputValue = (e) => {
-    // 비밀번호 입력 값 변수에 저장
-    passwordInputValue = e.target.value;
-};
 
 const handleEmailFocusOut = (e) => {
     // 이메일 focus out 기능 구현
@@ -34,12 +21,6 @@ const handleEmailFocusOut = (e) => {
         // 이메일 형식이 아닐 경우 에러 표시
         emailErrorMessage.textContent = "올바른 이메일 주소가 아닙니다.";
         emailValid = false;
-    } else if (
-        emailInputValue === "test@codeit.com" &&
-        passwordInputValue === "codeit101"
-    ) {
-        // 특정 이메일과 비밀번호가 입력되면 emailValid ture 반환한다.
-        emailValid = true;
     } else {
         emailValid = true;
     }
@@ -61,11 +42,6 @@ const handlePasswordFocusOut = (e) => {
     if (target.value.length <= 0) {
         // 비밀번호 값이 없을 경우 에러 표시
         passwordErrorMessage.textContent = "비밀번호를 입력해주세요.";
-        passwordValid = false;
-    } else if (passwordRegex.test(passwordInputValue) === false) {
-        // 영문, 숫자 조합 8자 이상의 값이 아닐 경우 에러 표시
-        passwordErrorMessage.textContent =
-            "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
         passwordValid = false;
     } else {
         passwordValid = true;
@@ -113,6 +89,4 @@ const handleSubmit = (e) => {
 
 emailInputElement.addEventListener("focusout", handleEmailFocusOut);
 passwordInputElement.addEventListener("focusout", handlePasswordFocusOut);
-emailInputElement.addEventListener("keyup", handleEmailInputValue);
-passwordInputElement.addEventListener("keyup", handlePasswordInputValue);
 formElement.addEventListener("submit", handleSubmit);

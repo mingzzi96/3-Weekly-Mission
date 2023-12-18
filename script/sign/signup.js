@@ -12,18 +12,6 @@ import {
 let emailValid = false;
 let passwordValid = false;
 let passwordConfirmValid = true;
-let passwordInputValue = "";
-let passwordConfirmInputValue = "";
-
-const handlePasswordInputValue = (e) => {
-    // 이메일 입력 값 변수에 저장
-    passwordInputValue = e.target.value;
-};
-
-const checkPasswordConfirmInputValue = (e) => {
-    // 비밀번호 확인 값 변수에 저장
-    passwordConfirmInputValue = e.target.value;
-};
 
 const handleEmailFocusOut = (e) => {
     // 이메일 focus out 기능 구현
@@ -64,7 +52,7 @@ const handlePasswordFocusOut = (e) => {
         // 비밀번호 값이 없을 경우 에러 표시
         passwordErrorMessage.textContent = "비밀번호를 입력해주세요.";
         passwordValid = false;
-    } else if (passwordRegex.test(passwordInputValue) === false) {
+    } else if (passwordRegex.test(target.value) === false) {
         // 영문, 숫자 조합 8자 이상의 값이 아닐 경우 에러 표시
         passwordInputElement.classList.add("error");
         passwordErrorMessage.textContent =
@@ -91,10 +79,6 @@ const handlePasswordConfirmFocusOut = (e) => {
     if (target.value.length <= 0) {
         // 비밀번호 확인 값이 없을 경우 에러 표시
         passwordConfirmErrorMessage.textContent = "비밀번호를 확인해주세요.";
-        passwordConfirmValid = false;
-    } else if (passwordConfirmInputValue !== passwordInputValue) {
-        // 비밀번호와 비밀번호 확인 값이 다를 경우 에러 표시
-        passwordConfirmErrorMessage.textContent = "비밀번호가 일치하지 않아요.";
         passwordConfirmValid = false;
     } else {
         passwordConfirmValid = true;
@@ -153,10 +137,5 @@ passwordInputElement.addEventListener("focusout", handlePasswordFocusOut);
 passwordConfirmInputElement.addEventListener(
     "focusout",
     handlePasswordConfirmFocusOut
-);
-passwordInputElement.addEventListener("keyup", handlePasswordInputValue);
-passwordConfirmInputElement.addEventListener(
-    "keyup",
-    checkPasswordConfirmInputValue
 );
 formElement.addEventListener("submit", handleSubmit);
