@@ -15,12 +15,12 @@ let passwordConfirmValid = true;
 let passwordInputValue = "";
 let passwordConfirmInputValue = "";
 
-const handlepasswordInputValue = (e) => {
+const handlePasswordInputValue = (e) => {
     // 이메일 입력 값 변수에 저장
     passwordInputValue = e.target.value;
 };
 
-const checkpasswordConfirmInputValue = (e) => {
+const checkPasswordConfirmInputValue = (e) => {
     // 비밀번호 확인 값 변수에 저장
     passwordConfirmInputValue = e.target.value;
 };
@@ -86,7 +86,7 @@ const handlePasswordFocusOut = (e) => {
     }
 };
 
-const handlepasswordConfirmFocusOut = (e) => {
+const handlePasswordConfirmFocusOut = (e) => {
     const target = e.target;
     if (target.value.length <= 0) {
         // 비밀번호 확인 값이 없을 경우 에러 표시
@@ -152,11 +152,11 @@ emailInputElement.addEventListener("focusout", handleEmailFocusOut);
 passwordInputElement.addEventListener("focusout", handlePasswordFocusOut);
 passwordConfirmInputElement.addEventListener(
     "focusout",
-    handlepasswordConfirmFocusOut
+    handlePasswordConfirmFocusOut
 );
-passwordInputElement.addEventListener("keyup", handlepasswordInputValue);
+passwordInputElement.addEventListener("keyup", handlePasswordInputValue);
 passwordConfirmInputElement.addEventListener(
     "keyup",
-    checkpasswordConfirmInputValue
+    checkPasswordConfirmInputValue
 );
 formElement.addEventListener("submit", handleSubmit);

@@ -17,7 +17,7 @@ const handleEmailInputValue = (e) => {
     emailInputValue = e.target.value;
 };
 
-const handlepasswordInputValue = (e) => {
+const handlePasswordInputValue = (e) => {
     // 비밀번호 입력 값 변수에 저장
     passwordInputValue = e.target.value;
 };
@@ -114,5 +114,5 @@ const handleSubmit = (e) => {
 emailInputElement.addEventListener("focusout", handleEmailFocusOut);
 passwordInputElement.addEventListener("focusout", handlePasswordFocusOut);
 emailInputElement.addEventListener("keyup", handleEmailInputValue);
-passwordInputElement.addEventListener("keyup", handlepasswordInputValue);
+passwordInputElement.addEventListener("keyup", handlePasswordInputValue);
 formElement.addEventListener("submit", handleSubmit);
