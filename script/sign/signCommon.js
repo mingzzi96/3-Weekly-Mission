@@ -12,11 +12,11 @@ const passwordConfirmShowButtonElement =
 
 const emailRegex =
     /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-const pwRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
 // input 눈 아이콘 및 input type 변경 기능
-for (const pwInputContainerItem of pwInputContainer) {
-    pwInputContainerItem.addEventListener("click", function (e) {
+for (const passwordInputContainerItem of passwordInputContainer) {
+    passwordInputContainerItem.addEventListener("click", function (e) {
         if (e.target.classList.contains("eye")) {
             // 클릭된 target이 eye 라는 클래스를 가지고 있을때만 실행
             const inputType = "password";
@@ -34,14 +34,14 @@ for (const pwInputContainerItem of pwInputContainer) {
 export {
     formElement,
     emailInputElement,
-    pwInputElement,
+    passwordInputElement,
     emailErrorMessage,
-    pwErrorMessage,
-    pwShowButtonElement,
-    pwConfirmInputElement,
-    pwConfirmErrorMessage,
-    pwConfirmShowButtonElement,
-    pwInputContainer,
+    passwordErrorMessage,
+    passwordShowButtonElement,
+    passwordConfirmInputElement,
+    passwordConfirmErrorMessage,
+    passwordConfirmShowButtonElement,
+    passwordInputContainer,
     emailRegex,
-    pwRegex,
+    passwordRegex,
 };
