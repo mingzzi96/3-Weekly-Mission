@@ -6,9 +6,6 @@ const passwordInputElement = document.querySelector("#password");
 const emailErrorMessage = document.querySelector("#email_error");
 const passwordErrorMessage = document.querySelector("#pw_error");
 
-let emailValid = false;
-let passwordValid = false;
-
 const handleEmailFocusOut = (e) => {
     // 이메일 focus out 기능 구현
     const emailValue = e.target.value;
@@ -30,14 +27,12 @@ const handleEmailFocusOut = (e) => {
 };
 
 const showEmailError = (message) => {
-    emailValid = false;
     emailInputElement.classList.add("error");
     emailErrorMessage.classList.add("show");
     emailErrorMessage.textContent = message;
 };
 
 const hideEmailError = () => {
-    emailValid = true;
     emailInputElement.classList.remove("error");
     emailErrorMessage.classList.remove("show");
     emailErrorMessage.textContent = "";
@@ -58,14 +53,12 @@ const handlePasswordFocusOut = (e) => {
 };
 
 const showPasswordError = (message) => {
-    passwordValid = false;
     passwordInputElement.classList.add("error");
     passwordErrorMessage.classList.add("show");
     passwordErrorMessage.textContent = message;
 };
 
 const hidePasswordError = () => {
-    passwordValid = true;
     passwordInputElement.classList.remove("error");
     passwordErrorMessage.classList.remove("show");
     passwordErrorMessage.textContent = "";
@@ -77,7 +70,6 @@ const handleSubmit = (e) => {
 
     if (emailInputElement.value !== "test@codeit.com") {
         // emailValid가 false일때 동작
-        emailValid = false;
         emailInputElement.focus();
         emailInputElement.classList.add("error");
         emailErrorMessage.textContent = "이메일을 확인해 주세요.";
@@ -87,7 +79,6 @@ const handleSubmit = (e) => {
 
     if (passwordInputElement.value !== "codeit101") {
         // passwordValid가 false일때 동작
-        passwordValid = false;
         passwordInputElement.focus();
         passwordInputElement.classList.add("error");
         passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
