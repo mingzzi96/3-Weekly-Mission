@@ -74,29 +74,28 @@ const hidePasswordError = () => {
 const handleSubmit = (e) => {
     // submit 버튼 기능 구현
     e.preventDefault();
-    if (!emailValid) {
+
+    if (emailInputElement.value !== "test@codeit.com") {
         // emailValid가 false일때 동작
+        emailValid = false;
         emailInputElement.focus();
         emailInputElement.classList.add("error");
         emailErrorMessage.textContent = "이메일을 확인해 주세요.";
         emailErrorMessage.classList.add("show");
+        return;
     }
 
-    if (!passwordValid) {
+    if (passwordInputElement.value !== "codeit101") {
         // passwordValid가 false일때 동작
+        passwordValid = false;
         passwordInputElement.focus();
         passwordInputElement.classList.add("error");
         passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
         passwordErrorMessage.classList.add("show");
+        return;
     }
 
-    if (
-        emailInputElement.value === "test@codeit.com" &&
-        passwordInputElement.value === "codeit101"
-    ) {
-        // 문제 없다면 페이지 이동시킴
-        e.currentTarget.submit();
-    }
+    e.currentTarget.submit();
 };
 
 const handleInputTypeClick = (e) => {

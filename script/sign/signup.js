@@ -114,12 +114,14 @@ const hidePasswordConfirmError = () => {
 const handleSubmit = (e) => {
     // submit 버튼 기능 구현
     e.preventDefault();
+
     if (!emailValid) {
         // emailValid가 false일때 동작
         emailInputElement.focus();
         emailInputElement.classList.add("error");
         emailErrorMessage.textContent = "이메일을 확인해 주세요.";
         emailErrorMessage.classList.add("show");
+        return;
     }
 
     if (!passwordValid) {
@@ -128,6 +130,7 @@ const handleSubmit = (e) => {
         passwordInputElement.classList.add("error");
         passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
         passwordErrorMessage.classList.add("show");
+        return;
     }
 
     if (!passwordConfirmValid) {
@@ -136,6 +139,7 @@ const handleSubmit = (e) => {
         passwordConfirmInputElement.classList.add("error");
         passwordConfirmErrorMessage.textContent = "비밀번호를 확인해 주세요.";
         passwordConfirmErrorMessage.classList.add("show");
+        return;
     }
 
     // 문제 없다면 페이지 이동시킴
