@@ -1,14 +1,15 @@
+const formElement = document.querySelector("#form");
+const emailInputElement = document.querySelector("#email");
+const passwordInputElement = document.querySelector("#password");
 import {
-    formElement,
-    emailInputElement,
-    passwordInputElement,
-    emailErrorMessage,
-    passwordErrorMessage,
-    passwordConfirmInputElement,
     emailRegex,
     passwordRegex,
-    passwordConfirmErrorMessage,
+    passwordTypeControl,
 } from "./signCommon.js";
+const emailErrorMessage = document.querySelector("#email_error");
+const passwordErrorMessage = document.querySelector("#pw_error");
+const passwordConfirmInputElement = document.querySelector("#password_confirm");
+const passwordConfirmErrorMessage = document.querySelector("#pwConfirm_error");
 let emailValid = false;
 let passwordValid = false;
 let passwordConfirmValid = true;
@@ -141,6 +142,11 @@ const handleSubmit = (e) => {
     e.currentTarget.submit();
 };
 
+const handleInputTypeClick = (e) => {
+    // 눈 아이콘과 input type 변경해주는 event 전달
+    passwordTypeControl(e);
+};
+
 emailInputElement.addEventListener("focusout", handleEmailFocusOut);
 passwordInputElement.addEventListener("focusout", handlePasswordFocusOut);
 passwordConfirmInputElement.addEventListener(
@@ -148,3 +154,4 @@ passwordConfirmInputElement.addEventListener(
     handlePasswordConfirmFocusOut
 );
 formElement.addEventListener("submit", handleSubmit);
+formElement.addEventListener("click", handleInputTypeClick);

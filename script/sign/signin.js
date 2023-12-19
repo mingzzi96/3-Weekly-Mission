@@ -1,11 +1,11 @@
-import {
-    formElement,
-    emailInputElement,
-    passwordInputElement,
-    emailErrorMessage,
-    passwordErrorMessage,
-    emailRegex,
-} from "./signCommon.js";
+import { emailRegex, passwordTypeControl } from "./signCommon.js";
+
+const formElement = document.querySelector("#form");
+const emailInputElement = document.querySelector("#email");
+const passwordInputElement = document.querySelector("#password");
+const emailErrorMessage = document.querySelector("#email_error");
+const passwordErrorMessage = document.querySelector("#pw_error");
+
 let emailValid = false;
 let passwordValid = false;
 
@@ -99,6 +99,12 @@ const handleSubmit = (e) => {
     }
 };
 
+const handleInputTypeClick = (e) => {
+    // 눈 아이콘과 input type 변경해주는 event 전달
+    passwordTypeControl(e);
+};
+
 emailInputElement.addEventListener("focusout", handleEmailFocusOut);
 passwordInputElement.addEventListener("focusout", handlePasswordFocusOut);
 formElement.addEventListener("submit", handleSubmit);
+formElement.addEventListener("click", handleInputTypeClick);
