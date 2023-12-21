@@ -22,27 +22,35 @@
                 <p>회원이 아니신가요?</p>
                 <a href="signup.html">회원 가입하기</a>
             </div>
-            <form>
+            <form action="/folder.html" method="post" id="form">
                 <label for="email">이메일</label>
                 <input
                     type="email"
                     id="email"
                     placeholder="codeit@codeit.com"
                 />
+                <p class="error_msg" aria-live="assertive" id="email_error">
+                    이메일을 입력해주세요.
+                </p>
                 <label for="password">비밀번호</label>
                 <div class="input_password">
                     <input
                         type="password"
                         id="password"
-                        class="error"
                         placeholder="비밀번호 입력"
                     />
                     <div
+                        id="eyePw"
                         class="eye"
                         aria-label="비밀번호 숨김 표시 해제하려면 클릭"
                     ></div>
                 </div>
-                <button type="submit" class="gradient_btn w_xl">로그인</button>
+                <p class="error_msg" aria-live="assertive" id="pw_error">
+                    비밀번호를 입력해주세요.
+                </p>
+                <button id="formSubmit" type="submit" class="gradient_btn w_xl">
+                    로그인
+                </button>
             </form>
             <div class="gray_border_box social">
                 <h6>소셜 로그인</h6>
@@ -62,5 +70,6 @@
                 </div>
             </div>
         </section>
+        <script src="/script/sign/signin.js" type="module"></script>
     </body>
 </html>

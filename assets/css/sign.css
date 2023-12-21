@@ -52,10 +52,10 @@ form .input_password .eye {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    background: url(../assets/images/eye-off.svg) no-repeat center;
+    background: url(../images/eye-off.svg) no-repeat center;
 }
-form .input_password .eye.on {
-    background: url(../assets/images/eye-on.svg) no-repeat center;
+form .input_password.on .eye {
+    background: url(../images/eye-on.svg) no-repeat center;
 }
 form input:focus {
     border: 1px solid var(--color--primary);
@@ -72,6 +72,10 @@ form button {
     margin-top: 6px;
     font-weight: 400;
     font-size: 1.4rem;
+    display: none;
+}
+.error_msg.show {
+    display: block;
 }
 
 /* gray border box - social */

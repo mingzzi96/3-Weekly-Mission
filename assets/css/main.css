@@ -38,7 +38,7 @@
 
 .white_sec ul li {
     display: grid;
-    grid-gap: 10px 157px;
+    gap: 10px 157px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "a b"
@@ -114,7 +114,7 @@
         max-width: 698px;
     }
     .white_sec ul li {
-        grid-gap: 10px 50px;
+        gap: 10px 50px;
     }
     .white_sec ul li img {
         max-width: 385px;
@@ -147,7 +147,7 @@
     }
     .white_sec ul li {
         display: grid;
-        grid-gap: 20px 0 16px;
+        gap: 20px 16px;
         grid-template-columns: 1fr;
         grid-template-areas:
             "a"

@@ -10,6 +10,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "prefer-const": "error",
         "prettier/prettier": [
             "error",
             {

@@ -22,42 +22,53 @@
                 <p>이미 회원이신가요?</p>
                 <a href="signin.html">로그인 하기</a>
             </div>
-            <form>
+            <form action="/folder.html" method="post" id="form">
                 <label for="email">이메일</label>
                 <input
                     type="email"
                     id="email"
                     placeholder="codeit@codeit.com"
                 />
+                <p class="error_msg" aria-live="assertive" id="email_error">
+                    이메일을 입력해 주세요.
+                </p>
                 <label for="password">비밀번호</label>
                 <div class="input_password">
                     <input
                         type="password"
                         id="password"
                         placeholder="비밀번호 입력"
+                        data-password="password"
                     />
                     <div
+                        id="eyePw"
                         class="eye"
                         aria-label="비밀번호 숨김 표시 해제하려면 클릭"
                     ></div>
                 </div>
+                <p class="error_msg" aria-live="assertive" id="pw_error">
+                    비밀번호를 입력해 주세요.
+                </p>
                 <label for="password_confirm">비밀번호 확인</label>
                 <div class="input_password">
                     <input
                         type="password"
                         id="password_confirm"
-                        class="error"
                         placeholder="비밀번호를 한번 더 입력해 확인하세요."
+                        data-password="passwordConfirm"
                     />
                     <div
+                        id="eyePwConfirm"
                         class="eye"
                         aria-label="비밀번호 숨김 표시 해제하려면 클릭"
                     ></div>
                 </div>
-                <p class="error_msg" aria-live="asserive">
-                    비밀번호가 다릅니다
+                <p class="error_msg" aria-live="assertive" id="pwConfirm_error">
+                    비밀번호 확인을 해주세요.
                 </p>
-                <button type="submit" class="gradient_btn w_xl">로그인</button>
+                <button id="formSubmit" type="submit" class="gradient_btn w_xl">
+                    회원 가입
+                </button>
             </form>
             <div class="gray_border_box social">
                 <h6>다른 방식으로 가입하기</h6>
@@ -77,5 +88,6 @@
                 </div>
             </div>
         </section>
+        <script src="/script/sign/signup.js" type="module"></script>
     </body>
 </html>
