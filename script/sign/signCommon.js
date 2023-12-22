@@ -49,13 +49,27 @@ function checkPasswordRegex(targetValue) {
 }
 
 // email "test@codeit.com" 존재하는지 체크
-function checkEmailExist(targetValue) {
-    return targetValue === "test@codeit.com" ? true : false;
+async function checkEmailExist(targetValue) {
+    try {
+        const response = await axios.post(
+            "https://bootcamp-api.codeit.kr/api/check-email",
+            { email: targetValue },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+        return false;
+    } catch (error) {
+        const errorResult = error.response;
+        if (errorResult.status === 409) return true;
+    }
 }
 
-// password "codeit101" 존재하는지 체크
+// password "sprint101" 존재하는지 체크
 function checkPasswordExist(targetValue) {
-    return targetValue === "codeit101" ? true : false;
+    return targetValue === "sprint101" ? true : false;
 }
 
 // passwordConfirm이 password의 value와 같은지 확인하기

@@ -8,7 +8,6 @@ import {
     checkEmailExist,
     checkPasswordExist,
 } from "./signCommon.js";
-
 const formElement = document.querySelector("#form");
 const emailInputElement = document.querySelector("#email");
 const passwordInputElement = document.querySelector("#password");
@@ -62,7 +61,7 @@ const handlePasswordFocusOut = (e) => {
     }
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     // submit 버튼 기능 구현
     const emailValue = emailInputElement.value;
     const passwordValue = passwordInputElement.value;
@@ -90,10 +89,24 @@ const handleSubmit = (e) => {
         );
         return;
     }
-    hideErrorMessage(emailInputElement, emailErrorMessageContainer);
-    hideErrorMessage(passwordInputElement, passwordErrorMessageContainer);
 
-    e.currentTarget.submit();
+    try {
+        const response = await axios.post(
+            "https://bootcamp-api.codeit.kr/api/sign-in",
+            { email: emailValue, password: passwordValue },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+        const result = response.data;
+        if (result.data.accessToken) window.location.href = "/folder.html";
+    } catch (error) {
+        if (error.response.status === 400) {
+            alert("이메일 혹은 비밀번호를 확인해 주세요.");
+        }
+    }
 };
 
 emailInputElement.addEventListener("focusout", handleEmailFocusOut);

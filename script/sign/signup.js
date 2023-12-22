@@ -24,7 +24,7 @@ const handleInputTypeClick = (e) => {
     passwordTypeControl(e);
 };
 
-const handleEmailFocusOut = (e) => {
+const handleEmailFocusOut = async (e) => {
     const emailValue = e.target.value;
 
     try {
@@ -34,7 +34,8 @@ const handleEmailFocusOut = (e) => {
         if (!checkEmailRegex(emailValue)) {
             throw new Error("올바른 이메일 주소가 아닙니다.");
         }
-        if (checkEmailExist(emailValue)) {
+        const isEmailExist = await checkEmailExist(emailValue);
+        if (isEmailExist) {
             throw new Error("이미 사용중인 이메일 주소입니다.");
         }
         hideErrorMessage(emailInputElement, emailErrorMessageContainer);
@@ -98,7 +99,7 @@ const handlePasswordConfirmFocusOut = (e) => {
     }
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     // submit 버튼 기능 구현
     const emailValue = emailInputElement.value;
     const passwordValue = passwordInputElement.value;
@@ -106,10 +107,11 @@ const handleSubmit = (e) => {
 
     e.preventDefault();
 
+    const isEmailExist = await checkEmailExist(emailValue);
     if (
         !checkEmailLength(emailValue) ||
         !checkEmailRegex(emailValue) ||
-        checkEmailExist(emailValue)
+        isEmailExist
     ) {
         // emailValid가 false일때 동작
         emailInputElement.focus();
@@ -148,15 +150,23 @@ const handleSubmit = (e) => {
         );
         return;
     }
-    hideErrorMessage(emailInputElement, emailErrorMessageContainer);
-    hideErrorMessage(passwordInputElement, passwordErrorMessageContainer);
-    hideErrorMessage(
-        passwordConfirmInputElement,
-        passwordConfirmErrorMessageContainer
-    );
 
-    // 문제 없다면 페이지 이동시킴
-    e.currentTarget.submit();
+    try {
+        const response = await axios.post(
+            "https://bootcamp-api.codeit.kr/api/sign-up",
+            { email: emailValue, password: passwordValue },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        const result = response.data;
+        if (result.data.accessToken) window.location.href = "/folder.html";
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 emailInputElement.addEventListener("focusout", handleEmailFocusOut);
