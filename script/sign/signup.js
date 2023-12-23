@@ -163,7 +163,14 @@ const handleSubmit = async (e) => {
         );
 
         const result = response.data;
-        if (result.data.accessToken) window.location.href = "/folder.html";
+        if (result.data.accessToken) {
+            localStorage.setItem(
+                "accessToken",
+                JSON.stringify(result.data.accessToken)
+            );
+            window.location.href = "/folder.html";
+        }
+        // if (result.data.accessToken) window.location.href = "/folder.html";
     } catch (error) {
         console.log(error);
     }

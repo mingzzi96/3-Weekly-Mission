@@ -101,7 +101,13 @@ const handleSubmit = async (e) => {
             }
         );
         const result = response.data;
-        if (result.data.accessToken) window.location.href = "/folder.html";
+        if (result.data.accessToken) {
+            localStorage.setItem(
+                "accessToken",
+                JSON.stringify(result.data.accessToken)
+            );
+            window.location.href = "/folder.html";
+        }
     } catch (error) {
         if (error.response.status === 400) {
             alert("이메일 혹은 비밀번호를 확인해 주세요.");
