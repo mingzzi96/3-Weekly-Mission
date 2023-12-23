@@ -38,14 +38,14 @@ function checkPasswordConfirmLength(targetValue) {
 
 // email/password 정규식 확인
 function checkEmailRegex(targetValue) {
-    const emailRegex =
+    const EMAIL_REGEX =
         /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    return emailRegex.test(targetValue);
+    return EMAIL_REGEX.test(targetValue);
 }
 
 function checkPasswordRegex(targetValue) {
-    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-    return passwordRegex.test(targetValue);
+    const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+    return PASSWORD_REGEX.test(targetValue);
 }
 
 // email "test@codeit.com" 존재하는지 체크
