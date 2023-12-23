@@ -67,11 +67,6 @@ async function checkEmailExist(targetValue) {
     }
 }
 
-// password "sprint101" 존재하는지 체크
-function checkPasswordExist(targetValue) {
-    return targetValue === "sprint101" ? true : false;
-}
-
 // passwordConfirm이 password의 value와 같은지 확인하기
 function checkPasswordMatch(passwordValue, passwordConfirmValue) {
     return passwordValue === passwordConfirmValue ? true : false;
@@ -87,6 +82,5 @@ export {
     checkPasswordLength,
     checkPasswordConfirmLength,
     checkEmailExist,
-    checkPasswordExist,
     checkPasswordMatch,
 };

@@ -170,7 +170,6 @@ const handleSubmit = async (e) => {
             );
             window.location.href = "/folder.html";
         }
-        // if (result.data.accessToken) window.location.href = "/folder.html";
     } catch (error) {
         console.log(error);
     }

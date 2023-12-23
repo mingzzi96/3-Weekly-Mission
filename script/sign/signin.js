@@ -6,7 +6,6 @@ import {
     showErrorMessage,
     checkPasswordLength,
     checkEmailExist,
-    checkPasswordExist,
 } from "./signCommon.js";
 const formElement = document.querySelector("#form");
 const emailInputElement = document.querySelector("#email");
@@ -75,17 +74,6 @@ const handleSubmit = async (e) => {
             emailInputElement,
             emailErrorMessageContainer,
             "이메일을 확인해 주세요."
-        );
-        return;
-    }
-
-    if (!checkPasswordExist(passwordValue)) {
-        // passwordValid가 false일때 동작
-        passwordInputElement.focus();
-        showErrorMessage(
-            passwordInputElement,
-            passwordErrorMessageContainer,
-            "비밀번호를 확인해 주세요."
         );
         return;
     }
