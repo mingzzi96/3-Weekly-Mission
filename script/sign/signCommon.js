@@ -1,4 +1,4 @@
-import { EMAIL_REGEX, PASSWORD_REGEX } from "../constants.js";
+import { EMAIL_REGEX, PASSWORD_REGEX, API } from "../constants.js";
 
 function passwordTypeControl(e) {
     if (e.target.classList.contains("eye")) {
@@ -51,7 +51,7 @@ function validatePasswordRegex(targetValue) {
 async function hasEmail(targetValue) {
     try {
         const response = await axios.post(
-            "https://bootcamp-api.codeit.kr/api/check-email",
+            API + "api/check-email",
             { email: targetValue },
             {
                 headers: {

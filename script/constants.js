@@ -3,4 +3,6 @@ const EMAIL_REGEX =
 
 const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
-export { EMAIL_REGEX, PASSWORD_REGEX };
+const API = "https://bootcamp-api.codeit.kr/";
+
+export { EMAIL_REGEX, PASSWORD_REGEX, API };

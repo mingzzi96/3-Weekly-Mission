@@ -6,6 +6,7 @@ import {
     showErrorMessage,
     isPasswordLengthExist,
 } from "./signCommon.js";
+import { API } from "../constants.js";
 const formElement = document.querySelector("#form");
 const emailInputElement = document.querySelector("#email");
 const passwordInputElement = document.querySelector("#password");
@@ -68,7 +69,7 @@ const handleSubmit = async (e) => {
 
     try {
         const response = await axios.post(
-            "https://bootcamp-api.codeit.kr/api/sign-in",
+            API + "api/sign-in",
             { email: emailValue, password: passwordValue },
             {
                 headers: {
