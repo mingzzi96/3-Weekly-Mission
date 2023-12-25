@@ -47,7 +47,7 @@ function checkPasswordRegex(targetValue) {
 }
 
 // email "test@codeit.com" 존재하는지 체크
-async function checkEmailExist(targetValue) {
+async function hasEmail(targetValue) {
     try {
         const response = await axios.post(
             "https://bootcamp-api.codeit.kr/api/check-email",
@@ -81,6 +81,6 @@ export {
     checkEmailLength,
     checkPasswordLength,
     checkPasswordConfirmLength,
-    checkEmailExist,
+    hasEmail,
     checkPasswordMatch,
 };

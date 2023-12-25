@@ -5,7 +5,7 @@ import {
     hideErrorMessage,
     showErrorMessage,
     checkPasswordLength,
-    checkEmailExist,
+    hasEmail,
 } from "./signCommon.js";
 const formElement = document.querySelector("#form");
 const emailInputElement = document.querySelector("#email");
@@ -67,7 +67,7 @@ const handleSubmit = async (e) => {
 
     e.preventDefault();
 
-    if (!checkEmailExist(emailValue)) {
+    if (!hasEmail(emailValue)) {
         // emailValid가 false일때 동작
         emailInputElement.focus();
         showErrorMessage(

@@ -7,7 +7,7 @@ import {
     checkEmailLength,
     checkPasswordLength,
     checkPasswordConfirmLength,
-    checkEmailExist,
+    hasEmail,
     checkPasswordMatch,
 } from "./signCommon.js";
 const formElement = document.querySelector("#form");
@@ -34,7 +34,7 @@ const handleEmailFocusOut = async (e) => {
         if (!checkEmailRegex(emailValue)) {
             throw new Error("올바른 이메일 주소가 아닙니다.");
         }
-        const isEmailExist = await checkEmailExist(emailValue);
+        const isEmailExist = await hasEmail(emailValue);
         if (isEmailExist) {
             throw new Error("이미 사용중인 이메일 주소입니다.");
         }
@@ -107,7 +107,7 @@ const handleSubmit = async (e) => {
 
     e.preventDefault();
 
-    const isEmailExist = await checkEmailExist(emailValue);
+    const isEmailExist = await hasEmail(emailValue);
     if (
         !checkEmailLength(emailValue) ||
         !checkEmailRegex(emailValue) ||
