@@ -61,7 +61,9 @@ async function checkEmailExist(targetValue) {
         return false;
     } catch (error) {
         const errorResult = error.response;
-        if (errorResult.status === 409) return true;
+        if (errorResult.status === 409) {
+            return true;
+        }
     }
 }
 
