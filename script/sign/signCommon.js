@@ -27,22 +27,22 @@ function hideErrorMessage(targetElement, errorContainer) {
 }
 
 // email/password/passwordConfirm 길이 확인
-function checkEmailLength(targetValue) {
+function isEmailLengthExist(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
-function checkPasswordLength(targetValue) {
+function isPasswordLengthExist(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
-function checkPasswordConfirmLength(targetValue) {
+function isPasswordConfirmLengthExist(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
 
 // email/password 정규식 확인
-function checkEmailRegex(targetValue) {
+function validateEmailRegex(targetValue) {
     return EMAIL_REGEX.test(targetValue);
 }
 
-function checkPasswordRegex(targetValue) {
+function validatePasswordRegex(targetValue) {
     return PASSWORD_REGEX.test(targetValue);
 }
 
@@ -68,7 +68,7 @@ async function hasEmail(targetValue) {
 }
 
 // passwordConfirm이 password의 value와 같은지 확인하기
-function checkPasswordMatch(passwordValue, passwordConfirmValue) {
+function validatePasswordMatch(passwordValue, passwordConfirmValue) {
     return passwordValue === passwordConfirmValue ? true : false;
 }
 
@@ -76,11 +76,11 @@ export {
     passwordTypeControl,
     showErrorMessage,
     hideErrorMessage,
-    checkEmailRegex,
-    checkPasswordRegex,
-    checkEmailLength,
-    checkPasswordLength,
-    checkPasswordConfirmLength,
+    validateEmailRegex,
+    validatePasswordRegex,
+    isEmailLengthExist,
+    isPasswordLengthExist,
+    isPasswordConfirmLengthExist,
     hasEmail,
-    checkPasswordMatch,
+    validatePasswordMatch,
 };

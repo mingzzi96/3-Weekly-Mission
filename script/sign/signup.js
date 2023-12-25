@@ -2,13 +2,13 @@ import {
     passwordTypeControl,
     showErrorMessage,
     hideErrorMessage,
-    checkEmailRegex,
-    checkPasswordRegex,
-    checkEmailLength,
-    checkPasswordLength,
-    checkPasswordConfirmLength,
+    validateEmailRegex,
+    validatePasswordRegex,
+    isEmailLengthExist,
+    isPasswordLengthExist,
+    isPasswordConfirmLengthExist,
     hasEmail,
-    checkPasswordMatch,
+    validatePasswordMatch,
 } from "./signCommon.js";
 const formElement = document.querySelector("#form");
 const emailInputElement = document.querySelector("#email");
@@ -28,10 +28,10 @@ const handleEmailFocusOut = async (e) => {
     const emailValue = e.target.value;
 
     try {
-        if (!checkEmailLength(emailValue)) {
+        if (!isEmailLengthExist(emailValue)) {
             throw new Error("이메일을 입력해주세요.");
         }
-        if (!checkEmailRegex(emailValue)) {
+        if (!validateEmailRegex(emailValue)) {
             throw new Error("올바른 이메일 주소가 아닙니다.");
         }
         const isEmailExist = await hasEmail(emailValue);
@@ -52,10 +52,10 @@ const handlePasswordFocusOut = (e) => {
     const passwordValue = e.target.value;
 
     try {
-        if (!checkPasswordLength(passwordValue)) {
+        if (!isPasswordLengthExist(passwordValue)) {
             throw new Error("비밀번호를 입력해주세요.");
         }
-        if (!checkPasswordRegex(passwordValue)) {
+        if (!validatePasswordRegex(passwordValue)) {
             throw new Error(
                 "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
             );
@@ -74,12 +74,12 @@ const handlePasswordConfirmFocusOut = (e) => {
     const passwordConfirmValue = e.target.value;
 
     try {
-        if (!checkPasswordConfirmLength(passwordConfirmValue)) {
+        if (!isPasswordConfirmLengthExist(passwordConfirmValue)) {
             throw new Error("비밀번호를 입력해주세요.");
         }
 
         if (
-            !checkPasswordMatch(
+            !validatePasswordMatch(
                 passwordInputElement.value,
                 passwordConfirmValue
             )
@@ -109,8 +109,8 @@ const handleSubmit = async (e) => {
 
     const isEmailExist = await hasEmail(emailValue);
     if (
-        !checkEmailLength(emailValue) ||
-        !checkEmailRegex(emailValue) ||
+        !isEmailLengthExist(emailValue) ||
+        !validateEmailRegex(emailValue) ||
         isEmailExist
     ) {
         // emailValid가 false일때 동작
@@ -124,8 +124,8 @@ const handleSubmit = async (e) => {
     }
 
     if (
-        !checkPasswordLength(passwordValue) ||
-        !checkPasswordRegex(passwordValue)
+        !isPasswordLengthExist(passwordValue) ||
+        !validatePasswordRegex(passwordValue)
     ) {
         // passwordValid가 false일때 동작
         passwordInputElement.focus();
@@ -138,8 +138,8 @@ const handleSubmit = async (e) => {
     }
 
     if (
-        !checkPasswordConfirmLength(passwordConfirmValue) ||
-        !checkPasswordMatch(passwordValue, passwordConfirmValue)
+        !isPasswordConfirmLengthExist(passwordConfirmValue) ||
+        !validatePasswordMatch(passwordValue, passwordConfirmValue)
     ) {
         // passwordConfirmValid가 false일때 동작
         passwordConfirmInputElement.focus();
