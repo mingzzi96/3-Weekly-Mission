@@ -1,4 +1,5 @@
-import { EMAIL_REGEX, PASSWORD_REGEX } from "../constants";
+import { EMAIL_REGEX, PASSWORD_REGEX } from "../constants.js";
+
 function passwordTypeControl(e) {
     if (e.target.classList.contains("eye")) {
         // 클릭된 target이 eye 라는 클래스를 가지고 있을때만 실행
@@ -26,7 +27,7 @@ function hideErrorMessage(targetElement, errorContainer) {
     errorContainer.textContent = "";
 }
 
-// email/password/passwordConfirm 길이 확인
+// email/password/passwordConfirm value 길이 확인
 function isEmailLengthExist(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
@@ -46,7 +47,7 @@ function validatePasswordRegex(targetValue) {
     return PASSWORD_REGEX.test(targetValue);
 }
 
-// email "test@codeit.com" 존재하는지 체크
+// email 중복 확인
 async function hasEmail(targetValue) {
     try {
         const response = await axios.post(
