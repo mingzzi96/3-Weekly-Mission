@@ -5,7 +5,6 @@ import {
     hideErrorMessage,
     showErrorMessage,
     isPasswordLengthExist,
-    hasEmail,
 } from "./signCommon.js";
 const formElement = document.querySelector("#form");
 const emailInputElement = document.querySelector("#email");
@@ -67,17 +66,6 @@ const handleSubmit = async (e) => {
 
     e.preventDefault();
 
-    if (!hasEmail(emailValue)) {
-        // emailValid가 false일때 동작
-        emailInputElement.focus();
-        showErrorMessage(
-            emailInputElement,
-            emailErrorMessageContainer,
-            "이메일을 확인해 주세요."
-        );
-        return;
-    }
-
     try {
         const response = await axios.post(
             "https://bootcamp-api.codeit.kr/api/sign-in",
@@ -98,6 +86,7 @@ const handleSubmit = async (e) => {
         }
     } catch (error) {
         if (error.response.status === 400) {
+            emailInputElement.focus();
             alert("이메일 혹은 비밀번호를 확인해 주세요.");
         }
     }
