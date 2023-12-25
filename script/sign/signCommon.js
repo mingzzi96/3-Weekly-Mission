@@ -1,3 +1,4 @@
+import { EMAIL_REGEX, PASSWORD_REGEX } from "../constants";
 function passwordTypeControl(e) {
     if (e.target.classList.contains("eye")) {
         // 클릭된 target이 eye 라는 클래스를 가지고 있을때만 실행
@@ -38,13 +39,10 @@ function checkPasswordConfirmLength(targetValue) {
 
 // email/password 정규식 확인
 function checkEmailRegex(targetValue) {
-    const EMAIL_REGEX =
-        /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     return EMAIL_REGEX.test(targetValue);
 }
 
 function checkPasswordRegex(targetValue) {
-    const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
     return PASSWORD_REGEX.test(targetValue);
 }
 
