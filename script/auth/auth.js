@@ -1,9 +1,9 @@
-import { checkAccessTokenExist } from "./authCommon.js";
+import { isAccessTokenStored } from "./authCommon.js";
 
 const loginButton = document.querySelector("header .gradient_btn");
 
 const handleLoginButtonClick = () => {
-    checkAccessTokenExist()
+    isAccessTokenStored()
         ? (window.location.href = "/folder.html")
         : (window.location.href = "/signin.html");
 };
