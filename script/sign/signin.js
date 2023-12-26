@@ -7,6 +7,7 @@ import {
     isPasswordLengthExist,
 } from "./signCommon.js";
 import { API } from "../constants.js";
+import { setLocalStorage } from "../auth/authCommon.js";
 const formElement = document.querySelector("#form");
 const emailInputElement = document.querySelector("#email");
 const passwordInputElement = document.querySelector("#password");
@@ -79,10 +80,7 @@ const handleSubmit = async (e) => {
         );
         const result = response.data;
         if (result.data.accessToken) {
-            localStorage.setItem(
-                "accessToken",
-                JSON.stringify(result.data.accessToken)
-            );
+            setLocalStorage("accessToken", result.data.accessToken);
             window.location.href = "/folder.html";
         }
     } catch (error) {
