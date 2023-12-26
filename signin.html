@@ -7,6 +7,7 @@
         <title>로그인하기</title>
         <link rel="stylesheet" href="assets/css/reset.css" />
         <link rel="stylesheet" href="assets/css/sign.css" />
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </head>
     <body>
         <section class="sign_sec">
@@ -22,7 +23,7 @@
                 <p>회원이 아니신가요?</p>
                 <a href="signup.html">회원 가입하기</a>
             </div>
-            <form action="/folder.html" method="post" id="form">
+            <form id="form">
                 <label for="email">이메일</label>
                 <input
                     type="email"
@@ -70,6 +71,6 @@
                 </div>
             </div>
         </section>
-        <script src="/script/sign/signin.js" type="module"></script>
+        <script src="/script/sign/signIn.js" type="module"></script>
     </body>
 </html>

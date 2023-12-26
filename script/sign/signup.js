@@ -2,14 +2,16 @@ import {
     passwordTypeControl,
     showErrorMessage,
     hideErrorMessage,
-    checkEmailRegex,
-    checkPasswordRegex,
-    checkEmailLength,
-    checkPasswordLength,
-    checkPasswordConfirmLength,
-    checkEmailExist,
-    checkPasswordMatch,
+    validateEmailRegex,
+    validatePasswordRegex,
+    isEmailLengthExist,
+    isPasswordLengthExist,
+    isPasswordConfirmLengthExist,
+    hasEmail,
+    validatePasswordMatch,
 } from "./signCommon.js";
+import { API } from "../constants.js";
+import { setLocalStorage } from "../auth/authCommon.js";
 const formElement = document.querySelector("#form");
 const emailInputElement = document.querySelector("#email");
 const passwordInputElement = document.querySelector("#password");
@@ -24,17 +26,18 @@ const handleInputTypeClick = (e) => {
     passwordTypeControl(e);
 };
 
-const handleEmailFocusOut = (e) => {
+const handleEmailFocusOut = async (e) => {
     const emailValue = e.target.value;
 
     try {
-        if (!checkEmailLength(emailValue)) {
+        if (!isEmailLengthExist(emailValue)) {
             throw new Error("이메일을 입력해주세요.");
         }
-        if (!checkEmailRegex(emailValue)) {
+        if (!validateEmailRegex(emailValue)) {
             throw new Error("올바른 이메일 주소가 아닙니다.");
         }
-        if (checkEmailExist(emailValue)) {
+        const isEmailExist = await hasEmail(emailValue);
+        if (isEmailExist) {
             throw new Error("이미 사용중인 이메일 주소입니다.");
         }
         hideErrorMessage(emailInputElement, emailErrorMessageContainer);
@@ -51,10 +54,10 @@ const handlePasswordFocusOut = (e) => {
     const passwordValue = e.target.value;
 
     try {
-        if (!checkPasswordLength(passwordValue)) {
+        if (!isPasswordLengthExist(passwordValue)) {
             throw new Error("비밀번호를 입력해주세요.");
         }
-        if (!checkPasswordRegex(passwordValue)) {
+        if (!validatePasswordRegex(passwordValue)) {
             throw new Error(
                 "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
             );
@@ -73,12 +76,12 @@ const handlePasswordConfirmFocusOut = (e) => {
     const passwordConfirmValue = e.target.value;
 
     try {
-        if (!checkPasswordConfirmLength(passwordConfirmValue)) {
+        if (!isPasswordConfirmLengthExist(passwordConfirmValue)) {
             throw new Error("비밀번호를 입력해주세요.");
         }
 
         if (
-            !checkPasswordMatch(
+            !validatePasswordMatch(
                 passwordInputElement.value,
                 passwordConfirmValue
             )
@@ -98,7 +101,7 @@ const handlePasswordConfirmFocusOut = (e) => {
     }
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     // submit 버튼 기능 구현
     const emailValue = emailInputElement.value;
     const passwordValue = passwordInputElement.value;
@@ -106,10 +109,11 @@ const handleSubmit = (e) => {
 
     e.preventDefault();
 
+    const isEmailExist = await hasEmail(emailValue);
     if (
-        !checkEmailLength(emailValue) ||
-        !checkEmailRegex(emailValue) ||
-        checkEmailExist(emailValue)
+        !isEmailLengthExist(emailValue) ||
+        !validateEmailRegex(emailValue) ||
+        isEmailExist
     ) {
         // emailValid가 false일때 동작
         emailInputElement.focus();
@@ -122,8 +126,8 @@ const handleSubmit = (e) => {
     }
 
     if (
-        !checkPasswordLength(passwordValue) ||
-        !checkPasswordRegex(passwordValue)
+        !isPasswordLengthExist(passwordValue) ||
+        !validatePasswordRegex(passwordValue)
     ) {
         // passwordValid가 false일때 동작
         passwordInputElement.focus();
@@ -136,8 +140,8 @@ const handleSubmit = (e) => {
     }
 
     if (
-        !checkPasswordConfirmLength(passwordConfirmValue) ||
-        !checkPasswordMatch(passwordValue, passwordConfirmValue)
+        !isPasswordConfirmLengthExist(passwordConfirmValue) ||
+        !validatePasswordMatch(passwordValue, passwordConfirmValue)
     ) {
         // passwordConfirmValid가 false일때 동작
         passwordConfirmInputElement.focus();
@@ -148,15 +152,26 @@ const handleSubmit = (e) => {
         );
         return;
     }
-    hideErrorMessage(emailInputElement, emailErrorMessageContainer);
-    hideErrorMessage(passwordInputElement, passwordErrorMessageContainer);
-    hideErrorMessage(
-        passwordConfirmInputElement,
-        passwordConfirmErrorMessageContainer
-    );
 
-    // 문제 없다면 페이지 이동시킴
-    e.currentTarget.submit();
+    try {
+        const response = await axios.post(
+            API + "api/sign-up",
+            { email: emailValue, password: passwordValue },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        const result = response.data;
+        if (result.data.accessToken) {
+            setLocalStorage("accessToken", result.data.accessToken);
+            window.location.href = "/folder.html";
+        }
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 emailInputElement.addEventListener("focusout", handleEmailFocusOut);

@@ -1,3 +1,5 @@
+import { EMAIL_REGEX, PASSWORD_REGEX, API } from "../constants.js";
+
 function passwordTypeControl(e) {
     if (e.target.classList.contains("eye")) {
         // 클릭된 target이 eye 라는 클래스를 가지고 있을때만 실행
@@ -25,41 +27,49 @@ function hideErrorMessage(targetElement, errorContainer) {
     errorContainer.textContent = "";
 }
 
-// email/password/passwordConfirm 길이 확인
-function checkEmailLength(targetValue) {
+// email/password/passwordConfirm value 길이 확인
+function isEmailLengthExist(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
-function checkPasswordLength(targetValue) {
+function isPasswordLengthExist(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
-function checkPasswordConfirmLength(targetValue) {
+function isPasswordConfirmLengthExist(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
 
 // email/password 정규식 확인
-function checkEmailRegex(targetValue) {
-    const emailRegex =
-        /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    return emailRegex.test(targetValue);
+function validateEmailRegex(targetValue) {
+    return EMAIL_REGEX.test(targetValue);
 }
 
-function checkPasswordRegex(targetValue) {
-    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-    return passwordRegex.test(targetValue);
+function validatePasswordRegex(targetValue) {
+    return PASSWORD_REGEX.test(targetValue);
 }
 
-// email "test@codeit.com" 존재하는지 체크
-function checkEmailExist(targetValue) {
-    return targetValue === "test@codeit.com" ? true : false;
-}
-
-// password "codeit101" 존재하는지 체크
-function checkPasswordExist(targetValue) {
-    return targetValue === "codeit101" ? true : false;
+// email 중복 확인
+async function hasEmail(targetValue) {
+    try {
+        const response = await axios.post(
+            API + "api/check-email",
+            { email: targetValue },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+        return false;
+    } catch (error) {
+        const errorResult = error.response;
+        if (errorResult.status === 409) {
+            return true;
+        }
+    }
 }
 
 // passwordConfirm이 password의 value와 같은지 확인하기
-function checkPasswordMatch(passwordValue, passwordConfirmValue) {
+function validatePasswordMatch(passwordValue, passwordConfirmValue) {
     return passwordValue === passwordConfirmValue ? true : false;
 }
 
@@ -67,12 +77,11 @@ export {
     passwordTypeControl,
     showErrorMessage,
     hideErrorMessage,
-    checkEmailRegex,
-    checkPasswordRegex,
-    checkEmailLength,
-    checkPasswordLength,
-    checkPasswordConfirmLength,
-    checkEmailExist,
-    checkPasswordExist,
-    checkPasswordMatch,
+    validateEmailRegex,
+    validatePasswordRegex,
+    isEmailLengthExist,
+    isPasswordLengthExist,
+    isPasswordConfirmLengthExist,
+    hasEmail,
+    validatePasswordMatch,
 };
