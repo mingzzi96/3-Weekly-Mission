@@ -1,10 +1,10 @@
 import {
     passwordTypeControl,
-    isEmailLengthExist,
+    checkEmailLength,
     validateEmailRegex,
     hideErrorMessage,
     showErrorMessage,
-    isPasswordLengthExist,
+    checkPasswordLength,
 } from "./signCommon.js";
 import { API } from "../constants.js";
 import { setLocalStorage } from "../auth/authCommon.js";
@@ -24,7 +24,7 @@ const handleEmailFocusOut = (e) => {
     const emailValue = e.target.value;
 
     try {
-        if (!isEmailLengthExist(emailValue)) {
+        if (!checkEmailLength(emailValue)) {
             // email 입력이 되어있지 않은 경우 에러 표시
             throw new Error("이메일을 입력해주세요.");
         }
@@ -47,7 +47,7 @@ const handlePasswordFocusOut = (e) => {
     // 비밀번호 focus out 기능 구현
     const passwordValue = e.target.value;
     try {
-        if (!isPasswordLengthExist(passwordValue)) {
+        if (!checkPasswordLength(passwordValue)) {
             // 비밀번호 값이 없을 경우 에러 표시
             throw new Error("비밀번호를 입력해주세요.");
         }
