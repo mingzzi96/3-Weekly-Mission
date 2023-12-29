@@ -28,13 +28,13 @@ function hideErrorMessage(targetElement, errorContainer) {
 }
 
 // email/password/passwordConfirm value 길이 확인
-function isEmailLengthExist(targetValue) {
+function checkEmailLength(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
-function isPasswordLengthExist(targetValue) {
+function checkPasswordLength(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
-function isPasswordConfirmLengthExist(targetValue) {
+function checkPasswordConfirmLength(targetValue) {
     return targetValue.length <= 0 ? false : true;
 }
 
@@ -79,9 +79,9 @@ export {
     hideErrorMessage,
     validateEmailRegex,
     validatePasswordRegex,
-    isEmailLengthExist,
-    isPasswordLengthExist,
-    isPasswordConfirmLengthExist,
+    checkEmailLength,
+    checkPasswordLength,
+    checkPasswordConfirmLength,
     hasEmail,
     validatePasswordMatch,
 };

@@ -4,9 +4,9 @@ import {
     hideErrorMessage,
     validateEmailRegex,
     validatePasswordRegex,
-    isEmailLengthExist,
-    isPasswordLengthExist,
-    isPasswordConfirmLengthExist,
+    checkEmailLength,
+    checkPasswordLength,
+    checkPasswordConfirmLength,
     hasEmail,
     validatePasswordMatch,
 } from "./signCommon.js";
@@ -30,7 +30,7 @@ const handleEmailFocusOut = async (e) => {
     const emailValue = e.target.value;
 
     try {
-        if (!isEmailLengthExist(emailValue)) {
+        if (!checkEmailLength(emailValue)) {
             throw new Error("이메일을 입력해주세요.");
         }
         if (!validateEmailRegex(emailValue)) {
@@ -54,7 +54,7 @@ const handlePasswordFocusOut = (e) => {
     const passwordValue = e.target.value;
 
     try {
-        if (!isPasswordLengthExist(passwordValue)) {
+        if (!checkPasswordLength(passwordValue)) {
             throw new Error("비밀번호를 입력해주세요.");
         }
         if (!validatePasswordRegex(passwordValue)) {
@@ -76,7 +76,7 @@ const handlePasswordConfirmFocusOut = (e) => {
     const passwordConfirmValue = e.target.value;
 
     try {
-        if (!isPasswordConfirmLengthExist(passwordConfirmValue)) {
+        if (!checkPasswordConfirmLength(passwordConfirmValue)) {
             throw new Error("비밀번호를 입력해주세요.");
         }
 
@@ -111,7 +111,7 @@ const handleSubmit = async (e) => {
 
     const isEmailExist = await hasEmail(emailValue);
     if (
-        !isEmailLengthExist(emailValue) ||
+        !checkEmailLength(emailValue) ||
         !validateEmailRegex(emailValue) ||
         isEmailExist
     ) {
@@ -126,7 +126,7 @@ const handleSubmit = async (e) => {
     }
 
     if (
-        !isPasswordLengthExist(passwordValue) ||
+        !checkPasswordLength(passwordValue) ||
         !validatePasswordRegex(passwordValue)
     ) {
         // passwordValid가 false일때 동작
@@ -140,7 +140,7 @@ const handleSubmit = async (e) => {
     }
 
     if (
-        !isPasswordConfirmLengthExist(passwordConfirmValue) ||
+        !checkPasswordConfirmLength(passwordConfirmValue) ||
         !validatePasswordMatch(passwordValue, passwordConfirmValue)
     ) {
         // passwordConfirmValid가 false일때 동작
