@@ -16,3 +16,35 @@
   text-align: center;
   color: var(--color--gray-100);
 }
+
+/* button */
+.gradient_btn {
+  background: var(--button-gradation);
+  border-radius: 8px;
+  line-height: 1;
+  height: 54px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  font-size: 1.8rem;
+}
+.gradient_btn.w_s {
+  min-width: 128px;
+}
+.gradient_btn.w_l {
+  max-width: 350px;
+  width: 100%;
+}
+.gradient_btn.w_xl {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* max width */
+.ListMaxWidth {
+  max-width: 1060px;
+  width: 100%;
+  margin: 0 auto;
+}

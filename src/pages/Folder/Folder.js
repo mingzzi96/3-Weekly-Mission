@@ -44,15 +44,17 @@ const Folder = () => {
         <p>@{ownerItem.name}</p>
         <h2>{folderName}</h2>
       </div>
-      <div className="SearchBarArea" style={{ margin: `40px 0` }}>
-        <SearchBar />
-      </div>
-      <div className="FolderCardList">
-        {linkItems.length > 0 ? (
-          <CardList items={linkItems} />
-        ) : (
-          <div className="no_data">{NO_LINK_FOUND}</div>
-        )}
+      <div className="ListMaxWidth">
+        <div className="SearchBarArea" style={{ margin: `40px 0` }}>
+          <SearchBar />
+        </div>
+        <div className="FolderCardList">
+          {linkItems.length > 0 ? (
+            <CardList items={linkItems} />
+          ) : (
+            <div className="no_data">{NO_LINK_FOUND}</div>
+          )}
+        </div>
       </div>
     </>
   );
