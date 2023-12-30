@@ -1,25 +1,18 @@
 import { useEffect, useState } from "react";
 import "./Header.css";
 import { ProfileImageEmailInfo } from "../UserInfo/UserInfo";
+import { getUserData } from "../../api/api";
 
 const Header = () => {
   const [user, setUser] = useState([]);
   useEffect(() => {
-    const fetchFolderData = async () => {
-      try {
-        const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/user"
-        );
-        const result = await response.json();
-        setUser(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+    const setUserData = async () => {
+      const userData = await getUserData();
+      setUser(userData);
     };
 
-    fetchFolderData();
+    setUserData();
   }, []);
-
   return (
     <header className="Header">
       <nav className="Nav">

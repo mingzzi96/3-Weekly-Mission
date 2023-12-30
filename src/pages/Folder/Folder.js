@@ -4,6 +4,7 @@ import ProfileImage from "../../components/ProfileImage/ProfileImage";
 import "./Folder.css";
 import { SearchBar } from "../../components/Input/SearchBarStyle";
 import { NO_LINK_FOUND } from "../../constans";
+import { getFolderData } from "../../api/api";
 
 const Folder = () => {
   const [folderName, setFolderName] = useState("");
@@ -11,21 +12,14 @@ const Folder = () => {
   const [linkItems, setLinkItems] = useState([]);
 
   useEffect(() => {
-    const fetchFolderData = async () => {
-      try {
-        const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/folder"
-        );
-        const result = await response.json();
-        setFolderName(result.folder.name);
-        setOwnerItem(result.folder.owner);
-        setLinkItems(result.folder.links);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+    const setFolderData = async () => {
+      const folderData = await getFolderData();
+      setFolderName(folderData.folder.name);
+      setOwnerItem(folderData.folder.owner);
+      setLinkItems(folderData.folder.links);
     };
 
-    fetchFolderData();
+    setFolderData();
   }, []);
 
   return (
