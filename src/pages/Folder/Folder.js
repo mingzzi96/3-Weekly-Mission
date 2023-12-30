@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CardList from "../../components/CardList/CardList";
-import ProfileImage from "../../components/ProfileImage";
+import ProfileImage from "../../components/ProfileImage/ProfileImage";
 import "./Folder.css";
 import { SearchBar } from "../../components/Input/SearchBarStyle";
 
@@ -19,6 +19,7 @@ const Folder = () => {
         setFolderName(result.folder.name);
         setOwnerItem(result.folder.owner);
         setLinkItems(result.folder.links);
+        console.log(linkItems);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
