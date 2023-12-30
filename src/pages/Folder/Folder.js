@@ -3,29 +3,30 @@ import CardList from "../../components/CardList/CardList";
 import ProfileImage from "../../components/ProfileImage/ProfileImage";
 import "./Folder.css";
 import { SearchBar } from "../../components/Input/SearchBarStyle";
+import { NO_LINK_FOUND } from "../../constans";
 
 const Folder = () => {
   const [folderName, setFolderName] = useState("");
   const [ownerItem, setOwnerItem] = useState([]);
   const [linkItems, setLinkItems] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/folder"
-        );
-        const result = await response.json();
-        setFolderName(result.folder.name);
-        setOwnerItem(result.folder.owner);
-        setLinkItems(result.folder.links);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "https://bootcamp-api.codeit.kr/api/sample/folder"
+  //       );
+  //       const result = await response.json();
+  //       setFolderName(result.folder.name);
+  //       setOwnerItem(result.folder.owner);
+  //       setLinkItems(result.folder.links);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   return (
     <>
@@ -47,7 +48,11 @@ const Folder = () => {
         <SearchBar />
       </div>
       <div className="FolderCardList">
-        <CardList items={linkItems} />
+        {linkItems.length > 0 ? (
+          <CardList items={linkItems} />
+        ) : (
+          <div className="no_data">{NO_LINK_FOUND}</div>
+        )}
       </div>
     </>
   );

@@ -11,3 +11,8 @@
 
   --button-gradation: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
+
+.no_data {
+  text-align: center;
+  color: var(--color--gray-100);
+}
