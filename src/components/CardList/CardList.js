@@ -31,7 +31,6 @@ const CardList = ({ items }) => {
   return (
     <ul className="CardList">
       {items.map((item) => {
-        console.log(item.imageSource);
         return (
           <li key={item.id} className="CardListItem">
             <a href={item.url}>

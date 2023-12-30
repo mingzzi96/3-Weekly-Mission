@@ -19,7 +19,6 @@ const Folder = () => {
         setFolderName(result.folder.name);
         setOwnerItem(result.folder.owner);
         setLinkItems(result.folder.links);
-        console.log(linkItems);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
