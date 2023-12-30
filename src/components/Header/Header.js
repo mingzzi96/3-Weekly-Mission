@@ -40,13 +40,9 @@ const Header = () => {
             email={user.email}
           />
         ) : (
-          <a
-            href="javascript:void(0)"
-            className="gradient_btn w_s"
-            style={{ fontWeight: 600 }}
-          >
+          <button className="gradient_btn" style={{ fontWeight: 600 }}>
             로그인
-          </a>
+          </button>
         )}
       </nav>
     </header>

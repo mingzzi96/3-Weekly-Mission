@@ -21,3 +21,7 @@
   width: 133px;
   height: 24px;
 }
+
+.Header .gradient_btn {
+  max-width: 128px;
+}
