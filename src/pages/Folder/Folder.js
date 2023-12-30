@@ -10,23 +10,23 @@ const Folder = () => {
   const [ownerItem, setOwnerItem] = useState([]);
   const [linkItems, setLinkItems] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         "https://bootcamp-api.codeit.kr/api/sample/folder"
-  //       );
-  //       const result = await response.json();
-  //       setFolderName(result.folder.name);
-  //       setOwnerItem(result.folder.owner);
-  //       setLinkItems(result.folder.links);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://bootcamp-api.codeit.kr/api/sample/folder"
+        );
+        const result = await response.json();
+        setFolderName(result.folder.name);
+        setOwnerItem(result.folder.owner);
+        setLinkItems(result.folder.links);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <>
