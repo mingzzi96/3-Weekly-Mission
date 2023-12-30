@@ -11,14 +11,14 @@ const Folder = () => {
   const [ownerItem, setOwnerItem] = useState([]);
   const [linkItems, setLinkItems] = useState([]);
 
-  useEffect(() => {
-    const setFolderData = async () => {
-      const folderData = await getFolderData();
-      setFolderName(folderData.folder.name);
-      setOwnerItem(folderData.folder.owner);
-      setLinkItems(folderData.folder.links);
-    };
+  const setFolderData = async () => {
+    const folderData = await getFolderData();
+    setFolderName(folderData.folder.name);
+    setOwnerItem(folderData.folder.owner);
+    setLinkItems(folderData.folder.links);
+  };
 
+  useEffect(() => {
     setFolderData();
   }, []);
 

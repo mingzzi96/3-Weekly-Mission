@@ -5,14 +5,16 @@ import { getUserData } from "../../api/api";
 
 const Header = () => {
   const [user, setUser] = useState([]);
-  useEffect(() => {
-    const setUserData = async () => {
-      const userData = await getUserData();
-      setUser(userData);
-    };
 
+  const setUserData = async () => {
+    const userData = await getUserData();
+    setUser(userData);
+  };
+
+  useEffect(() => {
     setUserData();
   }, []);
+
   return (
     <header className="Header">
       <nav className="Nav">
