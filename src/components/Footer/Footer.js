@@ -1,10 +1,12 @@
+import "./Footer.css";
+
 const Footer = () => {
   return (
-    <footer>
-      <div className="footer_ttl">
+    <footer className="Footer">
+      <div className="Footer_ttl">
         <span>©codeit - 2023</span>
       </div>
-      <div className="footer_link">
+      <div className="Footer_link">
         <a href="./privacy.html" target="_blank">
           Privacy Policy
         </a>
@@ -12,7 +14,7 @@ const Footer = () => {
           FAQ
         </a>
       </div>
-      <div className="footer_sns">
+      <div className="Footer_sns">
         <a href="https://www.facebook.com/" target="_blank">
           <img src="./assets/images/facebook.png" alt="facebook" />
         </a>
