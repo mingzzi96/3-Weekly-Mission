@@ -1,4 +1,4 @@
-import { formatDate } from "../../util";
+import { formatDate, timeStamp } from "../../util";
 import "./CardList.css";
 
 const CardThumbnail = ({ item }) => {
@@ -19,7 +19,7 @@ const CardThumbnail = ({ item }) => {
 const CardTextBox = ({ item }) => {
   return (
     <div className="CardTextBox">
-      <span className="timestamp">{item.createdAt}</span>
+      <span className="timestamp">{timeStamp(item.createdAt)}</span>
       {/* <h3 className="title">{item.title}</h3> */}
       <p className="description">{item.description}</p>
       <p className="date">{formatDate(item.createdAt)}</p>
