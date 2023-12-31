@@ -71,3 +71,20 @@
   color: #333333;
   font-size: 14px;
 }
+
+/* tablet */
+@media (max-width: 1124px) {
+  .ListMaxWidth {
+    padding: 0 32px;
+  }
+  .CardListItem {
+    width: calc(100% / 2 - 15px);
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .CardListItem {
+    width: calc(100%);
+  }
+}
