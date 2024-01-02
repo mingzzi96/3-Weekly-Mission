@@ -1,0 +1,27 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999999;
+  background: #f0f6ff;
+}
+
+.Nav {
+  max-width: 1520px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Nav h1 {
+  width: 133px;
+  height: 24px;
+}
+
+.Header .gradient_btn {
+  max-width: 128px;
+}

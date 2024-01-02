@@ -1,0 +1,50 @@
+:root {
+  --color--primary: #6d6afe;
+  --color--red: #ff5b56;
+  --color--black: #111322;
+  --color--white: #ffffff;
+  --color--gray-100: #3e3e43;
+  --color--gray-60: #9fa6b2;
+  --color--gray-20: #ccd5e3;
+  --color--gray-10: #e7effb;
+  --color--gray-bg: #f0f6ff;
+
+  --button-gradation: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+}
+
+.no_data {
+  text-align: center;
+  color: var(--color--gray-100);
+}
+
+/* button */
+.gradient_btn {
+  background: var(--button-gradation);
+  border-radius: 8px;
+  line-height: 1;
+  height: 54px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  font-size: 1.8rem;
+}
+.gradient_btn.w_s {
+  min-width: 128px;
+}
+.gradient_btn.w_l {
+  max-width: 350px;
+  width: 100%;
+}
+.gradient_btn.w_xl {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* max width */
+.ListMaxWidth {
+  max-width: 1060px;
+  width: 100%;
+  margin: 0 auto;
+}

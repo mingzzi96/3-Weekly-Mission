@@ -1,0 +1,37 @@
+.Footer {
+  position: relative;
+  padding: 32px 104px 108px;
+  background: #111322;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Footer .Footer_sns {
+  display: flex;
+  align-items: center;
+  gap: 0 12px;
+}
+
+.Footer .Footer_sns img {
+  width: 20px;
+}
+
+.Footer .Footer_ttl span {
+  color: #676767;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.Footer .Footer_link {
+  display: flex;
+  align-items: center;
+  gap: 0 30px;
+}
+
+.Footer .Footer_link a {
+  color: #cfcfcf;
+  font-size: 1.6rem;
+  font-weight: 400;
+}

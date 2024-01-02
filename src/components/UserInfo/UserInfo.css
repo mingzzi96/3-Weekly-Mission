@@ -1,0 +1,10 @@
+.ProfileImageEmailInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ProfileImageEmailInfo p {
+  font-size: 14px;
+  color: #373740;
+}

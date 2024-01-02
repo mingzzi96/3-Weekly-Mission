@@ -1,0 +1,11 @@
+.ProfileImage {
+  overflow: hidden;
+}
+
+.ProfileImage.rounded {
+  border-radius: 50px;
+}
+
+.ProfileImage img {
+  object-fit: cover;
+}
