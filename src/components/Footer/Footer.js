@@ -18,9 +18,9 @@ const Footer = () => {
         </a>
       </div>
       <div className="Footer-sns">
-        {footerSns.map((item) => {
+        {footerSns.map((item, index) => {
           return (
-            <Link to={`https://www.${item}.com`} target="_blank">
+            <Link to={`https://www.${item}.com`} target="_blank" key={index}>
               <img src={`./assets/images/${item}.png`} alt={item} />
             </Link>
           );
