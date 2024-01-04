@@ -20,7 +20,6 @@ const CardTextBox = ({ item }) => {
   return (
     <div className="CardTextBox">
       <span className="timestamp">{timeStamp(item.createdAt)}</span>
-      {/* <h3 className="title">{item.title}</h3> */}
       <p className="description">{item.description}</p>
       <p className="date">{formatDate(item.createdAt)}</p>
     </div>
