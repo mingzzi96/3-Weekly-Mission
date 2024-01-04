@@ -15,7 +15,6 @@ const Header = () => {
     setUserData();
   }, []);
 
-  console.log(user);
   return (
     <header className="Header">
       <nav className="Nav">
