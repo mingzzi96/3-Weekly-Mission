@@ -74,7 +74,7 @@
 
 /* tablet */
 @media (max-width: 1124px) {
-  .ListMaxWidth {
+  .List-MaxWidth {
     padding: 0 32px;
   }
   .CardListItem {

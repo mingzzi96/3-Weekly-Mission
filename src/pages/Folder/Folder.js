@@ -38,7 +38,7 @@ const Folder = () => {
         <p>@{ownerItem.name}</p>
         <h2>{folderName}</h2>
       </div>
-      <div className="ListMaxWidth" style={{ paddingBottom: `100px` }}>
+      <div className="List-MaxWidth" style={{ paddingBottom: `100px` }}>
         <div className="SearchBarArea" style={{ margin: `40px 0` }}>
           <SearchBar />
         </div>

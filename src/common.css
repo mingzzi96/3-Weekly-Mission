@@ -18,7 +18,7 @@
 }
 
 /* button */
-.gradient_btn {
+.Gradient-btn {
   background: var(--button-gradation);
   border-radius: 8px;
   line-height: 1;
@@ -30,20 +30,20 @@
   padding: 0 20px;
   font-size: 1.8rem;
 }
-.gradient_btn.w_s {
+.Gradient-btn.width-small {
   min-width: 128px;
 }
-.gradient_btn.w_l {
+.Gradient-btn.width-large {
   max-width: 350px;
   width: 100%;
 }
-.gradient_btn.w_xl {
+.Gradient-btn.width-xlarge {
   max-width: 400px;
   width: 100%;
 }
 
 /* max width */
-.ListMaxWidth {
+.List-MaxWidth {
   max-width: 1060px;
   width: 100%;
   margin: 0 auto;

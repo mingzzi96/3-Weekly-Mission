@@ -35,7 +35,7 @@ const Header = () => {
             email={user.email}
           />
         ) : (
-          <button className="gradient_btn" style={{ fontWeight: 600 }}>
+          <button className="Gradient-btn" style={{ fontWeight: 600 }}>
             로그인
           </button>
         )}
