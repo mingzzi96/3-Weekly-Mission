@@ -1,24 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
-const footerSns = [
-  {
-    link: "https://www.facebook.com/",
-    name: "facebook",
-  },
-  {
-    link: "https://www.twitter.com/",
-    name: "twitter",
-  },
-  {
-    link: "https://www.youtube.com/",
-    name: "youtube",
-  },
-  {
-    link: "https://www.instagram.com/",
-    name: "instagram",
-  },
-];
+const footerSns = ["facebook", "twitter", "youtube", "instagram"];
 
 const Footer = () => {
   return (
@@ -37,8 +20,8 @@ const Footer = () => {
       <div className="Footer-sns">
         {footerSns.map((item) => {
           return (
-            <Link to={item.link} target="_blank">
-              <img src={`./assets/images/${item.name}.png`} alt={item.name} />
+            <Link to={`https://www.${item}.com`} target="_blank">
+              <img src={`./assets/images/${item}.png`} alt={item} />
             </Link>
           );
         })}
