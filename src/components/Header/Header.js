@@ -4,7 +4,7 @@ import { ProfileImageEmailInfo } from "../UserInfo/UserInfo";
 import { getUserData } from "../../api/api";
 
 const Header = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
 
   const setUserData = async () => {
     const userData = await getUserData();
@@ -15,6 +15,7 @@ const Header = () => {
     setUserData();
   }, []);
 
+  console.log(user);
   return (
     <header className="Header">
       <nav className="Nav">
