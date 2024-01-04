@@ -1,6 +1,6 @@
 import "./ProfileImage.css";
 
-function ProfileImage({ url, alt, size, rounded = false }) {
+const ProfileImage = ({ url, alt, size, rounded = false }) => {
   return (
     <div
       className={rounded ? "ProfileImage rounded" : "ProfileImage"}
@@ -9,6 +9,6 @@ function ProfileImage({ url, alt, size, rounded = false }) {
       <img src={url} alt={alt} />
     </div>
   );
-}
+};
 
 export default ProfileImage;
