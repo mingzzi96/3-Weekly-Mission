@@ -1,4 +1,24 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
+
+const footerSns = [
+  {
+    link: "https://www.facebook.com/",
+    name: "facebook",
+  },
+  {
+    link: "https://www.twitter.com/",
+    name: "twitter",
+  },
+  {
+    link: "https://www.youtube.com/",
+    name: "youtube",
+  },
+  {
+    link: "https://www.instagram.com/",
+    name: "instagram",
+  },
+];
 
 const Footer = () => {
   return (
@@ -15,18 +35,13 @@ const Footer = () => {
         </a>
       </div>
       <div className="Footer-sns">
-        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-          <img src="./assets/images/facebook.png" alt="facebook" />
-        </a>
-        <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-          <img src="./assets/images/twitter.png" alt="twitter" />
-        </a>
-        <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-          <img src="./assets/images/youtube.png" alt="youtube" />
-        </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-          <img src="./assets/images/instagram.png" alt="instagram" />
-        </a>
+        {footerSns.map((item) => {
+          return (
+            <Link to={item.link} target="_blank">
+              <img src={`./assets/images/${item.name}.png`} alt={item.name} />
+            </Link>
+          );
+        })}
       </div>
     </footer>
   );
