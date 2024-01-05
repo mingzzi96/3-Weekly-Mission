@@ -10,12 +10,12 @@ const Footer = () => {
         <span>©codeit - 2023</span>
       </div>
       <div className="Footer-link">
-        <a href="./privacy.html" target="_blank">
+        <Link to="./privacy.html" target="_blank">
           Privacy Policy
-        </a>
-        <a href="./faq.html" target="_blank">
+        </Link>
+        <Link to="./faq.html" target="_blank">
           FAQ
-        </a>
+        </Link>
       </div>
       <div className="Footer-sns">
         {footerSns.map((item, index) => {

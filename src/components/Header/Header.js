@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Header.css";
 import { ProfileImageEmailInfo } from "../UserInfo/UserInfo";
 import { getUserData } from "../../api/api";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [user, setUser] = useState({});
@@ -19,12 +20,12 @@ const Header = () => {
     <header className="Header">
       <nav className="Nav">
         <h1>
-          <a href="/">
+          <Link to="/">
             <img
               src="/assets/images/logo.svg"
               alt="홈으로 연결된 Linkbrary 로고"
             />
-          </a>
+          </Link>
         </h1>
         {user.email ? (
           <ProfileImageEmailInfo
