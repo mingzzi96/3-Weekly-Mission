@@ -1,5 +1,11 @@
+import FolderAddLinkArea from "@components/FolderAddLinkArea/FolderAddLinkArea";
+
 const Folder = () => {
-  return <p>폴더입니다잉</p>;
+  return (
+    <>
+      <FolderAddLinkArea />
+    </>
+  );
 };
 
 export default Folder;

@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import CardList from "@components/CardList/CardList";
-import ProfileImage from "@components/ProfileImage/ProfileImage";
 import { SearchBar } from "@components/SearchBar";
 import { NO_LINK_FOUND } from "@/constants";
 import { getFolderData } from "@/api/api";
-import PageTitleArea from "@components/PageTitleArea/PageTitleArea";
+import FolderTitleArea from "@components/FolderTitleArea/FolderTitleArea";
 
 const Main = () => {
   const [folderInformation, setFolderInformation] = useState({
@@ -35,7 +34,7 @@ const Main = () => {
   return (
     <>
       <div className="FolderHeader">
-        <PageTitleArea
+        <FolderTitleArea
           imageSource={folderInformation.ownerItem.profileImageSource}
           ownerName={folderInformation.ownerItem.name}
           folderName={folderInformation.folderName}

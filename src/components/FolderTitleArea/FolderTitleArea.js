@@ -1,9 +1,9 @@
 import ProfileImage from "../ProfileImage/ProfileImage";
-import "./PageTitleArea.css";
+import "./FolderTitleArea.css";
 
-const PageTitleArea = ({ imageSource, ownerName, folderName }) => {
+const FolderTitleArea = ({ imageSource, ownerName, folderName }) => {
   return (
-    <div className="PageTitleArea">
+    <div className="FolderTitleArea PageTitleArea">
       <ProfileImage
         url={imageSource ? imageSource : "/assets/images/no_image.svg"}
         alt={`${ownerName}님의 프로필 이미지`}
@@ -16,4 +16,4 @@ const PageTitleArea = ({ imageSource, ownerName, folderName }) => {
   );
 };
 
-export default PageTitleArea;
+export default FolderTitleArea;

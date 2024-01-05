@@ -6,21 +6,7 @@
   border-radius: 10px;
 }
 
-.SearchBar .IconArea {
-  margin-right: 10px;
-}
-
 .SearchBar input {
   font-size: 16px;
   font-weight: 400;
-}
-
-.AddLinkBar {
-  display: flex;
-  align-items: center;
-  padding: 24px 20px;
-}
-
-.AddLinkBar .IconArea {
-  margin-right: 12px;
 }

@@ -22,7 +22,7 @@
   background: var(--button-gradation);
   border-radius: 8px;
   line-height: 1;
-  height: 54px;
+  /* height: 54px; 로그인 버튼 깨지는거 확인 필요! */
   color: #fff;
   display: flex;
   align-items: center;
@@ -30,21 +30,18 @@
   padding: 0 20px;
   font-size: 1.8rem;
 }
-.Gradient-btn.width-small {
-  min-width: 128px;
-}
-.Gradient-btn.width-large {
-  max-width: 350px;
-  width: 100%;
-}
-.Gradient-btn.width-xlarge {
-  max-width: 400px;
-  width: 100%;
-}
 
 /* max width */
 .List-MaxWidth {
   max-width: 1060px;
   width: 100%;
   margin: 0 auto;
+}
+
+/* page title area */
+.PageTitleArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color--gray-bg);
 }

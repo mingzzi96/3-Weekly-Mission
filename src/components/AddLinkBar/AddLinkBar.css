@@ -1,0 +1,22 @@
+.AddLinkBar {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 15px;
+  border: 1px solid var(--color--primary);
+  background: var(--color--white);
+  padding: 16px 20px;
+}
+
+.AddLinkBar input {
+  width: 100%;
+  height: 24px;
+  font-size: 16px;
+}
+
+.AddLinkBar input::placeholder {
+  color: var(--color--gray-60);
+}
