@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { formatDate, timeStamp } from "../../util";
 import "./CardList.css";
 
@@ -32,10 +33,10 @@ const CardList = ({ items }) => {
       {items.map((item) => {
         return (
           <li key={item.id} className="CardListItem">
-            <a href={item.url} target="_blank" rel="noreferrer">
+            <Link to={item.url} target="_blank">
               <CardThumbnail item={item} />
               <CardTextBox item={item} />
-            </a>
+            </Link>
           </li>
         );
       })}
