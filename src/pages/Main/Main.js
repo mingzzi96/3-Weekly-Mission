@@ -33,7 +33,7 @@ const Main = () => {
 
   return (
     <>
-      <div className="FolderHeader">
+      <div>
         <FolderTitleArea
           imageSource={folderInformation.ownerItem.profileImageSource}
           ownerName={folderInformation.ownerItem.name}
@@ -44,13 +44,13 @@ const Main = () => {
         <div className="SearchBarArea" style={{ margin: `40px 0` }}>
           <SearchBar />
         </div>
-        <div className="FolderCardList">
+        <div>
           {errorMessage ? (
-            <div className="no_data">{errorMessage}</div>
+            <div className="no-data">{errorMessage}</div>
           ) : folderInformation.linkItems.length > 0 ? (
             <CardList items={folderInformation.linkItems} />
           ) : (
-            <div className="no_data">{NO_LINK_FOUND}</div>
+            <div className="no-data">{NO_LINK_FOUND}</div>
           )}
         </div>
       </div>
