@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import CardList from "@components/CardList/CardList";
 import ProfileImage from "@components/ProfileImage/ProfileImage";
-import "./Folder.css";
+import "./Main.css";
 import { SearchBar } from "@components/Input/SearchBarStyle";
 import { NO_LINK_FOUND } from "@/constants";
 import { getFolderData } from "@/api/api";

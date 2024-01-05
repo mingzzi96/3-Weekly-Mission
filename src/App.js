@@ -1,13 +1,13 @@
 import Footer from "@components/Footer/Footer";
 import Header from "@components/Header/Header";
-import Folder from "@pages/Folder/Folder";
+import Main from "@pages/Main/Main";
 import "./reset.css";
 
 function App() {
   return (
     <>
       <Header />
-      <Folder />
+      <Main />
       <Footer />
     </>
   );
