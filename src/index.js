@@ -4,13 +4,22 @@ import "./index.css";
 import "./common.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Main from "@pages/Main/Main";
+import Folder from "@pages/Folder/Folder";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<Main />} />
+          <Route path="/folder">
+            <Route index element={<Folder />} />
+          </Route>
+        </Route>
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );

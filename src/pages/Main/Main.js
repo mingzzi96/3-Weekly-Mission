@@ -6,7 +6,7 @@ import { SearchBar } from "@components/Input/SearchBarStyle";
 import { NO_LINK_FOUND } from "@/constants";
 import { getFolderData } from "@/api/api";
 
-const Folder = () => {
+const Main = () => {
   const [folderInformation, setFolderInformation] = useState({
     folderName: "",
     ownerItem: [],
@@ -66,4 +66,4 @@ const Folder = () => {
   );
 };
 
-export default Folder;
+export default Main;
