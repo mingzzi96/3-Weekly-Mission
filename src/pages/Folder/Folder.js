@@ -12,6 +12,7 @@ const Folder = () => {
     ownerItem: [],
     linkItems: [],
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const setFolderData = useCallback(async () => {
     try {
@@ -23,7 +24,7 @@ const Folder = () => {
         linkItems: folderData.links,
       }));
     } catch (error) {
-      console.error(error);
+      setErrorMessage(error.message);
     }
   }, []);
 
@@ -52,7 +53,9 @@ const Folder = () => {
           <SearchBar />
         </div>
         <div className="FolderCardList">
-          {folderInformation.linkItems.length > 0 ? (
+          {errorMessage ? (
+            <div className="no_data">{errorMessage}</div>
+          ) : folderInformation.linkItems.length > 0 ? (
             <CardList items={folderInformation.linkItems} />
           ) : (
             <div className="no_data">{NO_LINK_FOUND}</div>
