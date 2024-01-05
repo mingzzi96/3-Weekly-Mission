@@ -13,9 +13,9 @@ const Folder = () => {
 
   const setFolderData = async () => {
     const folderData = await getFolderData();
-    setFolderName(folderData.folder.name);
-    setOwnerItem(folderData.folder.owner);
-    setLinkItems(folderData.folder.links);
+    setFolderName(folderData.name);
+    setOwnerItem(folderData.owner);
+    setLinkItems(folderData.links);
   };
 
   useEffect(() => {

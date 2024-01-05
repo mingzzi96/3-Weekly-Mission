@@ -16,7 +16,7 @@ const getFolderData = async () => {
       "https://bootcamp-api.codeit.kr/api/sample/folder"
     );
     const result = await response.json();
-    return result;
+    return result.folder;
   } catch (error) {
     return `Error fetching data: ${error}`;
   }
