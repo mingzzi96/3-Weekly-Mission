@@ -1,50 +1,59 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CardList from "../../components/CardList/CardList";
 import ProfileImage from "../../components/ProfileImage/ProfileImage";
 import "./Folder.css";
 import { SearchBar } from "../../components/Input/SearchBarStyle";
-import { NO_LINK_FOUND } from "../../constans";
+import { NO_LINK_FOUND } from "../../constants";
 import { getFolderData } from "../../api/api";
 
 const Folder = () => {
-  const [folderName, setFolderName] = useState("");
-  const [ownerItem, setOwnerItem] = useState([]);
-  const [linkItems, setLinkItems] = useState([]);
+  const [folderInformation, setFolderInformation] = useState({
+    folderName: "",
+    ownerItem: [],
+    linkItems: [],
+  });
 
-  const setFolderData = async () => {
-    const folderData = await getFolderData();
-    setFolderName(folderData.name);
-    setOwnerItem(folderData.owner);
-    setLinkItems(folderData.links);
-  };
+  const setFolderData = useCallback(async () => {
+    try {
+      const folderData = await getFolderData();
+      setFolderInformation((prevFolderInformation) => ({
+        ...prevFolderInformation,
+        folderName: folderData.name,
+        ownerItem: folderData.owner,
+        linkItems: folderData.links,
+      }));
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
 
   useEffect(() => {
     setFolderData();
-  }, []);
+  }, [setFolderData]);
 
   return (
     <>
       <div className="FolderHeader">
         <ProfileImage
           url={
-            ownerItem.profileImageSource
-              ? ownerItem.profileImageSource
+            folderInformation.ownerItem.profileImageSource
+              ? folderInformation.ownerItem.profileImageSource
               : "../assets/no_image.svg"
           }
-          alt={`${ownerItem.name}님의 프로필 이미지`}
+          alt={`${folderInformation.ownerItem.name}님의 프로필 이미지`}
           size={60}
           rounded={true}
         />
-        <p>@{ownerItem.name}</p>
-        <h2>{folderName}</h2>
+        <p>@{folderInformation.ownerItem.name}</p>
+        <h2>{folderInformation.folderName}</h2>
       </div>
       <div className="List-MaxWidth" style={{ paddingBottom: `100px` }}>
         <div className="SearchBarArea" style={{ margin: `40px 0` }}>
           <SearchBar />
         </div>
         <div className="FolderCardList">
-          {linkItems.length > 0 ? (
-            <CardList items={linkItems} />
+          {folderInformation.linkItems.length > 0 ? (
+            <CardList items={folderInformation.linkItems} />
           ) : (
             <div className="no_data">{NO_LINK_FOUND}</div>
           )}
