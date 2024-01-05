@@ -1,4 +1,4 @@
-import ProfileImage from "../ProfileImage/ProfileImage";
+import ProfileImage from "@components/ProfileImage/ProfileImage";
 import "./UserInfo.css";
 
 const ProfileImageEmailInfo = ({ url, alt, size, rounded, email }) => {

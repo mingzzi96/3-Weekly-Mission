@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { formatDate, timeStamp } from "../../util";
+import { formatDate, timeStamp } from "@/util";
 import "./CardList.css";
 
 const CardThumbnail = ({ item }) => {

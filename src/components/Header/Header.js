@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Header.css";
-import { ProfileImageEmailInfo } from "../UserInfo/UserInfo";
-import { getUserData } from "../../api/api";
+import { ProfileImageEmailInfo } from "@components/UserInfo/UserInfo";
+import { getUserData } from "@/api/api";
 import { Link } from "react-router-dom";
 
 const Header = () => {

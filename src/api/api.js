@@ -1,4 +1,4 @@
-import { FAIL_TO_LOAD_LIST } from "../constants";
+import { FAIL_TO_LOAD_LIST } from "@/constants";
 
 const getUserData = async () => {
   try {
