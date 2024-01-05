@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import CardList from "@components/CardList/CardList";
 import ProfileImage from "@components/ProfileImage/ProfileImage";
-import "./Main.css";
 import { SearchBar } from "@components/SearchBar";
 import { NO_LINK_FOUND } from "@/constants";
 import { getFolderData } from "@/api/api";
+import PageTitleArea from "@components/PageTitleArea/PageTitleArea";
 
 const Main = () => {
   const [folderInformation, setFolderInformation] = useState({
@@ -35,18 +35,11 @@ const Main = () => {
   return (
     <>
       <div className="FolderHeader">
-        <ProfileImage
-          url={
-            folderInformation.ownerItem.profileImageSource
-              ? folderInformation.ownerItem.profileImageSource
-              : "../assets/no_image.svg"
-          }
-          alt={`${folderInformation.ownerItem.name}님의 프로필 이미지`}
-          size={60}
-          rounded={true}
+        <PageTitleArea
+          imageSource={folderInformation.ownerItem.profileImageSource}
+          ownerName={folderInformation.ownerItem.name}
+          folderName={folderInformation.folderName}
         />
-        <p>@{folderInformation.ownerItem.name}</p>
-        <h2>{folderInformation.folderName}</h2>
       </div>
       <div className="List-MaxWidth" style={{ paddingBottom: `100px` }}>
         <div className="SearchBarArea" style={{ margin: `40px 0` }}>

@@ -1,18 +1,18 @@
-.FolderHeader {
+.PageTitleArea {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 0 60px;
+  padding: 113px 0 60px;
   background: var(--color--gray-bg);
 }
 
-.FolderHeader p {
+.PageTitleArea p {
   font-size: 16px;
   margin-top: 12px;
 }
 
-.FolderHeader h2 {
+.PageTitleArea h2 {
   margin-top: 20px;
   font-size: 40px;
   font-weight: 600;
