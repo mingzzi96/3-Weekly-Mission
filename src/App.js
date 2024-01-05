@@ -1,6 +1,6 @@
-import Footer from "@components/Footer/Footer";
-import Header from "@components/Header/Header";
-import Main from "@pages/Main/Main";
+import Footer from "@components/Footer";
+import Header from "@components/Header";
+import Main from "@pages/Main";
 import "./reset.css";
 
 function App() {
