@@ -5,14 +5,14 @@ import "./CardList.css";
 const CardThumbnail = ({ item }) => {
   return (
     <div className="CardThumbnail">
-      <img
-        src={
-          item.imageSource === undefined
-            ? "/assets/images/no_image.svg"
-            : item.imageSource
-        }
-        alt={item.title}
-      />
+      {item.imageSource === undefined ? (
+        <img
+          src="/assets/images/no_image.svg"
+          alt="미리보기 이미지가 없습니다."
+        />
+      ) : (
+        <img src={item.imageSource} alt="이미지 미리보기" />
+      )}
     </div>
   );
 };
