@@ -1,10 +1,9 @@
 import { FAIL_TO_LOAD_LIST } from "@/constants";
+import { API_BASE_URL } from "@/constants";
 
 const getUserData = async () => {
   try {
-    const response = await fetch(
-      "https://bootcamp-api.codeit.kr/api/sample/user"
-    );
+    const response = await fetch(`${API_BASE_URL}/sample/user`);
     const result = await response.json();
     return result;
   } catch (error) {
@@ -12,10 +11,8 @@ const getUserData = async () => {
   }
 };
 
-const getFolderData = async () => {
-  const response = await fetch(
-    "https://bootcamp-api.codeit.kr/api/sample/folder"
-  );
+const getSharedData = async () => {
+  const response = await fetch(`${API_BASE_URL}/sample/folder`);
   if (!response.ok) {
     throw new Error(FAIL_TO_LOAD_LIST);
   }
@@ -23,4 +20,25 @@ const getFolderData = async () => {
   return result.folder;
 };
 
-export { getUserData, getFolderData };
+const getFolderData = async () => {
+  const response = await fetch(`${API_BASE_URL}/users/1/links`);
+  if (!response.ok) {
+    throw new Error(FAIL_TO_LOAD_LIST);
+  }
+  const result = await response.json();
+
+  const transformData = result.data.map((item) => ({
+    id: item.id,
+    createdAt: item.created_at,
+    imageSource: item.image_source,
+    description: item.description,
+    url: item.url,
+    title: item.title,
+    folderId: item.folder_id,
+    updatedAt: item.updated_at,
+  }));
+
+  return transformData;
+};
+
+export { getUserData, getSharedData, getFolderData };

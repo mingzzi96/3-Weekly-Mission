@@ -2,11 +2,11 @@ import { useCallback, useEffect, useState } from "react";
 import CardList from "@components/CardList/CardList";
 import { SearchBar } from "@components/SearchBar";
 import { NO_LINK_FOUND } from "@/constants";
-import { getFolderData } from "@/api/api";
+import { getSharedData } from "@/api/api";
 import FolderTitleArea from "@components/FolderTitleArea/FolderTitleArea";
 import NoListError from "../../components/NoListError/NoListError";
 
-const Main = () => {
+const Shared = () => {
   const [folderInformation, setFolderInformation] = useState({
     folderName: "",
     ownerItem: [],
@@ -14,9 +14,9 @@ const Main = () => {
   });
   const [errorMessage, setErrorMessage] = useState("");
 
-  const setFolderData = useCallback(async () => {
+  const setSharedData = useCallback(async () => {
     try {
-      const folderData = await getFolderData();
+      const folderData = await getSharedData();
       setFolderInformation((prevFolderInformation) => ({
         ...prevFolderInformation,
         folderName: folderData.name,
@@ -29,8 +29,8 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    setFolderData();
-  }, [setFolderData]);
+    setSharedData();
+  }, [setSharedData]);
 
   return (
     <>
@@ -59,4 +59,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Shared;

@@ -5,7 +5,7 @@ import "./CardList.css";
 const CardThumbnail = ({ item }) => {
   return (
     <div className="card-thumbnail">
-      {item.imageSource === undefined ? (
+      {item.imageSource === undefined || item.imageSource === null ? (
         <img
           src="/assets/images/no_image.svg"
           alt="미리보기 이미지가 없습니다."
