@@ -1,14 +1,6 @@
 import "./SortingBar.css";
 
-const SortingBar = ({ onClick }) => {
-  const tagList = [
-    "전체",
-    "⭐️ 즐겨찾기",
-    "코딩 팁",
-    "채용 사이트",
-    "유용한 글",
-    "나만의 장소",
-  ];
+const SortingBar = ({ onClick, tagList }) => {
   return (
     <>
       <div className="sorting-bar">
