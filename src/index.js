@@ -14,7 +14,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<Main />} />
+          <Route path="/shared">
+            <Route index element={<Main />} />
+          </Route>
           <Route path="/folder">
             <Route index element={<Folder />} />
           </Route>
