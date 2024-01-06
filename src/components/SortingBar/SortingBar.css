@@ -33,6 +33,10 @@
   font-weight: 400;
 }
 
+.sorting-add-button:hover button span {
+  text-decoration: underline;
+}
+
 .sorting-add-button button {
   display: flex;
   align-items: center;
