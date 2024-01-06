@@ -4,6 +4,7 @@ import { SearchBar } from "@components/SearchBar";
 import { NO_LINK_FOUND } from "@/constants";
 import { getFolderData } from "@/api/api";
 import FolderTitleArea from "@components/FolderTitleArea/FolderTitleArea";
+import NoListError from "../../components/NoListError/NoListError";
 
 const Main = () => {
   const [folderInformation, setFolderInformation] = useState({
@@ -46,11 +47,11 @@ const Main = () => {
         </div>
         <div>
           {errorMessage ? (
-            <div className="no-data">{errorMessage}</div>
+            <NoListError message={errorMessage} />
           ) : folderInformation.linkItems.length > 0 ? (
             <CardList items={folderInformation.linkItems} />
           ) : (
-            <div className="no-data">{NO_LINK_FOUND}</div>
+            <NoListError message={NO_LINK_FOUND} />
           )}
         </div>
       </div>
