@@ -1,6 +1,8 @@
 import FolderAddLinkArea from "@components/FolderAddLinkArea/FolderAddLinkArea";
 import { SearchBar } from "@components/SearchBar";
 import SortingBar from "@components/SortingBar/SortingBar";
+import CardListTitle from "@components/CardListTitle/CardListTitle";
+import "./Folder.css";
 
 const Folder = () => {
   const handleActiveListClick = (e) => {
@@ -15,11 +17,14 @@ const Folder = () => {
         <FolderAddLinkArea />
       </div>
       <div className="list-max-width" style={{ paddingBottom: `100px` }}>
-        <div className="search-bar-area" style={{ margin: `40px 0` }}>
+        <div className="folder-search-bar-area">
           <SearchBar />
         </div>
         <div>
           <SortingBar onClick={handleActiveListClick} />
+        </div>
+        <div className="folder-card-list-title-area">
+          <CardListTitle title={`유용한 글`} />
         </div>
       </div>
     </>
