@@ -21,7 +21,7 @@ const Footer = () => {
         {footerSns.map((item, index) => {
           return (
             <Link to={`https://www.${item}.com`} target="_blank" key={index}>
-              <img src={`./assets/images/${item}.png`} alt={item} />
+              <img src={`./assets/images/icons/${item}.png`} alt={item} />
             </Link>
           );
         })}

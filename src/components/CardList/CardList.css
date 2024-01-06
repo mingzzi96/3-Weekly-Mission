@@ -42,7 +42,7 @@
 
 .CardTextBox .timestamp {
   color: #666666;
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 400;
   margin-bottom: 10px;
 }
@@ -50,7 +50,7 @@
 .CardTextBox .title {
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
   overflow: hidden;
 }
@@ -59,7 +59,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: break-word;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -71,7 +71,7 @@
 
 .CardTextBox .date {
   color: #333333;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 /* tablet */

@@ -26,7 +26,7 @@ const SortingBar = ({ onClick, tagList }) => {
           <button type="button">
             <span>폴더 추가</span>
             <img
-              src="/assets/images/addIcon.png"
+              src="/assets/images/icons/addIcon.png"
               alt="소팅 폴더 추가하기 버튼"
             />
           </button>

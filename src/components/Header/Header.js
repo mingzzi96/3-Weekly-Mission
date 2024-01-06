@@ -23,7 +23,7 @@ const Header = () => {
         <h1>
           <Link to="/">
             <img
-              src="/assets/images/logo.svg"
+              src="/assets/images/logos/logo.svg"
               alt="홈으로 연결된 Linkbrary 로고"
             />
           </Link>

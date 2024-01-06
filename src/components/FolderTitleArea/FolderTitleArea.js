@@ -5,7 +5,7 @@ const FolderTitleArea = ({ imageSource, ownerName, folderName }) => {
   return (
     <div className="folder-title-area page-title-area">
       <ProfileImage
-        url={imageSource ? imageSource : "/assets/images/no_image.svg"}
+        url={imageSource ? imageSource : "/assets/images/no-image/no_image.svg"}
         alt={`${ownerName}님의 프로필 이미지`}
         size={60}
         rounded={true}

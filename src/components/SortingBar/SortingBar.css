@@ -7,6 +7,7 @@
 .sorting-group ul {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -29,7 +30,7 @@
 
 .sorting-group ul li p {
   line-height: 1;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
 }
 
@@ -41,7 +42,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   letter-spacing: -0.3px;
   color: var(--color--primary);

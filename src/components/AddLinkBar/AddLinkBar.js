@@ -8,7 +8,7 @@ const AddLinkBar = () => {
     <>
       <div className="add-link-bar">
         <IconArea
-          backgroundImageUrl={`/assets/images/LinkIcon.png`}
+          backgroundImageUrl={`/assets/images/icons/LinkIcon.png`}
           size={`20px`}
           marginRight={`0px`}
         />

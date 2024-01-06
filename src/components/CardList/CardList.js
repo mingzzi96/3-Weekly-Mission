@@ -14,7 +14,7 @@ const CardThumbnail = ({ item, isFavoriteExist, isFavoriteActive }) => {
       {item.imageSource === undefined || item.imageSource === null ? (
         <img
           className="card-thumbnail-image"
-          src="/assets/images/no_image.svg"
+          src="/assets/images/no-image/no_image.svg"
           alt="미리보기 이미지가 없습니다."
         />
       ) : (

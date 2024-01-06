@@ -6,7 +6,7 @@
 
 .cardlist-title h3 {
   color: #000;
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 600;
   letter-spacing: -0.2px;
 }
@@ -29,6 +29,6 @@
 
 .cardlist-title-edit button p {
   color: var(--color--gray-60);
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 600;
 }

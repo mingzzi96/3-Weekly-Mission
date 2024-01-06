@@ -12,7 +12,10 @@ const KebabButton = () => {
     <>
       <div className="kebab-button-wrap">
         <button onClick={handleKebabActiveClick}>
-          <img src="./assets/images/kebabIcon.svg" alt="더보기 메뉴 버튼" />
+          <img
+            src="./assets/images/icons/kebabIcon.svg"
+            alt="더보기 메뉴 버튼"
+          />
         </button>
         {isActive ? (
           <ul className="kebab-menu">
