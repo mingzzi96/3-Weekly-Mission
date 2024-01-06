@@ -20,8 +20,24 @@ const getSharedData = async () => {
   return result.folder;
 };
 
-const getFolderData = async () => {
-  const response = await fetch(`${API_BASE_URL}/users/1/links`);
+const getFolderNameData = async () => {
+  const response = await fetch(`${API_BASE_URL}/users/1/folders`);
+  if (!response.ok) {
+    throw new Error(FAIL_TO_LOAD_LIST);
+  }
+  const result = await response.json();
+  return result.data;
+};
+
+const getFolderData = async (folderId) => {
+  let apiUrl = `${API_BASE_URL}/users/1/links`;
+
+  if (folderId) {
+    apiUrl += `?folderId=${folderId}`;
+  }
+
+  const response = await fetch(apiUrl);
+
   if (!response.ok) {
     throw new Error(FAIL_TO_LOAD_LIST);
   }
@@ -41,4 +57,4 @@ const getFolderData = async () => {
   return transformData;
 };
 
-export { getUserData, getSharedData, getFolderData };
+export { getUserData, getSharedData, getFolderData, getFolderNameData };

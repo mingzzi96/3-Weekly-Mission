@@ -4,7 +4,7 @@ import { SearchBar } from "@components/SearchBar";
 import SortingBar from "@components/SortingBar/SortingBar";
 import CardListTitle from "@components/CardListTitle/CardListTitle";
 import { useCallback, useEffect, useState } from "react";
-import { getFolderData } from "../../api/api";
+import { getFolderData, getFolderNameData } from "../../api/api";
 import NoListError from "../../components/NoListError/NoListError";
 import CardList from "../../components/CardList/CardList";
 import { NO_LINK_FOUND } from "@/constants";
@@ -12,22 +12,16 @@ import { NO_LINK_FOUND } from "@/constants";
 const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [folderItem, setFolderItem] = useState([]);
-  const tagArray = [
-    "전체",
-    "⭐️ 즐겨찾기",
-    "코딩 팁",
-    "채용 사이트",
-    "유용한 글",
-    "나만의 장소",
-  ];
+  const [folderName, setFolderName] = useState([]);
   const [cardListTitle, setCardListTitle] = useState("전체");
   const [cardListTitleEdit, setCardListTitleEdit] = useState(false);
 
-  const handleActiveListClick = (e) => {
+  const handleActiveListClick = async (e) => {
     const everyTagLi = document.querySelectorAll(".sorting-group ul li");
     const targetTag = e.target;
     const targetTagLi = targetTag.closest("li");
     const targetTagText = targetTagLi.getAttribute("data-tag");
+    const targetTagId = targetTagLi.getAttribute("data-id");
 
     setCardListTitleEdit(true);
 
@@ -41,10 +35,18 @@ const Folder = () => {
     if (targetTagText === "전체") {
       setCardListTitleEdit(false);
     }
+
+    if (targetTagId !== undefined || targetTagId !== null) {
+      try {
+        const folderData = await getFolderData(targetTagId);
+        setFolderItem(folderData);
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+    }
   };
 
   const setFirstActiveTag = () => {
-    // 최초 렌더링시 "전체" 태그 active
     const allTagLi = document.querySelector(
       ".sorting-group ul li[data-tag='전체']"
     );
@@ -52,6 +54,16 @@ const Folder = () => {
       allTagLi.classList.add("active");
     }
   };
+
+  const setFolderNameData = useCallback(async () => {
+    try {
+      const folderList = await getFolderNameData();
+      setFolderName(folderList);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  }, []);
+
   const setFolderData = useCallback(async () => {
     try {
       const folderData = await getFolderData();
@@ -60,10 +72,12 @@ const Folder = () => {
       setErrorMessage(error.message);
     }
   }, []);
+
   useEffect(() => {
     setFirstActiveTag();
     setFolderData();
-  }, [setFolderData]);
+    setFolderNameData();
+  }, [setFolderData, setFolderNameData]);
 
   return (
     <>
@@ -75,7 +89,7 @@ const Folder = () => {
           <SearchBar />
         </div>
         <div>
-          <SortingBar onClick={handleActiveListClick} tagList={tagArray} />
+          <SortingBar onClick={handleActiveListClick} tagList={folderName} />
         </div>
         <div className="folder-card-list-title-area">
           <CardListTitle title={cardListTitle} editActive={cardListTitleEdit} />

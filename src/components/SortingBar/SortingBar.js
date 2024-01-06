@@ -6,9 +6,18 @@ const SortingBar = ({ onClick, tagList }) => {
       <div className="sorting-bar">
         <div className="sorting-group">
           <ul>
+            <li onClick={onClick} data-tag="전체">
+              <p>전체</p>
+            </li>
             {tagList.map((tag) => (
-              <li key={tag} onClick={onClick} data-tag={tag}>
-                <p>{tag}</p>
+              <li
+                id={tag.id}
+                key={tag.id}
+                onClick={onClick}
+                data-tag={tag.name}
+                data-id={tag.id}
+              >
+                <p>{tag.name}</p>
               </li>
             ))}
           </ul>
