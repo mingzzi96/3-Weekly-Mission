@@ -1,7 +1,14 @@
 import FolderAddLinkArea from "@components/FolderAddLinkArea/FolderAddLinkArea";
 import { SearchBar } from "@components/SearchBar";
+import SortingBar from "@components/SortingBar/SortingBar";
 
 const Folder = () => {
+  const handleActiveListClick = (e) => {
+    const targetTag = e.target;
+    const targetTagLi = targetTag.closest("li");
+    targetTagLi.classList.toggle("active");
+  };
+
   return (
     <>
       <div>
@@ -11,7 +18,9 @@ const Folder = () => {
         <div className="search-bar-area" style={{ margin: `40px 0` }}>
           <SearchBar />
         </div>
-        <div></div>
+        <div>
+          <SortingBar onClick={handleActiveListClick} />
+        </div>
       </div>
     </>
   );
