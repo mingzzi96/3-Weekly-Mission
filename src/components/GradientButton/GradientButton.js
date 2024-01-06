@@ -1,3 +1,5 @@
+import "./GradientButton.css";
+
 const GradientButton = ({
   children,
   padding,
@@ -7,7 +9,7 @@ const GradientButton = ({
   return (
     <>
       <button
-        className="Gradient-btn"
+        className="gradient-btn"
         style={{
           padding: `${padding}`,
           fontSize: `${fontSize}`,

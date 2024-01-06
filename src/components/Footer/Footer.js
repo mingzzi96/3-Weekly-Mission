@@ -5,11 +5,11 @@ const footerSns = ["facebook", "twitter", "youtube", "instagram"];
 
 const Footer = () => {
   return (
-    <footer className="Footer">
-      <div className="Footer-ttl">
+    <footer className="footer">
+      <div className="footer-ttl">
         <span>©codeit - 2023</span>
       </div>
-      <div className="Footer-link">
+      <div className="footer-link">
         <Link to="./privacy.html" target="_blank">
           Privacy Policy
         </Link>
@@ -17,7 +17,7 @@ const Footer = () => {
           FAQ
         </Link>
       </div>
-      <div className="Footer-sns">
+      <div className="footer-sns">
         {footerSns.map((item, index) => {
           return (
             <Link to={`https://www.${item}.com`} target="_blank" key={index}>

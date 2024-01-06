@@ -1,4 +1,4 @@
-.SearchBar {
+.search-bar {
   display: flex;
   align-items: center;
   background: #f5f5f5;
@@ -6,7 +6,7 @@
   border-radius: 10px;
 }
 
-.SearchBar input {
+.search-bar input {
   font-size: 16px;
   font-weight: 400;
 }

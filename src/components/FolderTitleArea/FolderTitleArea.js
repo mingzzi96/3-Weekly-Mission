@@ -3,7 +3,7 @@ import "./FolderTitleArea.css";
 
 const FolderTitleArea = ({ imageSource, ownerName, folderName }) => {
   return (
-    <div className="FolderTitleArea PageTitleArea">
+    <div className="folder-title-area page-title-area">
       <ProfileImage
         url={imageSource ? imageSource : "/assets/images/no_image.svg"}
         alt={`${ownerName}님의 프로필 이미지`}

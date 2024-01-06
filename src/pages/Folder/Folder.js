@@ -7,10 +7,11 @@ const Folder = () => {
       <div>
         <FolderAddLinkArea />
       </div>
-      <div className="List-MaxWidth" style={{ paddingBottom: `100px` }}>
-        <div className="SearchBarArea" style={{ margin: `40px 0` }}>
+      <div className="list-max-width" style={{ paddingBottom: `100px` }}>
+        <div className="search-bar-area" style={{ margin: `40px 0` }}>
           <SearchBar />
         </div>
+        <div></div>
       </div>
     </>
   );

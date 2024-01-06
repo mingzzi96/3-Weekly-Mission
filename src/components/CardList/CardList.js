@@ -4,7 +4,7 @@ import "./CardList.css";
 
 const CardThumbnail = ({ item }) => {
   return (
-    <div className="CardThumbnail">
+    <div className="card-thumbnail">
       {item.imageSource === undefined ? (
         <img
           src="/assets/images/no_image.svg"
@@ -29,10 +29,10 @@ const CardTextBox = ({ item }) => {
 
 const CardList = ({ items }) => {
   return (
-    <ul className="CardList">
+    <ul className="card-list">
       {items.map((item) => {
         return (
-          <li key={item.id} className="CardListItem">
+          <li key={item.id} className="card-list-item">
             <Link to={item.url} target="_blank">
               <CardThumbnail item={item} />
               <CardTextBox item={item} />

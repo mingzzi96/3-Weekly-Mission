@@ -17,8 +17,8 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="Header">
-      <nav className="Nav">
+    <header className="header">
+      <nav className="nav">
         <h1>
           <Link to="/">
             <img
@@ -36,7 +36,7 @@ const Header = () => {
             email={user.email}
           />
         ) : (
-          <button className="Gradient-btn" style={{ fontWeight: 600 }}>
+          <button className="gradient-btn" style={{ fontWeight: 600 }}>
             로그인
           </button>
         )}

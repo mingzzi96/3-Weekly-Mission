@@ -1,4 +1,4 @@
-.Header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,7 +7,7 @@
   background: #f0f6ff;
 }
 
-.Nav {
+.nav {
   max-width: 1520px;
   width: 100%;
   margin: 0 auto;
@@ -17,11 +17,11 @@
   justify-content: space-between;
 }
 
-.Nav h1 {
+.nav h1 {
   width: 133px;
   height: 24px;
 }
 
-.Header .Gradient-btn {
+.header .gradient-btn {
   max-width: 128px;
 }

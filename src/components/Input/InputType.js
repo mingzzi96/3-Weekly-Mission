@@ -5,7 +5,7 @@ export const IconArea = ({
 }) => {
   return (
     <div
-      className="IconArea"
+      className="icon-area"
       style={{
         width: size,
         height: size,

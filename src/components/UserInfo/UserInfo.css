@@ -1,10 +1,10 @@
-.ProfileImageEmailInfo {
+.profile-image-email-info {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.ProfileImageEmailInfo p {
+.profile-image-email-info p {
   font-size: 14px;
   color: #373740;
 }

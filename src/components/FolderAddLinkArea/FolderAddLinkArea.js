@@ -4,7 +4,7 @@ import "./FolderAddLinkArea.css";
 const FolderAddLinkArea = () => {
   return (
     <>
-      <div className="PageTitleArea FolderAddLinkArea">
+      <div className="page-title-area FolderAddLinkArea">
         <AddLinkBar />
       </div>
     </>

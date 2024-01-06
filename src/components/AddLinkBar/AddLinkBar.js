@@ -6,7 +6,7 @@ import "./AddLinkBar.css";
 const AddLinkBar = () => {
   return (
     <>
-      <div className="AddLinkBar">
+      <div className="add-link-bar">
         <IconArea
           backgroundImageUrl={`/assets/images/LinkIcon.png`}
           size={`20px`}
