@@ -28,9 +28,11 @@ const Header = () => {
             />
           </Link>
         </h1>
-        {user.email ? (
+        {user.email !== "" ||
+        user.email !== undefined ||
+        user.email !== null ? (
           <ProfileImageEmailInfo
-            url={user.profileImageSource}
+            url={user.image_source}
             alt={`${user.name}님의 프로필 이미지입니다.`}
             size={28}
             rounded={true}

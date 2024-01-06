@@ -98,7 +98,11 @@ const Folder = () => {
           {errorMessage ? (
             <NoListError message={errorMessage} />
           ) : folderItem.length > 0 ? (
-            <CardList items={folderItem} />
+            <CardList
+              items={folderItem}
+              isFavoriteExist={true}
+              isKebabExist={true}
+            />
           ) : (
             <NoListError message={NO_LINK_FOUND} />
           )}

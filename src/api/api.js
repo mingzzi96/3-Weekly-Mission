@@ -1,11 +1,21 @@
 import { FAIL_TO_LOAD_LIST } from "@/constants";
 import { API_BASE_URL } from "@/constants";
 
-const getUserData = async () => {
+const getUserSampleData = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/sample/user`);
     const result = await response.json();
     return result;
+  } catch (error) {
+    return `Error fetching data: ${error}`;
+  }
+};
+
+const getUserData = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/users/1`);
+    const result = await response.json();
+    return result.data[0];
   } catch (error) {
     return `Error fetching data: ${error}`;
   }
@@ -57,4 +67,10 @@ const getFolderData = async (folderId) => {
   return transformData;
 };
 
-export { getUserData, getSharedData, getFolderData, getFolderNameData };
+export {
+  getUserSampleData,
+  getUserData,
+  getSharedData,
+  getFolderData,
+  getFolderNameData,
+};
