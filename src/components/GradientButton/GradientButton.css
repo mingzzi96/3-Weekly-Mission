@@ -2,7 +2,6 @@
   background: var(--button-gradation);
   border-radius: 8px;
   line-height: 1;
-  /* height: 54px; 로그인 버튼 깨지는거 확인 필요! */
   color: #fff;
   display: flex;
   align-items: center;

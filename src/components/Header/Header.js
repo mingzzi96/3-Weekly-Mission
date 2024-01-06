@@ -3,6 +3,7 @@ import "./Header.css";
 import { ProfileImageEmailInfo } from "@components/UserInfo/UserInfo";
 import { getUserData } from "@/api/api";
 import { Link } from "react-router-dom";
+import GradientButton from "@components/GradientButton/GradientButton";
 
 const Header = () => {
   const [user, setUser] = useState({});
@@ -36,9 +37,13 @@ const Header = () => {
             email={user.email}
           />
         ) : (
-          <button className="gradient-btn" style={{ fontWeight: 600 }}>
+          <GradientButton
+            padding={`16px 0`}
+            fontSize={`16px`}
+            minWidth={`128px`}
+          >
             로그인
-          </button>
+          </GradientButton>
         )}
       </nav>
     </header>

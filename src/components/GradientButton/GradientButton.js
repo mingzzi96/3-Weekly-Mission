@@ -5,6 +5,7 @@ const GradientButton = ({
   padding,
   fontSize = "14px",
   fontWeight = "600",
+  minWidth = "undefined",
 }) => {
   return (
     <>
@@ -14,6 +15,7 @@ const GradientButton = ({
           padding: `${padding}`,
           fontSize: `${fontSize}`,
           fontWeight: `${fontWeight}`,
+          minWidth: `${minWidth}`,
         }}
       >
         {children}
