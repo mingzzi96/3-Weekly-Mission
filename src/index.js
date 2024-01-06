@@ -5,8 +5,8 @@ import "./common.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Main from "@pages/Main/Main";
 import Folder from "@pages/Folder/Folder";
+import Shared from "@pages/Shared/Shared";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +15,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/shared">
-            <Route index element={<Main />} />
+            <Route index element={<Shared />} />
           </Route>
           <Route path="/folder">
             <Route index element={<Folder />} />
