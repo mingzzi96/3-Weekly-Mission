@@ -8,6 +8,7 @@ import { getFolderData, getFolderNameData } from "../../api/api";
 import NoListError from "../../components/NoListError/NoListError";
 import CardList from "../../components/CardList/CardList";
 import { NO_LINK_FOUND } from "@/constants";
+import { DeviceTypeProvider } from "../../contexts/WindowSizeDetectContext";
 
 const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -88,9 +89,9 @@ const Folder = () => {
         <div className="folder-search-bar-area">
           <SearchBar />
         </div>
-        <div>
+        <DeviceTypeProvider>
           <SortingBar onClick={handleActiveListClick} tagList={folderName} />
-        </div>
+        </DeviceTypeProvider>
         <div className="folder-card-list-title-area">
           <CardListTitle title={cardListTitle} editActive={cardListTitleEdit} />
         </div>
