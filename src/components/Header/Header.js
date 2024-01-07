@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./Header.css";
 import { ProfileImageEmailInfo } from "@components/UserInfo/UserInfo";
 import { getUserData } from "@/api/api";
@@ -10,10 +10,10 @@ const Header = () => {
   const [user, setUser] = useState({});
   const [folderPath, setFolderPath] = useState("");
 
-  const setPathData = () => {
+  const setPathData = useCallback(() => {
     const currentPath = location.pathname;
     if (currentPath === "/folder") setFolderPath(currentPath);
-  };
+  }, [location.pathname]);
 
   const setUserData = async () => {
     const userData = await getUserData();
@@ -23,7 +23,7 @@ const Header = () => {
   useEffect(() => {
     setUserData();
     setPathData();
-  }, []);
+  }, [setPathData]);
 
   return (
     <header className={folderPath !== "" ? "header folder" : "header"}>
