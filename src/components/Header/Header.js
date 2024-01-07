@@ -2,11 +2,18 @@ import { useEffect, useState } from "react";
 import "./Header.css";
 import { ProfileImageEmailInfo } from "@components/UserInfo/UserInfo";
 import { getUserData } from "@/api/api";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import GradientButton from "@components/GradientButton/GradientButton";
 
 const Header = () => {
+  const location = useLocation();
   const [user, setUser] = useState({});
+  const [folderPath, setFolderPath] = useState("");
+
+  const setPathData = () => {
+    const currentPath = location.pathname;
+    if (currentPath === "/folder") setFolderPath(currentPath);
+  };
 
   const setUserData = async () => {
     const userData = await getUserData();
@@ -15,10 +22,11 @@ const Header = () => {
 
   useEffect(() => {
     setUserData();
+    setPathData();
   }, []);
 
   return (
-    <header className="header">
+    <header className={folderPath !== "" ? "header folder" : "header"}>
       <nav className="nav">
         <h1>
           <Link to="/">

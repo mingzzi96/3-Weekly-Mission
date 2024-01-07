@@ -7,6 +7,12 @@
   background: #f0f6ff;
 }
 
+.header.folder {
+  position: static;
+  top: auto;
+  left: auto;
+}
+
 .nav {
   max-width: 1520px;
   width: 100%;
