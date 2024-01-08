@@ -4,15 +4,26 @@ import "./index.css";
 import "./common.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Folder from "@pages/Folder/Folder";
+import Shared from "@pages/Shared/Shared";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="/shared">
+            <Route index element={<Shared />} />
+          </Route>
+          <Route path="/folder">
+            <Route index element={<Folder />} />
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

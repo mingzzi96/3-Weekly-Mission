@@ -1,4 +1,4 @@
-.Footer {
+.footer {
   position: relative;
   padding: 32px 104px 108px;
   background: #111322;
@@ -7,30 +7,30 @@
   justify-content: space-between;
 }
 
-.Footer .Footer_sns {
+.footer .footer-sns {
   display: flex;
   align-items: center;
   gap: 0 12px;
 }
 
-.Footer .Footer_sns img {
+.footer .footer-sns img {
   width: 20px;
 }
 
-.Footer .Footer_ttl span {
+.footer .footer-ttl span {
   color: #676767;
   text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
 }
 
-.Footer .Footer_link {
+.footer .footer-link {
   display: flex;
   align-items: center;
   gap: 0 30px;
 }
 
-.Footer .Footer_link a {
+.footer .footer-link a {
   color: #cfcfcf;
   font-size: 1.6rem;
   font-weight: 400;

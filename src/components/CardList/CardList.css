@@ -1,4 +1,4 @@
-.CardList {
+.card-list {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -6,28 +6,29 @@
   gap: 24px 20px;
 }
 
-.CardListItem {
+.card-list-item {
   width: calc(100% / 3 - 15px);
-  border-radius: 15px;
-  overflow: hidden;
+  border-radius: 0 0 15px 15px;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
-.CardListItem:hover .CardThumbnail img {
+.card-list-item:hover .card-thumbnail .card-thumbnail-image {
   transform: scale(1.2);
 }
 
-.CardListItem:hover .CardTextBox {
+.card-list-item:hover .CardTextBox {
   background: var(--color--gray-bg);
 }
 
-.CardThumbnail {
+.card-thumbnail {
+  position: relative;
   width: 100%;
   height: 200px;
   overflow: hidden;
+  border-radius: 15px 15px 0 0;
 }
 
-.CardThumbnail img {
+.card-thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -35,12 +36,13 @@
 }
 
 .CardTextBox {
+  position: relative;
   padding: 15px 20px;
 }
 
 .CardTextBox .timestamp {
   color: #666666;
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 400;
   margin-bottom: 10px;
 }
@@ -48,7 +50,7 @@
 .CardTextBox .title {
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
   overflow: hidden;
 }
@@ -57,7 +59,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: break-word;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -69,22 +71,22 @@
 
 .CardTextBox .date {
   color: #333333;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 /* tablet */
 @media (max-width: 1124px) {
-  .ListMaxWidth {
+  .list-max-width {
     padding: 0 32px;
   }
-  .CardListItem {
+  .card-list-item {
     width: calc(100% / 2 - 15px);
   }
 }
 
 /* mobile */
 @media (max-width: 767px) {
-  .CardListItem {
+  .card-list-item {
     width: calc(100%);
   }
 }

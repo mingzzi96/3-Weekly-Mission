@@ -1,0 +1,34 @@
+.cardlist-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardlist-title h3 {
+  color: #000;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.cardlist-title-edit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cardlist-title-edit button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cardlist-title-edit button img {
+  width: 18px;
+  height: 18px;
+}
+
+.cardlist-title-edit button p {
+  color: var(--color--gray-60);
+  font-size: 1.4rem;
+  font-weight: 600;
+}

@@ -1,0 +1,22 @@
+.sorting-add-button-mobile {
+  position: fixed;
+  bottom: 101px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--color--primary);
+  border: 1px solid #fff;
+  padding: 8px 24px;
+  min-width: 135px;
+  border-radius: 20px;
+}
+
+.sorting-add-button-mobile span {
+  color: var(--color--gray-10);
+  font-size: 1.6rem;
+  letter-spacing: -0.3px;
+}

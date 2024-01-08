@@ -1,0 +1,15 @@
+.folder-title-area {
+  flex-direction: column;
+  padding: 113px 0 60px;
+}
+
+.folder-title-area p {
+  font-size: 1.6rem;
+  margin-top: 12px;
+}
+
+.folder-title-area h2 {
+  margin-top: 20px;
+  font-size: 4rem;
+  font-weight: 600;
+}

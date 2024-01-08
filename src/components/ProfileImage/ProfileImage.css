@@ -1,11 +1,11 @@
-.ProfileImage {
+.profile-image {
   overflow: hidden;
 }
 
-.ProfileImage.rounded {
+.profile-image.rounded {
   border-radius: 50px;
 }
 
-.ProfileImage img {
+.profile-image img {
   object-fit: cover;
 }

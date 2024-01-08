@@ -1,32 +1,30 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
+
+const footerSns = ["facebook", "twitter", "youtube", "instagram"];
 
 const Footer = () => {
   return (
-    <footer className="Footer">
-      <div className="Footer_ttl">
+    <footer className="footer">
+      <div className="footer-ttl">
         <span>©codeit - 2023</span>
       </div>
-      <div className="Footer_link">
-        <a href="./privacy.html" target="_blank">
+      <div className="footer-link">
+        <Link to="./privacy.html" target="_blank">
           Privacy Policy
-        </a>
-        <a href="./faq.html" target="_blank">
+        </Link>
+        <Link to="./faq.html" target="_blank">
           FAQ
-        </a>
+        </Link>
       </div>
-      <div className="Footer_sns">
-        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-          <img src="./assets/images/facebook.png" alt="facebook" />
-        </a>
-        <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-          <img src="./assets/images/twitter.png" alt="twitter" />
-        </a>
-        <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-          <img src="./assets/images/youtube.png" alt="youtube" />
-        </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-          <img src="./assets/images/instagram.png" alt="instagram" />
-        </a>
+      <div className="footer-sns">
+        {footerSns.map((item, index) => {
+          return (
+            <Link to={`https://www.${item}.com`} target="_blank" key={index}>
+              <img src={`./assets/images/icons/${item}.png`} alt={item} />
+            </Link>
+          );
+        })}
       </div>
     </footer>
   );

@@ -1,3 +1,23 @@
-export const InputTransparent = ({ placeholder, style }) => {
-  return <input placeholder={placeholder} style={style} />;
+export const IconArea = ({
+  backgroundImageUrl,
+  size = "16px",
+  marginRight = "4px",
+}) => {
+  return (
+    <div
+      className="icon-area"
+      style={{
+        width: size,
+        height: size,
+        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundSize: `contain`,
+        backgroundRepeat: `no-repeat`,
+        marginRight: `${marginRight}`,
+      }}
+    ></div>
+  );
+};
+
+export const InputTransparent = ({ placeholder }) => {
+  return <input placeholder={placeholder} />;
 };
