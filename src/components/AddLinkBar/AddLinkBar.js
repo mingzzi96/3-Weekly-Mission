@@ -1,5 +1,4 @@
-import { IconArea } from "@components/Input/InputType";
-import { InputTransparent } from "@components/Input/InputType";
+import IconArea from "@components/IconArea/IconArea";
 import GradientButton from "@components/GradientButton/GradientButton";
 import "./AddLinkBar.css";
 
@@ -12,7 +11,7 @@ const AddLinkBar = () => {
           size={`20px`}
           marginRight={`0px`}
         />
-        <InputTransparent placeholder={`링크를 추가해 보세요`} />
+        <input placeholder="링크를 추가해 보세요" />
         <GradientButton padding={`10px 16px`}>추가하기</GradientButton>
       </div>
     </>
