@@ -45,7 +45,7 @@ const getFolderNameData = async () => {
 };
 
 const getFolderData = async (folderId) => {
-  let apiUrl = `${API_BASE_URL}/users/1/linksㄴㄴㄴ`;
+  let apiUrl = `${API_BASE_URL}/users/1/links`;
 
   if (folderId) {
     apiUrl += `?folderId=${folderId}`;
