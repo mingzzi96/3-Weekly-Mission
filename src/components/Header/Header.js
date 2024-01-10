@@ -22,6 +22,9 @@ const Header = () => {
 
   useEffect(() => {
     setUserData();
+  }, []);
+
+  useEffect(() => {
     setPathData();
   }, [setPathData]);
 
