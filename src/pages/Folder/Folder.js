@@ -4,11 +4,11 @@ import { SearchBar } from "@components/SearchBar";
 import SortingBar from "@components/SortingBar/SortingBar";
 import CardListTitle from "@components/CardListTitle/CardListTitle";
 import { useCallback, useEffect, useState } from "react";
-import { getFolderData, getFolderNameData } from "../../api/api";
-import NoListError from "../../components/NoListError/NoListError";
-import CardList from "../../components/CardList/CardList";
+import { getFolderData, getFolderNameData } from "@api/api";
+import NoListError from "@components/NoListError/NoListError";
+import CardList from "@components/CardList/CardList";
 import { NO_LINK_FOUND } from "@/constants";
-import { DeviceTypeProvider } from "../../contexts/WindowSizeDetectContext";
+import { DeviceTypeProvider } from "@contexts/WindowSizeDetectContext";
 
 const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");

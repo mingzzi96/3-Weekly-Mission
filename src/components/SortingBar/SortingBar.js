@@ -1,5 +1,5 @@
-import { useDeviceType } from "../../contexts/WindowSizeDetectContext";
-import MobileAddFolderButton from "../MobileAddFolderButton/MobileAddFolderButton";
+import { useDeviceType } from "@contexts/WindowSizeDetectContext";
+import MobileAddFolderButton from "@components/MobileAddFolderButton/MobileAddFolderButton";
 import "./SortingBar.css";
 
 const SortingBar = ({ onClick, tagList }) => {

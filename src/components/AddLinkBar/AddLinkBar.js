@@ -1,6 +1,6 @@
 import { IconArea } from "@components/Input/InputType";
 import { InputTransparent } from "@components/Input/InputType";
-import GradientButton from "../GradientButton/GradientButton";
+import GradientButton from "@components/GradientButton/GradientButton";
 import "./AddLinkBar.css";
 
 const AddLinkBar = () => {

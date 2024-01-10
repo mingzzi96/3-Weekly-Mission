@@ -4,7 +4,7 @@ import { SearchBar } from "@components/SearchBar";
 import { NO_LINK_FOUND } from "@/constants";
 import { getSharedData } from "@/api/api";
 import FolderTitleArea from "@components/FolderTitleArea/FolderTitleArea";
-import NoListError from "../../components/NoListError/NoListError";
+import NoListError from "@components/NoListError/NoListError";
 
 const Shared = () => {
   const [folderInformation, setFolderInformation] = useState({
