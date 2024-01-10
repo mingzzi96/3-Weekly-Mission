@@ -76,9 +76,15 @@ const Folder = () => {
 
   useEffect(() => {
     setFirstActiveTag();
+  }, []);
+
+  useEffect(() => {
     setFolderData();
+  }, [setFolderData]);
+
+  useEffect(() => {
     setFolderNameData();
-  }, [setFolderData, setFolderNameData]);
+  }, [setFolderNameData]);
 
   return (
     <>
