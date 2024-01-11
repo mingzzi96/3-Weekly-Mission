@@ -14,24 +14,21 @@ const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [folderItem, setFolderItem] = useState([]);
   const [folderName, setFolderName] = useState([]);
-  const [cardListTitle, setCardListTitle] = useState("전체");
+  const [selectedTag, setSelectedTag] = useState("전체");
   const [cardListTitleEdit, setCardListTitleEdit] = useState(false);
 
   const handleActiveListClick = async (e) => {
-    const everyTagLi = document.querySelectorAll(".sorting-group ul li");
-    const targetTag = e.target;
-    const targetTagLi = targetTag.closest("li");
+    const targetTagLi = e.target.closest("li");
+    if (!targetTagLi) {
+      return;
+    }
     const targetTagText = targetTagLi.getAttribute("data-tag");
     const targetTagId = targetTagLi.getAttribute("data-id");
 
     setCardListTitleEdit(true);
-
-    everyTagLi.forEach((item) => {
-      item.classList.remove("active");
-    });
+    setSelectedTag(targetTagText);
 
     targetTagLi.classList.add("active");
-    setCardListTitle(targetTagText);
 
     if (targetTagText === "전체") {
       setCardListTitleEdit(false);
@@ -44,15 +41,6 @@ const Folder = () => {
       } catch (error) {
         setErrorMessage(error.message);
       }
-    }
-  };
-
-  const setFirstActiveTag = () => {
-    const allTagLi = document.querySelector(
-      ".sorting-group ul li[data-tag='전체']"
-    );
-    if (allTagLi) {
-      allTagLi.classList.add("active");
     }
   };
 
@@ -75,10 +63,6 @@ const Folder = () => {
   }, []);
 
   useEffect(() => {
-    setFirstActiveTag();
-  }, []);
-
-  useEffect(() => {
     setFolderData();
   }, [setFolderData]);
 
@@ -96,10 +80,14 @@ const Folder = () => {
           <SearchBar />
         </div>
         <DeviceTypeProvider>
-          <SortingBar onClick={handleActiveListClick} tagList={folderName} />
+          <SortingBar
+            onClick={handleActiveListClick}
+            tagList={folderName}
+            selectedTagName={selectedTag}
+          />
         </DeviceTypeProvider>
         <div className="folder-card-list-title-area">
-          <CardListTitle title={cardListTitle} editActive={cardListTitleEdit} />
+          <CardListTitle title={selectedTag} editActive={cardListTitleEdit} />
         </div>
         <div>
           {errorMessage ? (

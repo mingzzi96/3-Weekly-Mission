@@ -2,7 +2,7 @@ import { useDeviceType } from "@contexts/WindowSizeDetectContext";
 import MobileAddFolderButton from "@components/MobileAddFolderButton/MobileAddFolderButton";
 import "./SortingBar.css";
 
-const SortingBar = ({ onClick, tagList }) => {
+const SortingBar = ({ onClick, tagList, selectedTagName }) => {
   const deviceType = useDeviceType();
 
   return (
@@ -10,7 +10,11 @@ const SortingBar = ({ onClick, tagList }) => {
       <div className="sorting-bar">
         <div className="sorting-group">
           <ul>
-            <li onClick={onClick} data-tag="전체">
+            <li
+              onClick={onClick}
+              data-tag="전체"
+              className={selectedTagName === "전체" ? ` active` : null}
+            >
               <p>전체</p>
             </li>
             {tagList.map((tag) => (
@@ -20,6 +24,7 @@ const SortingBar = ({ onClick, tagList }) => {
                 onClick={onClick}
                 data-tag={tag.name}
                 data-id={tag.id}
+                className={selectedTagName === tag.name ? ` active` : null}
               >
                 <p>{tag.name}</p>
               </li>
