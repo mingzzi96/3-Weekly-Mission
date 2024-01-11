@@ -4,7 +4,7 @@ import { ProfileImageEmailInfo } from "@components/UserInfo/UserInfo";
 import { getUserData } from "@/api/api";
 import { Link, useLocation } from "react-router-dom";
 import GradientButton from "@components/GradientButton/GradientButton";
-import { isValidEmail } from "util";
+import { isEmailExist } from "util";
 
 const Header = () => {
   const location = useLocation();
@@ -40,7 +40,7 @@ const Header = () => {
             />
           </Link>
         </h1>
-        {isValidEmail(user.email) ? (
+        {isEmailExist(user.email) ? (
           <ProfileImageEmailInfo
             url={user.image_source}
             alt={`${user.name}님의 프로필 이미지입니다.`}

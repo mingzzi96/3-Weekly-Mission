@@ -46,8 +46,8 @@ const timeStamp = (date) => {
   return `${Math.floor(months / 12)} years ago`;
 };
 
-const isValidEmail = (email) => {
+const isEmailExist = (email) => {
   return email !== "" && email !== undefined && email !== null;
 };
 
-export { formatDate, timeStamp, isValidEmail };
+export { formatDate, timeStamp, isEmailExist };
