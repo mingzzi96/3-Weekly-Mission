@@ -1,5 +1,5 @@
 import { FAIL_TO_LOAD_LIST } from "@/constants";
-import { API_BASE_URL } from "@/constants";
+import { API_BASE_URL } from "constants";
 import { FAIL_TO_LOAD_USER } from "constants";
 import { FAIL_TO_LOAD_SAMPLE_USER } from "constants";
 
