@@ -22,8 +22,6 @@ const SortingBar = ({ onClickTag, tagList, selectedTagName }) => {
                 id={tag.id}
                 key={tag.id}
                 onClick={() => onClickTag(tag.name, tag.id)}
-                data-tag={tag.name}
-                data-id={tag.id}
                 className={selectedTagName === tag.name ? ` active` : null}
               >
                 <p>{tag.name}</p>
