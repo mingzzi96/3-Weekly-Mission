@@ -11,7 +11,7 @@ const SortingBar = ({ onClick, tagList, selectedTagName }) => {
         <div className="sorting-group">
           <ul>
             <li
-              onClick={onClick}
+              onClick={() => onClick("전체", null)}
               data-tag="전체"
               className={selectedTagName === "전체" ? ` active` : null}
             >
@@ -21,7 +21,7 @@ const SortingBar = ({ onClick, tagList, selectedTagName }) => {
               <li
                 id={tag.id}
                 key={tag.id}
-                onClick={onClick}
+                onClick={() => onClick(tag.name, tag.id)}
                 data-tag={tag.name}
                 data-id={tag.id}
                 className={selectedTagName === tag.name ? ` active` : null}

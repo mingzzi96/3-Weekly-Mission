@@ -17,18 +17,12 @@ const Folder = () => {
   const [selectedTag, setSelectedTag] = useState("전체");
   const [cardListTitleEdit, setCardListTitleEdit] = useState(false);
 
-  const handleActiveListClick = async (e) => {
-    const targetTagLi = e.target.closest("li");
-    if (!targetTagLi) {
-      return;
-    }
-    const targetTagText = targetTagLi.getAttribute("data-tag");
-    const targetTagId = targetTagLi.getAttribute("data-id");
+  const handleActiveListClick = async (tagName, tagId) => {
+    const targetTagText = tagName;
+    const targetTagId = tagId;
 
     setCardListTitleEdit(true);
     setSelectedTag(targetTagText);
-
-    targetTagLi.classList.add("active");
 
     if (targetTagText === "전체") {
       setCardListTitleEdit(false);
