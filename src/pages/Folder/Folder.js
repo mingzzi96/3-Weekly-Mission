@@ -75,7 +75,7 @@ const Folder = () => {
         </div>
         <DeviceTypeProvider>
           <SortingBar
-            onClick={handleActiveListClick}
+            onClickTag={handleActiveListClick}
             tagList={folderName}
             selectedTagName={selectedTag}
           />
