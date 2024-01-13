@@ -9,6 +9,9 @@ import NoListError from "@components/NoListError/NoListError";
 import CardList from "@components/CardList/CardList";
 import { NO_LINK_FOUND } from "@/constants";
 import { DeviceTypeProvider } from "@contexts/WindowSizeDetectContext";
+import useModal from "hooks/useModal";
+import Modal from "@components/Modal/Modal";
+import ModalFolderNameChange from "@components/Modal/ModalFolderNameChange";
 
 const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -16,6 +19,7 @@ const Folder = () => {
   const [folderName, setFolderName] = useState([]);
   const [selectedTag, setSelectedTag] = useState("전체");
   const [cardListTitleEdit, setCardListTitleEdit] = useState(false);
+  const { isOpen, openModal, closeModal } = useModal();
 
   const handleActiveListClick = async (tagName, tagId) => {
     const targetTagText = tagName;
@@ -36,6 +40,10 @@ const Folder = () => {
         setErrorMessage(error.message);
       }
     }
+  };
+
+  const handleModalOpenClick = () => {
+    openModal();
   };
 
   const setFolderNameData = useCallback(async () => {
@@ -76,8 +84,10 @@ const Folder = () => {
         <DeviceTypeProvider>
           <SortingBar
             onClickTag={handleActiveListClick}
+            onClickAddFolder={handleModalOpenClick}
             tagList={folderName}
             selectedTagName={selectedTag}
+            isOpen={isOpen}
           />
         </DeviceTypeProvider>
         <div className="folder-card-list-title-area">
@@ -97,6 +107,13 @@ const Folder = () => {
           )}
         </div>
       </div>
+      <Modal
+        isOpen={isOpen}
+        closeModal={closeModal}
+        modalTitle="폴더 이름 변경"
+      >
+        <ModalFolderNameChange />
+      </Modal>
     </>
   );
 };

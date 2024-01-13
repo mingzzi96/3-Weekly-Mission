@@ -2,8 +2,18 @@ import { useDeviceType } from "@contexts/WindowSizeDetectContext";
 import MobileAddFolderButton from "@components/MobileAddFolderButton/MobileAddFolderButton";
 import "./SortingBar.css";
 
-const SortingBar = ({ onClickTag, tagList, selectedTagName }) => {
+const SortingBar = ({
+  onClickTag,
+  tagList,
+  selectedTagName,
+  onClickAddFolder,
+  isOpen,
+}) => {
   const deviceType = useDeviceType();
+
+  const handleAddFolderClick = () => {
+    onClickAddFolder();
+  };
 
   return (
     <>
@@ -31,7 +41,7 @@ const SortingBar = ({ onClickTag, tagList, selectedTagName }) => {
         </div>
         <div className="sorting-add-button">
           {deviceType !== "mobile" ? (
-            <button type="button">
+            <button type="button" onClick={handleAddFolderClick}>
               <span>폴더 추가</span>
               <img
                 src="/assets/images/icons/addIcon.png"
