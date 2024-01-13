@@ -1,8 +1,8 @@
 import Modal from "@components/Modal/Modal";
 import "./CardListTitle.css";
 import useModal from "hooks/useModal";
-import ModalShareType from "@components/Modal/ModalShareType";
 import { useState } from "react";
+import SnsShareGroup from "@components/SnsShare/SnsShareGroup";
 
 const CardListTitle = ({ title, editActive }) => {
   const { closeModal } = useModal();
@@ -63,7 +63,7 @@ const CardListTitle = ({ title, editActive }) => {
         modalTitle="폴더 공유"
         modalSubTitle={title}
       >
-        <ModalShareType />
+        <SnsShareGroup />
       </Modal>
 
       <Modal
