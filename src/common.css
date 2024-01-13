@@ -46,3 +46,10 @@ input.input-border {
 input.input-border:focus {
   border: 1px solid var(--color--primary);
 }
+
+input.input-modal {
+  width: 100%;
+  padding: 18px 15px;
+  font-size: 16px;
+  margin-top: 24px;
+}

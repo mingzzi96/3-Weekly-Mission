@@ -10,22 +10,15 @@ const StyledButton = styled.button`
   justify-content: center;
   padding: 0 20px;
   font-size: 1.8rem;
+  font-weight: 600;
 `;
 
-const GradientButton = ({
-  children,
-  padding,
-  fontSize = "14px",
-  fontWeight = "600",
-  minWidth = "undefined",
-}) => {
+const GradientButton = ({ children, padding, minWidth = "undefined" }) => {
   return (
     <>
       <StyledButton
         style={{
           padding: `${padding}`,
-          fontSize: `${fontSize}`,
-          fontWeight: `${fontWeight}`,
           minWidth: `${minWidth}`,
         }}
       >
