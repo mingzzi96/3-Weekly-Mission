@@ -11,7 +11,11 @@ const CardList = ({ items, isFavoriteExist = false, isKebabExist = false }) => {
           <li key={item.id} className="card-list-item">
             <Link to={item.url} target="_blank">
               <CardThumbnail item={item} isFavoriteExist={isFavoriteExist} />
-              <CardTextBox item={item} isKebabExist={isKebabExist} />
+              <CardTextBox
+                item={item}
+                isKebabExist={isKebabExist}
+                cardLink={item.url}
+              />
             </Link>
           </li>
         );

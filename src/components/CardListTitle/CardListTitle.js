@@ -5,7 +5,7 @@ import ModalShareType from "@components/Modal/ModalShareType";
 import { useState } from "react";
 
 const CardListTitle = ({ title, editActive }) => {
-  const { isOpen, openModal, closeModal } = useModal();
+  const { closeModal } = useModal();
   const [isShareModalOpen, setShareModalOpen] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
