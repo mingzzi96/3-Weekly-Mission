@@ -1,18 +1,16 @@
 import { useDeviceType } from "@contexts/WindowSizeDetectContext";
 import MobileAddFolderButton from "@components/MobileAddFolderButton/MobileAddFolderButton";
 import "./SortingBar.css";
+import Modal from "@components/Modal/Modal";
+import ModalDefaultType from "@components/Modal/ModalDefaultType";
+import useModal from "hooks/useModal";
 
-const SortingBar = ({
-  onClickTag,
-  tagList,
-  selectedTagName,
-  onClickAddFolder,
-  isOpen,
-}) => {
+const SortingBar = ({ onClickTag, tagList, selectedTagName }) => {
   const deviceType = useDeviceType();
+  const { isOpen, openModal, closeModal } = useModal();
 
   const handleAddFolderClick = () => {
-    onClickAddFolder();
+    openModal();
   };
 
   return (
@@ -56,6 +54,9 @@ const SortingBar = ({
           폴더 추가
         </MobileAddFolderButton>
       ) : null}
+      <Modal isOpen={isOpen} closeModal={closeModal}>
+        <ModalDefaultType modalTitle="폴더 추가" placeHolder="내용 입력" />
+      </Modal>
     </>
   );
 };
