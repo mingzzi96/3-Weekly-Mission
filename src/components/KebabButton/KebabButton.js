@@ -100,7 +100,13 @@ const KebabButton = ({ cardLink }) => {
         ) : folderName.length > 0 ? (
           <StyledFolderList>
             {folderName.map((folder) => {
-              return <CheckBox label={folder.name} count={folder.link.count} />;
+              return (
+                <CheckBox
+                  key={folder.id}
+                  label={folder.name}
+                  count={folder.link.count}
+                />
+              );
             })}
           </StyledFolderList>
         ) : (
