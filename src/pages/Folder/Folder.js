@@ -11,7 +11,7 @@ import { NO_LINK_FOUND } from "@/constants";
 import { DeviceTypeProvider } from "@contexts/WindowSizeDetectContext";
 import useModal from "hooks/useModal";
 import Modal from "@components/Modal/Modal";
-import ModalFolderNameChange from "@components/Modal/ModalFolderNameChange";
+import ModalDefaultType from "@components/Modal/ModalDefaultType";
 
 const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -107,12 +107,8 @@ const Folder = () => {
           )}
         </div>
       </div>
-      <Modal
-        isOpen={isOpen}
-        closeModal={closeModal}
-        modalTitle="폴더 이름 변경"
-      >
-        <ModalFolderNameChange />
+      <Modal isOpen={isOpen} closeModal={closeModal}>
+        <ModalDefaultType modalTitle="폴더 추가" placeHolder="내용 입력" />
       </Modal>
     </>
   );

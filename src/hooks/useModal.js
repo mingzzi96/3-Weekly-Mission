@@ -4,7 +4,6 @@ const useModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    console.log("open");
     setIsOpen(true);
   };
 

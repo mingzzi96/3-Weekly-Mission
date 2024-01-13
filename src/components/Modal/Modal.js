@@ -9,6 +9,7 @@ const StyledModalWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 9999999;
 `;
 
 const StyledModalDim = styled.div`
@@ -23,6 +24,8 @@ const StyledModalDim = styled.div`
 
 const StyledModalContent = styled.div`
   position: relative;
+  max-width: 360px;
+  width: 100%;
   background: #fff;
   border-radius: 15px;
   border: 1px solid #ccd5e3;
@@ -30,20 +33,19 @@ const StyledModalContent = styled.div`
   z-index: 999;
 `;
 
-const StyledModalContentTitle = styled.h2`
-  color: #373740;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 24px;
-`;
-
 const StyledModalContentCloseButton = styled.button`
   position: absolute;
   right: 16px;
   top: 16px;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fix: contain;
+  }
 `;
 
-const Modal = ({ isOpen, closeModal, children, modalTitle = null }) => {
+const Modal = ({ isOpen, closeModal, children }) => {
   return (
     <>
       {isOpen ? (
@@ -51,9 +53,8 @@ const Modal = ({ isOpen, closeModal, children, modalTitle = null }) => {
           <StyledModalDim onClick={closeModal} />
           <StyledModalContent>
             <StyledModalContentCloseButton type="button" onClick={closeModal}>
-              Close
+              <img src="./assets/images/icons/closeIcon.svg" alt="닫기 버튼" />
             </StyledModalContentCloseButton>
-            <StyledModalContentTitle>{modalTitle}</StyledModalContentTitle>
             {children}
           </StyledModalContent>
         </StyledModalWrap>

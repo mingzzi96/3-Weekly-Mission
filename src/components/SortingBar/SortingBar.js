@@ -52,7 +52,9 @@ const SortingBar = ({
         </div>
       </div>
       {deviceType === "mobile" ? (
-        <MobileAddFolderButton>폴더 추가</MobileAddFolderButton>
+        <MobileAddFolderButton onClick={handleAddFolderClick}>
+          폴더 추가
+        </MobileAddFolderButton>
       ) : null}
     </>
   );

@@ -1,9 +1,13 @@
 import "./MobileAddFolderButton.css";
 
-const MobileAddFolderButton = ({ children }) => {
+const MobileAddFolderButton = ({ children, onClick }) => {
   return (
     <>
-      <button className="sorting-add-button-mobile" type="button">
+      <button
+        className="sorting-add-button-mobile"
+        type="button"
+        onClick={onClick}
+      >
         <span>{children}</span>
         <img
           src="./assets/images/icons/addIconWhite.svg"
