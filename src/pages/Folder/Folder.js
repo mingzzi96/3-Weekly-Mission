@@ -14,20 +14,28 @@ const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [folderItem, setFolderItem] = useState([]);
   const [folderName, setFolderName] = useState([]);
-  const [selectedTag, setSelectedTag] = useState("전체");
-  const [selectedTagId, setSelectedTagId] = useState(0);
-  const [cardListTitleEdit, setCardListTitleEdit] = useState(false);
+  const [selectedTagInfo, setSelectedTagInfo] = useState({
+    selectedTag: "전체",
+    selectedTagId: 0,
+    cardListTitleEdit: false,
+  });
 
   const handleActiveListClick = async (tagName, tagId) => {
     const targetTagText = tagName;
     const targetTagId = tagId;
 
-    setCardListTitleEdit(true);
-    setSelectedTag(targetTagText);
-    setSelectedTagId(targetTagId);
+    setSelectedTagInfo((prevSelectedTagInfo) => ({
+      ...prevSelectedTagInfo,
+      cardListTitleEdit: true,
+      selectedTag: targetTagText,
+      selectedTagId: targetTagId,
+    }));
 
     if (targetTagText === "전체") {
-      setCardListTitleEdit(false);
+      setSelectedTagInfo((prevSelectedTagInfo) => ({
+        ...prevSelectedTagInfo,
+        cardListTitleEdit: false,
+      }));
     }
 
     if (targetTagId !== undefined || targetTagId !== null) {
@@ -79,14 +87,14 @@ const Folder = () => {
           <SortingBar
             onClickTag={handleActiveListClick}
             tagList={folderName}
-            selectedTagName={selectedTag}
+            selectedTagName={selectedTagInfo.selectedTag}
           />
         </DeviceTypeProvider>
         <div className="folder-card-list-title-area">
           <CardListTitle
-            title={selectedTag}
-            editActive={cardListTitleEdit}
-            folderId={selectedTagId}
+            title={selectedTagInfo.selectedTag}
+            editActive={selectedTagInfo.cardListTitleEdit}
+            folderId={selectedTagInfo.selectedTagId}
           />
         </div>
         <div>
