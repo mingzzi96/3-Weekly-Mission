@@ -1,4 +1,3 @@
-import GradientButton from "@components/GradientButton/GradientButton";
 import styled from "styled-components";
 
 const StyledModalWrap = styled.div`
