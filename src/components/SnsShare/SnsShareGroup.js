@@ -64,8 +64,8 @@ const SnsShareGroup = ({ folderId }) => {
     Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
-        title: "오늘의 디저트",
-        description: "아메리카노, 빵, 케익",
+        title: "Linkbrary 폴더 공유",
+        description: "Linkbrary 폴더를 공유합니다.",
         imageUrl: "./assets/images/logos/logo.svg",
         link: {
           mobileWebUrl: "https://developers.kakao.com",
@@ -74,7 +74,7 @@ const SnsShareGroup = ({ folderId }) => {
       },
       buttons: [
         {
-          title: "나도 테스트 하러가기",
+          title: "공유 된 폴더 구경가기",
           link: {
             mobileWebUrl: realUrl,
           },
