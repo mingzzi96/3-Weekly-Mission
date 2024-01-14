@@ -57,7 +57,7 @@ const SnsShareGroup = ({ folderId }) => {
     // 자신의 js 키를 넣어준다.
     Kakao.init(`${KAKAO_SHARE_KEY}`);
     // 잘 적용되면 true 를 뱉는다.
-    console.log(Kakao.isInitialized());
+    // console.log(Kakao.isInitialized());
   }, []);
 
   const handleKakaoShareClick = () => {
