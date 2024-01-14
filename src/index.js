@@ -7,14 +7,10 @@ import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Folder from "@pages/Folder/Folder";
 import Shared from "@pages/Shared/Shared";
-import { Helmet } from "react-helmet";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Helmet>
-      <title>Linkbrary</title>
-    </Helmet>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
