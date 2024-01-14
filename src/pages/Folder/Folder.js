@@ -15,6 +15,7 @@ const Folder = () => {
   const [folderItem, setFolderItem] = useState([]);
   const [folderName, setFolderName] = useState([]);
   const [selectedTag, setSelectedTag] = useState("전체");
+  const [selectedTagId, setSelectedTagId] = useState(0);
   const [cardListTitleEdit, setCardListTitleEdit] = useState(false);
 
   const handleActiveListClick = async (tagName, tagId) => {
@@ -23,6 +24,7 @@ const Folder = () => {
 
     setCardListTitleEdit(true);
     setSelectedTag(targetTagText);
+    setSelectedTagId(targetTagId);
 
     if (targetTagText === "전체") {
       setCardListTitleEdit(false);
@@ -81,7 +83,11 @@ const Folder = () => {
           />
         </DeviceTypeProvider>
         <div className="folder-card-list-title-area">
-          <CardListTitle title={selectedTag} editActive={cardListTitleEdit} />
+          <CardListTitle
+            title={selectedTag}
+            editActive={cardListTitleEdit}
+            folderId={selectedTagId}
+          />
         </div>
         <div>
           {errorMessage ? (

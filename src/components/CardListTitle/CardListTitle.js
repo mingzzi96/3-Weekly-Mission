@@ -4,7 +4,7 @@ import useModal from "hooks/useModal";
 import { useState } from "react";
 import SnsShareGroup from "@components/SnsShare/SnsShareGroup";
 
-const CardListTitle = ({ title, editActive }) => {
+const CardListTitle = ({ title, editActive, folderId }) => {
   const { closeModal } = useModal();
   const [isShareModalOpen, setShareModalOpen] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
@@ -63,7 +63,7 @@ const CardListTitle = ({ title, editActive }) => {
         modalTitle="폴더 공유"
         modalSubTitle={title}
       >
-        <SnsShareGroup />
+        <SnsShareGroup folderId={folderId} />
       </Modal>
 
       <Modal
