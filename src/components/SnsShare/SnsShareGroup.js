@@ -83,6 +83,12 @@ const SnsShareGroup = ({ folderId }) => {
     });
   };
 
+  const handleFaceBookShareClick = () => {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${SHARE_URL_TEXT}/`
+    );
+  };
+
   return (
     <>
       <StyledSnsGroup>
@@ -98,6 +104,7 @@ const SnsShareGroup = ({ folderId }) => {
           <img
             src="./assets/images/icons/facebookColored.svg"
             alt="링크 페이스북으로 공유"
+            onClick={handleFaceBookShareClick}
           />
           <p>페이스북</p>
         </li>
