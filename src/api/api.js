@@ -1,24 +1,29 @@
 import { FAIL_TO_LOAD_LIST } from "@/constants";
-import { API_BASE_URL } from "@/constants";
+import { API_BASE_URL } from "constants";
+import { FAIL_TO_LOAD_USER } from "constants";
+import { FAIL_TO_LOAD_SAMPLE_USER } from "constants";
 
 const getUserSampleData = async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/sample/user`);
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    return `Error fetching data: ${error}`;
+  const response = await fetch(`${API_BASE_URL}/sample/user`);
+
+  if (!response.ok) {
+    throw new Error(FAIL_TO_LOAD_SAMPLE_USER);
   }
+
+  const result = await response.json();
+
+  return result;
 };
 
 const getUserData = async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/users/1`);
-    const result = await response.json();
-    return result.data[0];
-  } catch (error) {
-    return `Error fetching data: ${error}`;
+  const response = await fetch(`${API_BASE_URL}/users/1`);
+
+  if (!response.ok) {
+    throw new Error(FAIL_TO_LOAD_USER);
   }
+
+  const result = await response.json();
+  return result.data[0];
 };
 
 const getSharedData = async () => {

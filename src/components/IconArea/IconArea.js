@@ -1,4 +1,4 @@
-export const IconArea = ({
+const IconArea = ({
   backgroundImageUrl,
   size = "16px",
   marginRight = "4px",
@@ -18,6 +18,4 @@ export const IconArea = ({
   );
 };
 
-export const InputTransparent = ({ placeholder }) => {
-  return <input placeholder={placeholder} />;
-};
+export default IconArea;

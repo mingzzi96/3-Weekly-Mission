@@ -48,6 +48,10 @@
   color: var(--color--primary);
 }
 
+.sorting-add-button span {
+  min-width: 60px;
+}
+
 .sorting-add-button button img {
   width: 100%;
   height: 100%;

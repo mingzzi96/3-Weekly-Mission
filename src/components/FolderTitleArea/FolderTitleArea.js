@@ -1,4 +1,4 @@
-import ProfileImage from "../ProfileImage/ProfileImage";
+import ProfileImage from "@components/ProfileImage/ProfileImage";
 import "./FolderTitleArea.css";
 
 const FolderTitleArea = ({ imageSource, ownerName, folderName }) => {
