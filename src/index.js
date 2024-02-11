@@ -7,22 +7,26 @@ import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Folder from "@pages/Folder/Folder";
 import Shared from "@pages/Shared/Shared";
+import { ThemeProvider } from "styled-components";
+import { foundation } from "style/theme/theme";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="/shared">
-            <Route index element={<Shared />} />
+    <ThemeProvider theme={foundation}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="/shared">
+              <Route index element={<Shared />} />
+            </Route>
+            <Route path="/folder">
+              <Route index element={<Folder />} />
+            </Route>
           </Route>
-          <Route path="/folder">
-            <Route index element={<Folder />} />
-          </Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

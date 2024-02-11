@@ -10,6 +10,7 @@ import CardList from "@components/CardList/CardList";
 import { NO_LINK_FOUND } from "@/constants";
 import { DeviceTypeProvider } from "@contexts/WindowSizeDetectContext";
 import { useSearchParams } from "react-router-dom";
+import styled from "styled-components";
 
 const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -114,6 +115,12 @@ const Folder = () => {
             onClickHandler={handleDeleteInputClick}
           />
         </div>
+        {initKeyword ? (
+          <StSearchInfoBox>
+            <h3>{initKeyword}</h3>
+            <h4>으로 검색한 결과입니다.</h4>
+          </StSearchInfoBox>
+        ) : null}
         <DeviceTypeProvider>
           <SortingBar
             onClickTag={handleActiveListClick}
@@ -147,3 +154,23 @@ const Folder = () => {
 };
 
 export default Folder;
+
+const StSearchInfoBox = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+
+  h3 {
+    color: ${({ theme }) => theme.color.Black};
+  }
+
+  h4 {
+    color: ${({ theme }) => theme.color.Gray[60]};
+  }
+
+  @media (max-width: 767px) {
+    font-size: 2.4rem;
+  }
+`;
