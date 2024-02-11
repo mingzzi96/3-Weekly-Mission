@@ -35,6 +35,16 @@ const Folder = () => {
     }
   };
 
+  const handleChangeSearchKeyword = (e) => {
+    setSearchKeyword(e.target.value);
+  };
+
+  const handleDeleteInputClick = () => {
+    setFolderData();
+    setSearchKeyword("");
+    setSearchParams("");
+  };
+
   const handleActiveListClick = async (tagName, tagId) => {
     const targetTagText = tagName;
     const targetTagId = tagId;
@@ -100,8 +110,8 @@ const Folder = () => {
             placeholder="링크를 검색해 보세요."
             value={searchKeyword}
             onSubmitHandler={handleSubmit}
-            setSearchKeyword={setSearchKeyword}
-            setFolderItem={setFolderItem}
+            onChangeHandler={handleChangeSearchKeyword}
+            onClickHandler={handleDeleteInputClick}
           />
         </div>
         <DeviceTypeProvider>

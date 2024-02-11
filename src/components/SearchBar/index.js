@@ -4,16 +4,10 @@ import styled from "styled-components";
 export const SearchBar = ({
   placeholder,
   onSubmitHandler,
+  onChangeHandler,
+  onClickHandler,
   value,
-  setSearchKeyword,
 }) => {
-  const handleChangeSearchKeyword = (e) => {
-    setSearchKeyword(e.target.value);
-  };
-
-  const handleDeleteInputClick = () => {
-    setSearchKeyword("");
-  };
   return (
     <>
       <form onSubmit={onSubmitHandler}>
@@ -23,11 +17,11 @@ export const SearchBar = ({
           />
           <StSearchBarInput
             placeholder={placeholder}
-            onChange={handleChangeSearchKeyword}
+            onChange={onChangeHandler}
             value={value}
           />
           {value.length > 0 ? (
-            <StCloseIcon type="button" onClick={handleDeleteInputClick} />
+            <StCloseIcon type="button" onClick={onClickHandler} />
           ) : null}
         </StSearchBar>
       </form>
