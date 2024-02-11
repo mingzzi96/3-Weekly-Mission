@@ -2,6 +2,7 @@ import { FAIL_TO_LOAD_LIST } from "@/constants";
 import { API_BASE_URL } from "constants";
 import { FAIL_TO_LOAD_USER } from "constants";
 import { FAIL_TO_LOAD_SAMPLE_USER } from "constants";
+import { filterLinkSearch } from "utils/filterLinkSearch";
 
 const getUserSampleData = async () => {
   const response = await fetch(`${API_BASE_URL}/sample/user`);
@@ -44,7 +45,7 @@ const getFolderNameData = async () => {
   return result.data;
 };
 
-const getFolderData = async (folderId) => {
+const getFolderData = async (keyword = null, folderId) => {
   let apiUrl = `${API_BASE_URL}/users/1/links`;
 
   if (folderId) {
@@ -69,7 +70,9 @@ const getFolderData = async (folderId) => {
     updatedAt: item.updated_at,
   }));
 
-  return transformData;
+  if (!keyword || keyword === null || keyword === "") return transformData;
+
+  return filterLinkSearch(transformData, keyword);
 };
 
 export {

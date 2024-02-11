@@ -1,10 +1,4 @@
-const formatDate = (value) => {
-  const splitValue = value.split("T");
-  const dateValue = splitValue[0];
-  return dateValue.split("-").join(".");
-};
-
-const timeStamp = (date) => {
+export const timeStamp = (date) => {
   const now = new Date();
   const createdAt = new Date(date);
 
@@ -45,9 +39,3 @@ const timeStamp = (date) => {
 
   return `${Math.floor(months / 12)} years ago`;
 };
-
-const isEmailExist = (email) => {
-  return email !== "" && email !== undefined && email !== null;
-};
-
-export { formatDate, timeStamp, isEmailExist };

@@ -1,6 +1,6 @@
 import KebabButton from "@components/KebabButton/KebabButton";
-import { formatDate } from "util";
-import { timeStamp } from "util";
+import { formatDate } from "utils/formatDate";
+import { timeStamp } from "utils/timeStamp";
 
 const CardTextBox = ({ item, isKebabExist, cardLink }) => {
   return (

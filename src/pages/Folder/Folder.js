@@ -9,6 +9,7 @@ import NoListError from "@components/NoListError/NoListError";
 import CardList from "@components/CardList/CardList";
 import { NO_LINK_FOUND } from "@/constants";
 import { DeviceTypeProvider } from "@contexts/WindowSizeDetectContext";
+import { useSearchParams } from "react-router-dom";
 
 const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -19,6 +20,20 @@ const Folder = () => {
     selectedTagId: 0,
     cardListTitleEdit: false,
   });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initKeyword = searchParams.get("searchKeyword");
+  const [searchKeyword, setSearchKeyword] = useState(initKeyword || "");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const folderData = await getFolderData(searchKeyword);
+      setSearchParams(searchKeyword ? { searchKeyword } : {});
+      setFolderItem(folderData);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
 
   const handleActiveListClick = async (tagName, tagId) => {
     const targetTagText = tagName;
@@ -40,7 +55,7 @@ const Folder = () => {
 
     if (targetTagId !== undefined || targetTagId !== null) {
       try {
-        const folderData = await getFolderData(targetTagId);
+        const folderData = await getFolderData(initKeyword, targetTagId);
         setFolderItem(folderData);
       } catch (error) {
         setErrorMessage(error.message);
@@ -81,7 +96,13 @@ const Folder = () => {
       </div>
       <div className="list-max-width" style={{ paddingBottom: `100px` }}>
         <div className="folder-search-bar-area">
-          <SearchBar />
+          <SearchBar
+            placeholder="링크를 검색해 보세요."
+            value={searchKeyword}
+            onSubmitHandler={handleSubmit}
+            setSearchKeyword={setSearchKeyword}
+            setFolderItem={setFolderItem}
+          />
         </div>
         <DeviceTypeProvider>
           <SortingBar
