@@ -9,6 +9,8 @@ import NoListError from "@components/NoListError/NoListError";
 import CardList from "@components/CardList/CardList";
 import { NO_LINK_FOUND } from "@/constants";
 import { DeviceTypeProvider } from "@contexts/WindowSizeDetectContext";
+import { useSearchParams } from "react-router-dom";
+import styled from "styled-components";
 
 const Folder = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -19,6 +21,30 @@ const Folder = () => {
     selectedTagId: 0,
     cardListTitleEdit: false,
   });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initKeyword = searchParams.get("searchKeyword");
+  const [searchKeyword, setSearchKeyword] = useState(initKeyword || "");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const folderData = await getFolderData(searchKeyword);
+      setSearchParams(searchKeyword ? { searchKeyword } : {});
+      setFolderItem(folderData);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
+
+  const handleChangeSearchKeyword = (e) => {
+    setSearchKeyword(e.target.value);
+  };
+
+  const handleDeleteInputClick = () => {
+    setFolderData();
+    setSearchKeyword("");
+    setSearchParams("");
+  };
 
   const handleActiveListClick = async (tagName, tagId) => {
     const targetTagText = tagName;
@@ -40,7 +66,7 @@ const Folder = () => {
 
     if (targetTagId !== undefined || targetTagId !== null) {
       try {
-        const folderData = await getFolderData(targetTagId);
+        const folderData = await getFolderData(initKeyword, targetTagId);
         setFolderItem(folderData);
       } catch (error) {
         setErrorMessage(error.message);
@@ -81,8 +107,20 @@ const Folder = () => {
       </div>
       <div className="list-max-width" style={{ paddingBottom: `100px` }}>
         <div className="folder-search-bar-area">
-          <SearchBar />
+          <SearchBar
+            placeholder="링크를 검색해 보세요."
+            value={searchKeyword}
+            onSubmitHandler={handleSubmit}
+            onChangeHandler={handleChangeSearchKeyword}
+            onClickHandler={handleDeleteInputClick}
+          />
         </div>
+        {initKeyword ? (
+          <StSearchInfoBox>
+            <h3>{initKeyword}</h3>
+            <h4>으로 검색한 결과입니다.</h4>
+          </StSearchInfoBox>
+        ) : null}
         <DeviceTypeProvider>
           <SortingBar
             onClickTag={handleActiveListClick}
@@ -116,3 +154,23 @@ const Folder = () => {
 };
 
 export default Folder;
+
+const StSearchInfoBox = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+
+  h3 {
+    color: ${({ theme }) => theme.color.Black};
+  }
+
+  h4 {
+    color: ${({ theme }) => theme.color.Gray[60]};
+  }
+
+  @media (max-width: 767px) {
+    font-size: 2.4rem;
+  }
+`;

@@ -4,7 +4,7 @@ import { ProfileImageEmailInfo } from "@components/UserInfo/UserInfo";
 import { getUserData } from "@/api/api";
 import { Link, useLocation } from "react-router-dom";
 import GradientButton from "@components/GradientButton/GradientButton";
-import { isEmailExist } from "util";
+import { isEmailExist } from "utils/isEmailExist";
 
 const Header = () => {
   const location = useLocation();
