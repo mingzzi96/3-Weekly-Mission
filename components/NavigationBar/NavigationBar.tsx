@@ -3,12 +3,11 @@ import Link from "next/link";
 import LinkbraryLogo from "public/assets/images/logos/logo.svg";
 import styles from "./NavigationBar.module.css";
 import global from "@/styles/global.module.css";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { User } from "@/types/userType";
 
 const Navigation = () => {
-  const router = useRouter();
-  const [user, setUser]: any = useState({});
+  const [user, setUser] = useState<User>();
 
   const getUserData = async () => {
     const response = await fetch(
@@ -41,7 +40,7 @@ const Navigation = () => {
           </Link>
         </h1>
         <button className={`${global.gradientButton}`}>로그인</button>
-        {user.email}
+        {user?.email}
       </div>
     </nav>
   );
@@ -49,16 +48,17 @@ const Navigation = () => {
 
 export default Navigation;
 
-export const getServerSideProps = async () => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/1`
-  );
+// SSR fetch 실패!!!!!
+// export const getServerSideProps = async () => {
+//   const response = await fetch(
+//     `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/1`
+//   );
 
-  const result = await response.json();
-  const userData = result.data[0];
-  return {
-    props: {
-      userData,
-    },
-  };
-};
+//   const result = await response.json();
+//   const userData = result.data[0];
+//   return {
+//     props: {
+//       userData,
+//     },
+//   };
+// };
