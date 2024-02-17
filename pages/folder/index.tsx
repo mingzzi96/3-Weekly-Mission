@@ -5,9 +5,9 @@ import Image from "next/image";
 import AddLinkBar from "@/components/ui/atoms/add-link-bar/AddLinkBar";
 import FolderSortingItem from "@/components/ui/atoms/folder-sorting-item/FolderSortingItem";
 import SearchBar from "@/components/ui/atoms/search-bar/SearchBar";
-import Card from "@/components/ui/atoms/list-card-item";
 import { getFolderData } from "@/api/getFolderData";
 import { CardItemTransformed } from "@/types/cardItemType";
+import CardList from "@/components/ui/molecules/card-list/CardList";
 
 const Folder: React.FC = () => {
   const [folderItem, setFolderItem] = useState<CardItemTransformed[]>([]);
@@ -71,18 +71,7 @@ const Folder: React.FC = () => {
           </button>
         </div>
         <div className={styles.cardListArea}>
-          <div className={styles.cardListBox}>
-            {folderItem.map((cardData: CardItemTransformed) => (
-              <Card key={cardData.id} cardData={cardData}>
-                <Card.Image />
-                <Card.DatePassed />
-                <Card.Description />
-                <Card.Date />
-                <Card.FavoriteButton />
-                <Card.KebabButton />
-              </Card>
-            ))}
-          </div>
+          <CardList folderItem={folderItem} />
         </div>
       </div>
     </>
