@@ -3,13 +3,25 @@ import beforeClickImage from "@/public/assets/images/icons/starIcon.svg";
 import afterClickImage from "@/public/assets/images/icons/starActiveIcon.svg";
 import { useCardProvider } from "./context/cardItemProvider";
 import Image from "next/image";
+import { useState } from "react";
 
 const CardFavoriteButton = () => {
-  const cardData = useCardProvider();
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleActiveFavoriteClick = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   return (
-    <button>
-      <Image src={beforeClickImage} alt="즐겨찾기 추가하기 전 아이콘" />
+    <button
+      className={styles.favoriteButton}
+      onClick={handleActiveFavoriteClick}
+    >
+      {isFavorite ? (
+        <Image src={afterClickImage} alt="즐겨찾기 추가 후 아이콘" />
+      ) : (
+        <Image src={beforeClickImage} alt="즐겨찾기 추가하기 전 아이콘" />
+      )}
     </button>
   );
 };

@@ -78,6 +78,7 @@ const Folder: React.FC = () => {
                 <Card.DatePassed />
                 <Card.Description />
                 <Card.Date />
+                <Card.FavoriteButton />
               </Card>
             ))}
           </div>
