@@ -38,3 +38,14 @@
   padding: 16px 40px;
   max-width: 128px;
 }
+
+.navUserInfo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navUserInfo p {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
