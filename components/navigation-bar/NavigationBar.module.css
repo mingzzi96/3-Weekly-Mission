@@ -49,3 +49,11 @@
   font-size: 1.4rem;
   font-weight: 400;
 }
+
+/* mobile */
+@media (max-width: 767px) {
+  .navContainer {
+    max-width: 100%;
+    padding: 18px 32px;
+  }
+}

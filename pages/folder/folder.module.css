@@ -1,0 +1,14 @@
+.linkArea {
+  background: var(--color--gray-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 128px 90px;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .linkArea {
+    padding: 87px 40px;
+  }
+}

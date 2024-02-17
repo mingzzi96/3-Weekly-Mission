@@ -1,0 +1,42 @@
+.container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.6rem;
+  border-radius: 15px;
+  border: 1px solid var(--color--primary);
+  padding: 15px 20px;
+  background: #fff;
+}
+
+.container img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.container input {
+  width: 100%;
+}
+
+.container button {
+  padding: 10px 15.5px;
+  font-size: 1.4rem;
+  line-height: 17px;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .container {
+    gap: 8px;
+    padding: 8px 10px;
+    font-size: 1.4rem;
+  }
+
+  .container img {
+    width: 16px;
+    height: 16px;
+  }
+}
