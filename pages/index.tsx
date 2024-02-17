@@ -1,4 +1,4 @@
-import Header from "../components/navigation-bar/NavigationBar";
+import Header from "../components/ui/molecules/navigation-bar/NavigationBar";
 
 const Home = () => {
   return <h1>Home</h1>;

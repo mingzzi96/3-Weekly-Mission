@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import NavigationBar from "./navigation-bar/NavigationBar";
+import NavigationBar from "./ui/molecules/navigation-bar/NavigationBar";
 
 interface MyComponentProps {
   children: ReactNode;
