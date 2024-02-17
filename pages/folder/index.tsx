@@ -10,16 +10,23 @@ const Folder = () => {
     setSearchKeyword(e.target.value);
   };
 
+  const handleDeleteInputClick = () => {
+    setSearchKeyword("");
+  };
+
   return (
     <>
       <div className={styles.linkArea}>
         <AddLinkBar />
       </div>
       <div className={styles.maxWidth}>
-        <SearchBar
-          value={searchKeyword}
-          onChangeHandler={handleChangeSearchKeyword}
-        />
+        <div className={styles.searchBarContainer}>
+          <SearchBar
+            value={searchKeyword}
+            onChangeHandler={handleChangeSearchKeyword}
+            onClickHandler={handleDeleteInputClick}
+          />
+        </div>
       </div>
     </>
   );

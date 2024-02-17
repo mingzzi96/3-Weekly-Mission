@@ -7,7 +7,7 @@ interface Search {
   value: string;
   onSubmitHandler?: () => {};
   onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onClickHandler?: () => {};
+  onClickHandler?: () => void;
 }
 
 const SearchBar = ({
