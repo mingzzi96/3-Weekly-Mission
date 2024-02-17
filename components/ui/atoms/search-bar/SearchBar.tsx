@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./SearchBar.module.css";
 import searchIcon from "@/public/assets/images/icons/SearchIcon.png";
+import clearIcon from "@/public/assets/images/icons/closeIconGrey.svg";
 import { ChangeEvent } from "react";
 
 interface Search {
@@ -25,10 +26,9 @@ const SearchBar = ({
         value={value}
       />
       {value.length > 0 ? (
-        <button
-          aria-label="클릭하여 내용 지우기"
-          onClick={onClickHandler}
-        ></button>
+        <button aria-label="클릭하여 내용 지우기" onClick={onClickHandler}>
+          <Image src={clearIcon} alt="내용 삭제 아이콘" tabIndex={-1} />
+        </button>
       ) : null}
     </form>
   );

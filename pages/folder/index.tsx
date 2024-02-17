@@ -1,10 +1,10 @@
-import SearchBar from "@/components/search-bar/SearchBar";
 import styles from "./folder.module.css";
-import AddLinkBar from "@/components/add-link-bar/AddLinkBar";
 import FolderAddIcon from "@/public/assets/images/icons/addIcon.png";
 import { ChangeEvent, useState } from "react";
-import FolderSortingItem from "@/components/folder-sorting-item/FolderSortingItem";
 import Image from "next/image";
+import AddLinkBar from "@/components/ui/atoms/add-link-bar/AddLinkBar";
+import FolderSortingItem from "@/components/ui/atoms/folder-sorting-item/FolderSortingItem";
+import SearchBar from "@/components/ui/atoms/search-bar/SearchBar";
 
 const Folder = () => {
   const [searchKeyword, setSearchKeyword] = useState<string>("");

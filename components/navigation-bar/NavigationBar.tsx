@@ -6,7 +6,7 @@ import global from "@/styles/global.module.css";
 import { useEffect, useState } from "react";
 import { User } from "@/types/userType";
 import { getUserData } from "@/api/getUserData";
-import ProfileImage from "../profile-image/ProfileImage";
+import ProfileImage from "../ui/atoms/profile-image/ProfileImage";
 
 const Navigation = () => {
   const [user, setUser] = useState<User>();
