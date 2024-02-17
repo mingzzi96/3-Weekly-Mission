@@ -1,7 +1,10 @@
 import SearchBar from "@/components/search-bar/SearchBar";
 import styles from "./folder.module.css";
 import AddLinkBar from "@/components/add-link-bar/AddLinkBar";
+import FolderAddIcon from "@/public/assets/images/icons/addIcon.png";
 import { ChangeEvent, useState } from "react";
+import FolderSortingItem from "@/components/folder-sorting-item/FolderSortingItem";
+import Image from "next/image";
 
 const Folder = () => {
   const [searchKeyword, setSearchKeyword] = useState<string>("");
@@ -20,12 +23,28 @@ const Folder = () => {
         <AddLinkBar />
       </div>
       <div className={styles.maxWidth}>
-        <div className={styles.searchBarContainer}>
+        <div className={styles.searchBarArea}>
           <SearchBar
             value={searchKeyword}
             onChangeHandler={handleChangeSearchKeyword}
             onClickHandler={handleDeleteInputClick}
           />
+        </div>
+        <div className={styles.sortingArea}>
+          <div className={styles.folderSortingBox}>
+            <FolderSortingItem folderName="강아지" />
+            <FolderSortingItem folderName="Elephant" />
+            <FolderSortingItem folderName="wow" />
+            <FolderSortingItem folderName="오징어 볶음" />
+          </div>
+          <button type="button">
+            <span>폴더 추가</span>
+            <Image
+              src={FolderAddIcon}
+              alt="폴더 추가하기 아이콘"
+              tabIndex={-1}
+            />
+          </button>
         </div>
       </div>
     </>

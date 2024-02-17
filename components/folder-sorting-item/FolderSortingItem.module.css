@@ -1,0 +1,27 @@
+.sortingItem {
+  display: inline-block;
+  border: 1px solid var(--color--primary);
+  border-radius: 5px;
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 8px 12px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.sortingItem:hover {
+  background: var(--color--gray-10);
+}
+
+.sortingItem.active {
+  background: var(--color--primary);
+  color: #fff;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .sortingItem {
+    font-size: 1.4rem;
+    padding: 6px 10px;
+  }
+}
