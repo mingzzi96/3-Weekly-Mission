@@ -6,6 +6,13 @@
   padding: 128px 90px;
 }
 
+.maxWidth {
+  max-width: var(--max-width);
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
 /* mobile */
 @media (max-width: 767px) {
   .linkArea {
