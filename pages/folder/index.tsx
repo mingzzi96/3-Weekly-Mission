@@ -1,12 +1,17 @@
 import styles from "./folder.module.css";
 import FolderAddIcon from "@/public/assets/images/icons/addIcon.png";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import AddLinkBar from "@/components/ui/atoms/add-link-bar/AddLinkBar";
 import FolderSortingItem from "@/components/ui/atoms/folder-sorting-item/FolderSortingItem";
 import SearchBar from "@/components/ui/atoms/search-bar/SearchBar";
+import Card from "@/components/ui/atoms/list-card-item";
+import { getFolderData } from "@/api/getFolderData";
+import { CardItemTransformed } from "@/types/cardItemType";
 
-const Folder = () => {
+const Folder: React.FC = () => {
+  const [folderItem, setFolderItem] = useState<CardItemTransformed[]>([]);
+  const [errorMessage, setErrorMessage] = useState("");
   const [searchKeyword, setSearchKeyword] = useState<string>("");
 
   const handleChangeSearchKeyword = (e: ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +21,25 @@ const Folder = () => {
   const handleDeleteInputClick = () => {
     setSearchKeyword("");
   };
+
+  const setFolderData = useCallback(async () => {
+    try {
+      const folderData = await getFolderData();
+      setFolderItem(folderData);
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMessage(error.message);
+      } else {
+        setErrorMessage("An error occurred.");
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    setFolderData();
+  }, [setFolderData]);
+
+  console.log(folderItem);
 
   return (
     <>
@@ -45,6 +69,18 @@ const Folder = () => {
               tabIndex={-1}
             />
           </button>
+        </div>
+        <div className={styles.cardListArea}>
+          <div className={styles.cardListBox}>
+            {folderItem?.map((cardData: CardItemTransformed) => (
+              <Card key={cardData.id} cardData={cardData}>
+                <Card.Image />
+                <Card.DatePassed />
+                <Card.Description />
+                <Card.Date />
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
+import { API_BASE_URL } from "@/utils/constants";
+
 export const getUserData = async () => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/1`
-  );
+  const response = await fetch(`${API_BASE_URL}/users/1`);
 
   if (!response.ok) {
     throw new Error("User 정보 받아오기 실패");

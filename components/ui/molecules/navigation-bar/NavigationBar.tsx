@@ -46,7 +46,7 @@ export default Navigation;
 // SSR fetch 실패!!!!!
 // export const getServerSideProps = async () => {
 //   const response = await fetch(
-//     `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/1`
+//     `${API_BASE_URL}/users/1`
 //   );
 
 //   const result = await response.json();
