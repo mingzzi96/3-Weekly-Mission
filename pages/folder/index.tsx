@@ -72,13 +72,14 @@ const Folder: React.FC = () => {
         </div>
         <div className={styles.cardListArea}>
           <div className={styles.cardListBox}>
-            {folderItem?.map((cardData: CardItemTransformed) => (
+            {folderItem.map((cardData: CardItemTransformed) => (
               <Card key={cardData.id} cardData={cardData}>
                 <Card.Image />
                 <Card.DatePassed />
                 <Card.Description />
                 <Card.Date />
                 <Card.FavoriteButton />
+                <Card.KebabButton />
               </Card>
             ))}
           </div>

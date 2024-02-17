@@ -1,7 +1,6 @@
 import styles from "./CardItem.module.css";
 import beforeClickImage from "@/public/assets/images/icons/starIcon.svg";
 import afterClickImage from "@/public/assets/images/icons/starActiveIcon.svg";
-import { useCardProvider } from "./context/cardItemProvider";
 import Image from "next/image";
 import { useState } from "react";
 
