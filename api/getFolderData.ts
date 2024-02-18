@@ -3,11 +3,11 @@ import { API_BASE_URL, FAIL_TO_LOAD_LIST } from "@/utils/constants";
 import { filterLinkSearch } from "@/utils/search/filterLinkSearch";
 
 interface folderData {
-  keyword?: string | undefined;
-  folderId?: number | undefined;
+  keyword?: string | null | undefined;
+  folderId?: number | null | undefined;
 }
 
-export const getFolderData = async ({ folderId, keyword }: folderData = {}) => {
+export const getFolderData = async ({ keyword, folderId }: folderData = {}) => {
   let apiUrl = `${API_BASE_URL}/users/1/links`;
 
   if (folderId) {

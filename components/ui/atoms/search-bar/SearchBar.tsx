@@ -6,8 +6,8 @@ import { ChangeEvent } from "react";
 
 interface Search {
   value: string;
-  onSubmitHandler?: () => {};
-  onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmitHandler?: (e: React.FormEvent<HTMLFormElement>) => void;
+  onChangeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClickHandler?: () => void;
 }
 

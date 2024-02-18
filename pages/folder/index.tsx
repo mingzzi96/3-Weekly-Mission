@@ -13,6 +13,9 @@ import { getFolderNameData } from "@/api/getFolderNameData";
 import { FolderName } from "@/types/folderNameType";
 import FolderSortingList from "@/components/ui/atoms/folder-sorting/FolderSortingList";
 import SelectedFolderTitle from "@/components/ui/molecules/card-folder-title/SelectedFolderTitle";
+import { useSearchParams } from "next/navigation";
+import NoListError from "@/components/ui/atoms/no-list-error/NoListError";
+import { NO_LINK_FOUND } from "@/utils/constants";
 interface selectedTagInfo {
   selectedTag: string;
   selectedTagId: number | null | undefined;
@@ -23,14 +26,31 @@ const Folder: React.FC = () => {
   const [folderName, setFolderName] = useState([]);
   const [folderItem, setFolderItem] = useState<CardItemTransformed[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const [searchKeyword, setSearchKeyword] = useState<string>("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initKeyword = searchParams ? searchParams.get("searchKeyword") : null;
+  const [searchKeyword, setSearchKeyword] = useState(initKeyword || "");
   const [selectedTagInfo, setSelectedTagInfo] = useState<selectedTagInfo>({
     selectedTag: "전체",
     selectedTagId: 0,
     cardListTitleEdit: false,
   });
 
-  const handleChangeSearchKeyword = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const folderData = await getFolderData(searchKeyword);
+      setSearchParams(searchKeyword ? { searchKeyword } : {});
+      setFolderItem(folderData);
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMessage(error.message);
+      }
+    }
+  };
+
+  const handleChangeSearchKeyword = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setSearchKeyword(e.target.value);
   };
 
@@ -86,19 +106,20 @@ const Folder: React.FC = () => {
       }));
     }
 
-    // if (tagId !== undefined || tagId !== null) {
-    //   try {
-    //     const folderData = await getFolderData(initKeyword, tagId);
-    //     setFolderItem(folderData);
-    //   } catch (error) {
-    //     if (error instanceof Error) {
-    //       setErrorMessage(error.message);
-    //     }
-    //   }
-    // }
+    if (tagId !== undefined || tagId !== null) {
+      try {
+        const folderData = await getFolderData({
+          keyword: initKeyword,
+          folderId: tagId,
+        });
+        setFolderItem(folderData);
+      } catch (error) {
+        if (error instanceof Error) {
+          setErrorMessage(error.message);
+        }
+      }
+    }
   };
-
-  console.log(folderName);
 
   return (
     <>
@@ -111,6 +132,7 @@ const Folder: React.FC = () => {
             value={searchKeyword}
             onChangeHandler={handleChangeSearchKeyword}
             onClickHandler={handleDeleteInputClick}
+            onSubmitHandler={handleSubmit}
           />
         </div>
         <div className={styles.sortingArea}>
@@ -154,7 +176,12 @@ const Folder: React.FC = () => {
           />
         </div>
         <div className={styles.cardListArea}>
-          <CardList folderItem={folderItem} />
+          {errorMessage && <NoListError message={errorMessage} />}
+          {folderItem.length > 0 ? (
+            <CardList folderItem={folderItem} />
+          ) : (
+            <NoListError message={NO_LINK_FOUND} />
+          )}
         </div>
       </div>
     </>
