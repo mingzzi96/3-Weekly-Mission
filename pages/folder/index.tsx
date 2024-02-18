@@ -27,7 +27,7 @@ const Folder: React.FC = () => {
   const [folderItem, setFolderItem] = useState<CardItemTransformed[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
-  const initKeyword = searchParams ? searchParams.get("searchKeyword") : null;
+  const initKeyword = searchParams[0];
   const [searchKeyword, setSearchKeyword] = useState(initKeyword || "");
   const [selectedTagInfo, setSelectedTagInfo] = useState<selectedTagInfo>({
     selectedTag: "전체",
@@ -37,6 +37,7 @@ const Folder: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("yes");
     try {
       const folderData = await getFolderData(searchKeyword);
       setSearchParams(searchKeyword ? { searchKeyword } : {});
