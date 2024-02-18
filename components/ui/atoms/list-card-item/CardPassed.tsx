@@ -5,7 +5,9 @@ import { useCardProvider } from "./context/cardItemProvider";
 const CardPassed = () => {
   const cardData = useCardProvider();
 
-  return <span className={styles.date}>{timeStamp(cardData?.createdAt)}</span>;
+  return (
+    <span className={styles.datePassed}>{timeStamp(cardData?.createdAt)}</span>
+  );
 };
 
 export default CardPassed;

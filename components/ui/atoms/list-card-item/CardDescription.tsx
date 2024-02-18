@@ -3,7 +3,7 @@ import { useCardProvider } from "./context/cardItemProvider";
 
 const CardDescription = () => {
   const cardData = useCardProvider();
-  return <div className={styles.CardDescription}>{cardData?.description}</div>;
+  return <div className={styles.cardDescription}>{cardData?.description}</div>;
 };
 
 export default CardDescription;

@@ -1,0 +1,36 @@
+.cardListBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px 20px;
+}
+
+.cardListItem {
+  width: calc(100% / 3 - 20px);
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.cardListItem img {
+  transition: 0.2s;
+}
+
+.cardListItem:hover img {
+  transform: scale(1.05);
+}
+
+.imageBox {
+  position: relative;
+}
+
+.textBox {
+  position: relative;
+  padding: 15px 20px;
+}
+
+.textBoxFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

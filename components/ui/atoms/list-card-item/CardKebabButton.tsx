@@ -6,7 +6,8 @@ import Image from "next/image";
 const CardKebabButton = () => {
   const [isActive, setIsActive] = useState(false);
 
-  const handleKebabActiveClick = () => {
+  const handleKebabActiveClick = (e: any) => {
+    e.preventDefault();
     setIsActive(!isActive);
   };
   return (
@@ -15,11 +16,11 @@ const CardKebabButton = () => {
         <Image src={moreIcon} alt="더보기 메뉴 버튼" />
       </button>
       {isActive ? (
-        <ul className="kebab-menu">
-          <li className="kebab-menu-item">
+        <ul className={styles.kebabButtonMenu}>
+          <li>
             <p>삭제하기</p>
           </li>
-          <li className="kebab-menu-item">
+          <li>
             <p>폴더에 추가</p>
           </li>
         </ul>
