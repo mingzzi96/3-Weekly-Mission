@@ -44,12 +44,6 @@
   object-fit: contain;
 }
 
-.folderSortingBox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 /* mobile */
 @media (max-width: 767px) {
   .linkArea {

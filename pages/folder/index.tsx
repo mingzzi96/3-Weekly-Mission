@@ -3,13 +3,17 @@ import FolderAddIcon from "@/public/assets/images/icons/addIcon.png";
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import AddLinkBar from "@/components/ui/atoms/add-link-bar/AddLinkBar";
-import FolderSortingItem from "@/components/ui/atoms/folder-sorting-item/FolderSortingItem";
+import FolderSortingItem from "@/components/ui/atoms/folder-sorting/FolderSortingItem";
 import SearchBar from "@/components/ui/atoms/search-bar/SearchBar";
 import { getFolderData } from "@/api/getFolderData";
 import { CardItemTransformed } from "@/types/cardItemType";
 import CardList from "@/components/ui/molecules/card-list/CardList";
+import { getFolderNameData } from "@/api/getFolderNameData";
+import { FolderName } from "@/types/folderNameType";
+import FolderSortingList from "@/components/ui/atoms/folder-sorting/FolderSortingList";
 
 const Folder: React.FC = () => {
+  const [folderName, setFolderName] = useState([]);
   const [folderItem, setFolderItem] = useState<CardItemTransformed[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [searchKeyword, setSearchKeyword] = useState<string>("");
@@ -22,6 +26,17 @@ const Folder: React.FC = () => {
     setSearchKeyword("");
   };
 
+  const setFolderNameData = useCallback(async () => {
+    try {
+      const folderList = await getFolderNameData();
+      setFolderName(folderList);
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMessage(error.message);
+      }
+    }
+  }, []);
+
   const setFolderData = useCallback(async () => {
     try {
       const folderData = await getFolderData();
@@ -29,8 +44,6 @@ const Folder: React.FC = () => {
     } catch (error) {
       if (error instanceof Error) {
         setErrorMessage(error.message);
-      } else {
-        setErrorMessage("An error occurred.");
       }
     }
   }, []);
@@ -39,7 +52,11 @@ const Folder: React.FC = () => {
     setFolderData();
   }, [setFolderData]);
 
-  console.log(folderItem);
+  useEffect(() => {
+    setFolderNameData();
+  }, [setFolderNameData]);
+
+  console.log(folderName);
 
   return (
     <>
@@ -55,12 +72,16 @@ const Folder: React.FC = () => {
           />
         </div>
         <div className={styles.sortingArea}>
-          <div className={styles.folderSortingBox}>
-            <FolderSortingItem folderName="강아지" />
-            <FolderSortingItem folderName="Elephant" />
-            <FolderSortingItem folderName="wow" />
-            <FolderSortingItem folderName="오징어 볶음" />
-          </div>
+          <FolderSortingList>
+            <li>
+              <p>전체</p>
+            </li>
+            {folderName.map((tag: FolderName) => (
+              <li key={tag?.id}>
+                <FolderSortingItem folderNameData={tag} />
+              </li>
+            ))}
+          </FolderSortingList>
           <button type="button">
             <span>폴더 추가</span>
             <Image
