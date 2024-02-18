@@ -1,10 +1,11 @@
 .folderSortingBox {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
-.folderSortingBox li {
+.folderSortingBox li p {
   display: inline-block;
   border: 1px solid var(--color--primary);
   border-radius: 5px;
@@ -15,11 +16,11 @@
   cursor: pointer;
 }
 
-.folderSortingBox li:hover {
+.folderSortingBox li p:hover {
   background: var(--color--gray-10);
 }
 
-.folderSortingBox li.active {
+.folderSortingBox li p.active {
   background: var(--color--primary);
   color: #fff;
 }

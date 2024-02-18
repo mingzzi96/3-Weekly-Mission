@@ -24,6 +24,7 @@
 }
 
 .sortingArea button {
+  min-width: 80px;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -42,6 +43,10 @@
   width: 16px;
   height: 16px;
   object-fit: contain;
+}
+
+.cardListFolderTitleArea {
+  margin: 24px 0;
 }
 
 /* mobile */

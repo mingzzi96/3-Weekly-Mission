@@ -1,3 +1,4 @@
+import folderStyles from "@/components/ui/atoms/folder-sorting/FolderSortingList.module.css";
 import styles from "./folder.module.css";
 import FolderAddIcon from "@/public/assets/images/icons/addIcon.png";
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
@@ -11,12 +12,23 @@ import CardList from "@/components/ui/molecules/card-list/CardList";
 import { getFolderNameData } from "@/api/getFolderNameData";
 import { FolderName } from "@/types/folderNameType";
 import FolderSortingList from "@/components/ui/atoms/folder-sorting/FolderSortingList";
+import SelectedFolderTitle from "@/components/ui/molecules/card-folder-title/SelectedFolderTitle";
+interface selectedTagInfo {
+  selectedTag: string;
+  selectedTagId: number | null | undefined;
+  cardListTitleEdit: boolean;
+}
 
 const Folder: React.FC = () => {
   const [folderName, setFolderName] = useState([]);
   const [folderItem, setFolderItem] = useState<CardItemTransformed[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [searchKeyword, setSearchKeyword] = useState<string>("");
+  const [selectedTagInfo, setSelectedTagInfo] = useState<selectedTagInfo>({
+    selectedTag: "전체",
+    selectedTagId: 0,
+    cardListTitleEdit: false,
+  });
 
   const handleChangeSearchKeyword = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchKeyword(e.target.value);
@@ -56,6 +68,36 @@ const Folder: React.FC = () => {
     setFolderNameData();
   }, [setFolderNameData]);
 
+  const handleActiveFolderTag = async (
+    tagName: string,
+    tagId: number | null | undefined
+  ) => {
+    setSelectedTagInfo((prevSelectedTagInfo) => ({
+      ...prevSelectedTagInfo,
+      cardListTitleEdit: true,
+      selectedTag: tagName,
+      selectedTagId: tagId,
+    }));
+
+    if (tagName === "전체") {
+      setSelectedTagInfo((prevSelectedTagInfo) => ({
+        ...prevSelectedTagInfo,
+        cardListTitleEdit: false,
+      }));
+    }
+
+    // if (tagId !== undefined || tagId !== null) {
+    //   try {
+    //     const folderData = await getFolderData(initKeyword, tagId);
+    //     setFolderItem(folderData);
+    //   } catch (error) {
+    //     if (error instanceof Error) {
+    //       setErrorMessage(error.message);
+    //     }
+    //   }
+    // }
+  };
+
   console.log(folderName);
 
   return (
@@ -74,11 +116,24 @@ const Folder: React.FC = () => {
         <div className={styles.sortingArea}>
           <FolderSortingList>
             <li>
-              <p>전체</p>
+              <p
+                className={
+                  selectedTagInfo.selectedTag === "전체"
+                    ? folderStyles.active
+                    : ""
+                }
+                onClick={() => handleActiveFolderTag("전체", null)}
+              >
+                전체
+              </p>
             </li>
             {folderName.map((tag: FolderName) => (
               <li key={tag?.id}>
-                <FolderSortingItem folderNameData={tag} />
+                <FolderSortingItem
+                  folderNameData={tag}
+                  selectedTagName={selectedTagInfo.selectedTag}
+                  onClickHandler={handleActiveFolderTag}
+                />
               </li>
             ))}
           </FolderSortingList>
@@ -90,6 +145,13 @@ const Folder: React.FC = () => {
               tabIndex={-1}
             />
           </button>
+        </div>
+        <div className={styles.cardListFolderTitleArea}>
+          <SelectedFolderTitle
+            title={selectedTagInfo.selectedTag}
+            editActive={selectedTagInfo.cardListTitleEdit}
+            folderId={selectedTagInfo.selectedTagId}
+          />
         </div>
         <div className={styles.cardListArea}>
           <CardList folderItem={folderItem} />
