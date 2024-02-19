@@ -6,13 +6,13 @@ import Image from "next/image";
 const CardKebabButton = () => {
   const [isActive, setIsActive] = useState(false);
 
-  const handleKebabActiveClick = (e: any) => {
+  const handleClickKebabActive = (e: any) => {
     e.preventDefault();
     setIsActive(!isActive);
   };
   return (
     <div className={styles.kebabButton}>
-      <button onClick={handleKebabActiveClick}>
+      <button onClick={handleClickKebabActive}>
         <Image src={moreIcon} alt="더보기 메뉴 버튼" />
       </button>
       {isActive ? (

@@ -7,7 +7,7 @@ import { useState } from "react";
 const CardFavoriteButton = () => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleActiveFavoriteClick = (e: any) => {
+  const handleClickActiveFavorite = (e: any) => {
     e.preventDefault();
     setIsFavorite((currentValue) => !currentValue);
   };
@@ -15,7 +15,7 @@ const CardFavoriteButton = () => {
   return (
     <button
       className={styles.favoriteButton}
-      onClick={handleActiveFavoriteClick}
+      onClick={handleClickActiveFavorite}
     >
       {isFavorite ? (
         <Image src={afterClickImage} alt="즐겨찾기 추가 후 아이콘" />
