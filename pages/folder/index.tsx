@@ -18,35 +18,21 @@ import NoListError from "@/components/ui/atoms/no-list-error/NoListError";
 import { NO_LINK_FOUND } from "@/utils/constants";
 interface selectedTagInfo {
   selectedTag: string;
-  selectedTagId: number | null | undefined;
+  selectedTagId?: number;
   cardListTitleEdit: boolean;
 }
 
-const Folder: React.FC = () => {
+const Folder = () => {
   const [folderName, setFolderName] = useState([]);
   const [folderItem, setFolderItem] = useState<CardItemTransformed[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
-  const initKeyword = searchParams[0];
-  const [searchKeyword, setSearchKeyword] = useState(initKeyword || "");
+
+  const [searchKeyword, setSearchKeyword] = useState("");
   const [selectedTagInfo, setSelectedTagInfo] = useState<selectedTagInfo>({
     selectedTag: "전체",
     selectedTagId: 0,
     cardListTitleEdit: false,
   });
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const folderData = await getFolderData(searchKeyword);
-      setSearchParams(searchKeyword ? { searchKeyword } : {});
-      setFolderItem(folderData);
-    } catch (error) {
-      if (error instanceof Error) {
-        setErrorMessage(error.message);
-      }
-    }
-  };
 
   const handleChangeSearchKeyword = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -88,11 +74,8 @@ const Folder: React.FC = () => {
     setFolderNameData();
   }, [setFolderNameData]);
 
-  const handleActiveFolderTag = async (
-    tagName: string,
-    tagId?: number
-  ) => {
-    setSelectedTagInfo((prevSelectedTagInfo) => ({
+  const handleActiveFolderTag = async (tagName: string, tagId?: number) => {
+    setSelectedTagInfo((prevSelectedTagInfo: selectedTagInfo) => ({
       ...prevSelectedTagInfo,
       cardListTitleEdit: true,
       selectedTag: tagName,
@@ -109,7 +92,7 @@ const Folder: React.FC = () => {
     if (tagId !== undefined || tagId !== null) {
       try {
         const folderData = await getFolderData({
-          keyword: initKeyword,
+          keyword: "",
           folderId: tagId,
         });
         setFolderItem(folderData);
@@ -132,7 +115,6 @@ const Folder: React.FC = () => {
             value={searchKeyword}
             onChangeHandler={handleChangeSearchKeyword}
             onClickHandler={handleDeleteInputClick}
-            onSubmitHandler={handleSubmit}
           />
         </div>
         <div className={styles.sortingArea}>
@@ -144,7 +126,7 @@ const Folder: React.FC = () => {
                     ? folderStyles.active
                     : ""
                 }
-                onClick={() => handleActiveFolderTag("전체", null)}
+                onClick={() => handleActiveFolderTag("전체")}
               >
                 전체
               </p>
