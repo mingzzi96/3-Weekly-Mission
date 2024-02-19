@@ -1,4 +1,13 @@
 import folderStyles from "@/components/ui/atoms/folder-sorting/FolderSortingList.module.css";
+import { FolderName } from "@/types/folderNameType";
+import { MouseEvent } from "react";
+
+interface FolderSortingItem {
+  selectedTagName: string;
+  folderNameData: FolderName;
+  onClickHandler: (e: MouseEvent<HTMLButtonElement>) => void;
+}
+
 const FolderSortingItem = ({
   selectedTagName,
   folderNameData,
