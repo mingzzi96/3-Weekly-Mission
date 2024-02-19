@@ -1,6 +1,10 @@
 import styles from "./NoListError.module.css";
 
-const NoListError = ({ message }: any) => {
+interface NoListError {
+  message: string;
+}
+
+const NoListError = ({ message }: NoListError) => {
   return (
     <div className={styles.NoListError}>
       <p>{message}</p>
