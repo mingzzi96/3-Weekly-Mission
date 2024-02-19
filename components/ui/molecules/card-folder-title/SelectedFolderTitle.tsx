@@ -5,9 +5,9 @@ import deleteIcon from "@/public/assets/images/icons/deleteIcon.png";
 import Image from "next/image";
 
 interface SelectedFolderTitle {
-  title?: string | null;
-  editActive?: boolean | null;
-  folderId?: number | null;
+  title?: string;
+  editActive?: boolean;
+  folderId?: number;
 }
 
 const SelectedFolderTitle = ({

@@ -3,8 +3,8 @@ import { API_BASE_URL, FAIL_TO_LOAD_LIST } from "@/utils/constants";
 import { filterLinkSearch } from "@/utils/search/filterLinkSearch";
 
 interface folderData {
-  keyword?: string | null | undefined;
-  folderId?: number | null | undefined;
+  keyword?: string;
+  folderId?: number;
 }
 
 export const getFolderData = async ({ keyword, folderId }: folderData = {}) => {
