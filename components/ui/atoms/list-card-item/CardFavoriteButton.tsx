@@ -9,7 +9,7 @@ const CardFavoriteButton = () => {
 
   const handleActiveFavoriteClick = (e: any) => {
     e.preventDefault();
-    setIsFavorite(!isFavorite);
+    setIsFavorite((currentValue) => !currentValue);
   };
 
   return (
