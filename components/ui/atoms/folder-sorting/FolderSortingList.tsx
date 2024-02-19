@@ -21,30 +21,32 @@ const FolderSortingList = ({
   setErrorMessage,
 }: FolderSortingList) => {
   const handleActiveFolderTag = async (tagName: string, tagId?: number) => {
-    setSelectedTagInfo((prevSelectedTagInfo: selectedTagInfo) => ({
-      ...prevSelectedTagInfo,
+    const newSelectedTagInfo: selectedTagInfo = {
       cardListTitleEdit: true,
       selectedTag: tagName,
       selectedTagId: tagId,
-    }));
+    };
 
     if (tagName === "전체") {
-      setSelectedTagInfo((prevSelectedTagInfo: selectedTagInfo) => ({
+      setSelectedTagInfo((prevSelectedTagInfo) => ({
         ...prevSelectedTagInfo,
         cardListTitleEdit: false,
       }));
     }
 
-    if (tagId !== undefined || tagId !== null) {
-      try {
-        const folderData = await getFolderData({
-          folderId: tagId,
-        });
-        setFolderItem(folderData);
-      } catch (error) {
-        if (error instanceof Error) {
-          setErrorMessage(error.message);
-        }
+    setSelectedTagInfo((prevSelectedTagInfo) => ({
+      ...prevSelectedTagInfo,
+      ...newSelectedTagInfo,
+    }));
+
+    try {
+      const folderData = await getFolderData({
+        folderId: tagId,
+      });
+      setFolderItem(folderData);
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMessage(error.message);
       }
     }
   };
