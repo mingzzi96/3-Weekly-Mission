@@ -92,7 +92,6 @@ const Folder = () => {
     if (tagId !== undefined || tagId !== null) {
       try {
         const folderData = await getFolderData({
-          keyword: "",
           folderId: tagId,
         });
         setFolderItem(folderData);
