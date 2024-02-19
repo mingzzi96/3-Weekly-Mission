@@ -1,10 +1,9 @@
-interface Item {
-  description: string;
-  title: string;
-  url: string;
-}
+import { CardItemTransformed } from "@/types/cardItemType";
 
-export function filterLinkSearch(items: Item[], keyword: string) {
+export function filterLinkSearch(
+  items: CardItemTransformed[],
+  keyword: string
+) {
   const lowered = keyword.toLowerCase();
   return items.filter(
     ({ description, title, url }) =>

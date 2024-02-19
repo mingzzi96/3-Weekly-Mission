@@ -1,7 +1,7 @@
 import folderStyles from "@/components/ui/atoms/folder-sorting/FolderSortingList.module.css";
 import styles from "./folder.module.css";
 import FolderAddIcon from "@/public/assets/images/icons/addIcon.png";
-import { ChangeEvent, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import AddLinkBar from "@/components/ui/atoms/add-link-bar/AddLinkBar";
 import FolderSortingItem from "@/components/ui/atoms/folder-sorting/FolderSortingItem";
@@ -13,7 +13,6 @@ import { getFolderNameData } from "@/api/getFolderNameData";
 import { FolderName } from "@/types/folderNameType";
 import FolderSortingList from "@/components/ui/atoms/folder-sorting/FolderSortingList";
 import SelectedFolderTitle from "@/components/ui/molecules/card-folder-title/SelectedFolderTitle";
-import { useSearchParams } from "next/navigation";
 import NoListError from "@/components/ui/atoms/no-list-error/NoListError";
 import { NO_LINK_FOUND } from "@/utils/constants";
 interface selectedTagInfo {
@@ -24,25 +23,15 @@ interface selectedTagInfo {
 
 const Folder = () => {
   const [folderName, setFolderName] = useState([]);
+  const [initialFolderItem, setInitialFolderItem] = useState([]);
   const [folderItem, setFolderItem] = useState<CardItemTransformed[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [searchKeyword, setSearchKeyword] = useState("");
   const [selectedTagInfo, setSelectedTagInfo] = useState<selectedTagInfo>({
     selectedTag: "전체",
     selectedTagId: 0,
     cardListTitleEdit: false,
   });
-
-  const handleChangeSearchKeyword = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setSearchKeyword(e.target.value);
-  };
-
-  const handleDeleteInputClick = () => {
-    setSearchKeyword("");
-  };
 
   const setFolderNameData = useCallback(async () => {
     try {
@@ -58,6 +47,7 @@ const Folder = () => {
   const setFolderData = useCallback(async () => {
     try {
       const folderData = await getFolderData();
+      setInitialFolderItem(folderData);
       setFolderItem(folderData);
     } catch (error) {
       if (error instanceof Error) {
@@ -111,9 +101,9 @@ const Folder = () => {
       <div className={styles.maxWidth}>
         <div className={styles.searchBarArea}>
           <SearchBar
-            value={searchKeyword}
-            onChangeHandler={handleChangeSearchKeyword}
-            onClickHandler={handleDeleteInputClick}
+            initialFolderItem={initialFolderItem}
+            folderItem={folderItem}
+            setFolderItem={setFolderItem}
           />
         </div>
         <div className={styles.sortingArea}>
