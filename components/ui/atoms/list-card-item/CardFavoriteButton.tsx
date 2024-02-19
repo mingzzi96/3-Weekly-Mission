@@ -8,8 +8,6 @@ const CardFavoriteButton = () => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleActiveFavoriteClick = (e: any) => {
-    // 버블링으로 인해 favorite 버튼을 누르면, Link 태그가 클릭되어져 버립니다.
-    // preventDefault로 해결하였는데, 다른 더 좋은 방법 있을까요?
     e.preventDefault();
     setIsFavorite(!isFavorite);
   };
