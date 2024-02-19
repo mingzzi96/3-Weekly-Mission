@@ -1,29 +1,24 @@
-import folderStyles from "@/components/ui/atoms/folder-sorting/FolderSortingList.module.css";
 import styles from "./folder.module.css";
 import FolderAddIcon from "@/public/assets/images/icons/addIcon.png";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import AddLinkBar from "@/components/ui/atoms/add-link-bar/AddLinkBar";
-import FolderSortingItem from "@/components/ui/atoms/folder-sorting/FolderSortingItem";
 import SearchBar from "@/components/ui/atoms/search-bar/SearchBar";
 import { getFolderData } from "@/api/getFolderData";
 import { CardItemTransformed } from "@/types/cardItemType";
 import CardList from "@/components/ui/molecules/card-list/CardList";
 import { getFolderNameData } from "@/api/getFolderNameData";
-import { FolderName } from "@/types/folderNameType";
 import FolderSortingList from "@/components/ui/atoms/folder-sorting/FolderSortingList";
 import SelectedFolderTitle from "@/components/ui/molecules/card-folder-title/SelectedFolderTitle";
 import NoListError from "@/components/ui/atoms/no-list-error/NoListError";
 import { NO_LINK_FOUND } from "@/utils/constants";
-interface selectedTagInfo {
-  selectedTag: string;
-  selectedTagId?: number;
-  cardListTitleEdit: boolean;
-}
+import { selectedTagInfo } from "@/types/selectedFolderNameInfo";
 
 const Folder = () => {
   const [folderName, setFolderName] = useState([]);
-  const [initialFolderItem, setInitialFolderItem] = useState([]);
+  const [initialFolderItem, setInitialFolderItem] = useState<
+    CardItemTransformed[]
+  >([]);
   const [folderItem, setFolderItem] = useState<CardItemTransformed[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -64,35 +59,6 @@ const Folder = () => {
     setFolderNameData();
   }, [setFolderNameData]);
 
-  const handleActiveFolderTag = async (tagName: string, tagId?: number) => {
-    setSelectedTagInfo((prevSelectedTagInfo: selectedTagInfo) => ({
-      ...prevSelectedTagInfo,
-      cardListTitleEdit: true,
-      selectedTag: tagName,
-      selectedTagId: tagId,
-    }));
-
-    if (tagName === "전체") {
-      setSelectedTagInfo((prevSelectedTagInfo) => ({
-        ...prevSelectedTagInfo,
-        cardListTitleEdit: false,
-      }));
-    }
-
-    if (tagId !== undefined || tagId !== null) {
-      try {
-        const folderData = await getFolderData({
-          folderId: tagId,
-        });
-        setFolderItem(folderData);
-      } catch (error) {
-        if (error instanceof Error) {
-          setErrorMessage(error.message);
-        }
-      }
-    }
-  };
-
   return (
     <>
       <div className={styles.linkArea}>
@@ -107,29 +73,13 @@ const Folder = () => {
           />
         </div>
         <div className={styles.sortingArea}>
-          <FolderSortingList>
-            <li>
-              <p
-                className={
-                  selectedTagInfo.selectedTag === "전체"
-                    ? folderStyles.active
-                    : ""
-                }
-                onClick={() => handleActiveFolderTag("전체")}
-              >
-                전체
-              </p>
-            </li>
-            {folderName.map((tag: FolderName) => (
-              <li key={tag?.id}>
-                <FolderSortingItem
-                  folderNameData={tag}
-                  selectedTagName={selectedTagInfo.selectedTag}
-                  onClickHandler={handleActiveFolderTag}
-                />
-              </li>
-            ))}
-          </FolderSortingList>
+          <FolderSortingList
+            folderName={folderName}
+            selectedTagName={selectedTagInfo.selectedTag}
+            setFolderItem={setFolderItem}
+            setErrorMessage={setErrorMessage}
+            setSelectedTagInfo={setSelectedTagInfo}
+          />
           <button type="button">
             <span>폴더 추가</span>
             <Image
