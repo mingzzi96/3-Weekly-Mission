@@ -18,7 +18,7 @@ const SelectedFolderTitle = ({
   return (
     <div className={styles.folderTitle}>
       <h3>{title}</h3>
-      {editActive ? (
+      {editActive && (
         <div className={styles.folderTitleEdit}>
           <button>
             <Image src={shareIcon} alt="공유 아이콘" />
@@ -33,7 +33,7 @@ const SelectedFolderTitle = ({
             <p>삭제</p>
           </button>
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

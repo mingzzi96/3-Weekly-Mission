@@ -56,7 +56,7 @@ const SearchBar = ({
         value={searchKeyword}
         onChange={handleChangeSearchKeyword}
       />
-      {searchKeyword.length > 0 ? (
+      {searchKeyword.length > 0 && (
         <button
           type="button"
           aria-label="클릭하여 내용 지우기"
@@ -64,7 +64,7 @@ const SearchBar = ({
         >
           <Image src={clearIcon} alt="내용 삭제 아이콘" tabIndex={-1} />
         </button>
-      ) : null}
+      )}
     </form>
   );
 };
