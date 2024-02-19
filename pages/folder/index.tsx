@@ -90,7 +90,7 @@ const Folder: React.FC = () => {
 
   const handleActiveFolderTag = async (
     tagName: string,
-    tagId: number | null | undefined
+    tagId?: number
   ) => {
     setSelectedTagInfo((prevSelectedTagInfo) => ({
       ...prevSelectedTagInfo,
