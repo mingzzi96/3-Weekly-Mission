@@ -7,7 +7,7 @@ const AddLinkBar = () => {
   return (
     <div className={styles.container}>
       <Image src={inputLinkImage} alt="링크 이미지" tabIndex={-1} />
-      <input placeholder="링크를 추가해 보세요" />
+      <input type="text" placeholder="링크를 추가해 보세요" />
       <button type="submit" className={global.gradientButton}>
         추가하기
       </button>
