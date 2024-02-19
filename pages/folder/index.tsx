@@ -37,7 +37,6 @@ const Folder: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("yes");
     try {
       const folderData = await getFolderData(searchKeyword);
       setSearchParams(searchKeyword ? { searchKeyword } : {});
