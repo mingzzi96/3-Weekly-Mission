@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import moreIcon from "@/public/assets/images/icons/kebabIcon.svg";
 import styles from "./CardItem.module.css";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import Image from "next/image";
 const CardKebabButton = () => {
   const [isActive, setIsActive] = useState(false);
 
-  const handleClickKebabActive = (e: any) => {
+  const handleClickKebabActive = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsActive(!isActive);
   };
