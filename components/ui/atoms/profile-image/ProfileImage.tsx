@@ -7,21 +7,9 @@ interface ProfileImage {
   size?: number;
 }
 
-const ProfileImage = ({
-  src,
-  userName,
-  borderRadius = 100,
-  size = 28,
-}: ProfileImage) => {
+const ProfileImage = ({ src, userName }: ProfileImage) => {
   return (
-    <div
-      className={styles.container}
-      style={{
-        borderRadius: `${borderRadius}px`,
-        width: `${size}px`,
-        height: `${size}px`,
-      }}
-    >
+    <div className={styles.container}>
       <img src={src} alt={`${userName}님의 프로필 이미지`} />
     </div>
   );
