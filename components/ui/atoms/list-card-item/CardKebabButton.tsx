@@ -8,7 +8,7 @@ const CardKebabButton = () => {
 
   const handleClickKebabActive = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setIsActive(!isActive);
+    setIsActive((currentValue) => !currentValue);
   };
   return (
     <div className={styles.kebabButton}>
