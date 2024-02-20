@@ -9,6 +9,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: 0.2s;
+}
+
+.cardListHover:hover .cardImage img {
+  transform: scale(1.05);
 }
 
 .cardDescription {
