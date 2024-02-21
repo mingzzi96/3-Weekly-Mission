@@ -1,0 +1,38 @@
+.footer {
+  position: relative;
+  padding: 32px 104px 108px;
+  background: #111322;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer .footerSns {
+  display: flex;
+  align-items: center;
+  gap: 0 12px;
+}
+
+.footer .footerSns img {
+  width: 20px;
+  height: 20px;
+}
+
+.footer .footerTitle span {
+  color: #676767;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.footer .footerLink {
+  display: flex;
+  align-items: center;
+  gap: 0 30px;
+}
+
+.footer .footerLink a {
+  color: #cfcfcf;
+  font-size: 1.6rem;
+  font-weight: 400;
+}

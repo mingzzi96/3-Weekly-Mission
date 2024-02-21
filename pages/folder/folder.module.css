@@ -1,0 +1,61 @@
+.linkArea {
+  background: var(--color--gray-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 128px 90px;
+}
+
+.maxWidth {
+  max-width: var(--max-width);
+  width: 90%;
+  margin: 0 auto;
+}
+
+.searchBarArea {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.sortingArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sortingArea button {
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sortingArea button:hover {
+  text-decoration: underline;
+}
+
+.sortingArea button span {
+  font-size: 1.6rem;
+  color: var(--color--primary);
+}
+
+.sortingArea button img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.cardListFolderTitleArea {
+  margin: 24px 0;
+}
+
+.cardListArea {
+  margin-bottom: 100px;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .linkArea {
+    padding: 87px 40px;
+  }
+}

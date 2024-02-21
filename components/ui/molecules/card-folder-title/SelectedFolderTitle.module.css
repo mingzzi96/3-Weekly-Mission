@@ -1,0 +1,35 @@
+.folderTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.folderTitle h3 {
+  color: #000;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 28.8px;
+}
+.folderTitleEdit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.folderTitleEdit button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.folderTitleEdit button img {
+  width: 18px;
+  height: 18px;
+}
+
+.folderTitleEdit button p {
+  color: var(--color--gray-60);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
