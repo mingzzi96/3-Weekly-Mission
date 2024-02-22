@@ -13,8 +13,13 @@ import SelectedFolderTitle from "@/components/ui/molecules/card-folder-title/Sel
 import NoListError from "@/components/ui/atoms/no-list-error/NoListError";
 import { NO_LINK_FOUND } from "@/utils/constants";
 import { selectedTagInfo } from "@/types/selectedFolderNameInfo";
+import ModalContainer from "@/components/ui/atoms/modal/ModalContainer";
+import ModalAddFolder from "@/components/ui/atoms/modal/ModalAddFolder";
+import { useModal } from "@/components/ui/atoms/modal/context/modalProvider";
 
 const Folder = () => {
+  const { openModal, closeModal, openModalName } = useModal();
+  const [modalName, setModalName] = useState<string | null>("");
   const [folderName, setFolderName] = useState([]);
   const [initialFolderItem, setInitialFolderItem] = useState<
     CardItemTransformed[]
@@ -59,6 +64,11 @@ const Folder = () => {
     setFolderNameData();
   }, [setFolderNameData]);
 
+  const handleClickAddFolder = () => {
+    openModal("AddFolder");
+    setModalName("AddFolder");
+  };
+
   return (
     <>
       <div className={styles.linkArea}>
@@ -80,7 +90,7 @@ const Folder = () => {
             setErrorMessage={setErrorMessage}
             setSelectedTagInfo={setSelectedTagInfo}
           />
-          <button type="button">
+          <button type="button" onClick={handleClickAddFolder}>
             <span>폴더 추가</span>
             <Image
               src={FolderAddIcon}
@@ -105,6 +115,12 @@ const Folder = () => {
           )}
         </div>
       </div>
+
+      {modalName === openModalName && (
+        <ModalContainer handleCloseModal={closeModal}>
+          <ModalAddFolder modalTitle="폴더 추가" />
+        </ModalContainer>
+      )}
     </>
   );
 };

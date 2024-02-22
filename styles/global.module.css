@@ -1,3 +1,8 @@
+.stopScroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .noData {
   text-align: center;
   color: #000;
@@ -7,6 +12,7 @@
   padding: 80px 0;
 }
 
+/* gradient styled button */
 .gradientButton {
   background: var(--button-gradation);
   border-radius: 8px;
@@ -18,4 +24,46 @@
   padding: 0 20px;
   font-size: 1.8rem;
   font-weight: 600;
+}
+
+/* input */
+.input {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color--gray-20);
+  padding: 18px 15px;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.input:focus {
+  border: 1px solid var(--color--primary);
+}
+
+/* width 100% default button */
+.button {
+  border-radius: 8px;
+  line-height: 19px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  width: 100%;
+  padding: 16px 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.button.primary {
+  background: var(--color--primary);
+}
+
+.button.red {
+  background: var(--color--red);
+}
+
+.button.gradation {
+  background: var(--button-gradation);
 }
