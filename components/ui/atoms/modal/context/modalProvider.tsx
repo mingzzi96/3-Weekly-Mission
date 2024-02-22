@@ -26,7 +26,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
 
   useEffect(() => {
     setPrevScrollPosition(window.scrollY);
-
+    // 혹시 여기에 Intersection Observer 의 사용이 필요할까요?
     window.addEventListener("scroll", handleScroll);
   }, []);
 
