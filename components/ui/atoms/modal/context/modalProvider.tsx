@@ -1,4 +1,4 @@
-import { MouseEvent, PropsWithChildren, useRef } from "react";
+import { MouseEvent, PropsWithChildren, useEffect } from "react";
 import React, { createContext, useContext, useState } from "react";
 
 type ModalProviderProps = PropsWithChildren;
@@ -13,25 +13,43 @@ interface ModalContextProps {
 const ModalContext = createContext<ModalContextProps | undefined>(undefined);
 
 export const ModalProvider = ({ children }: ModalProviderProps) => {
-  const [isScroll, setIsScroll] = useState<boolean>(true);
   const [openModalName, setOpenModalName] = useState<string | number | null>(
     null
   );
 
+  const [prevScrollPosition, setPrevScrollPosition] = useState<number>(0);
+  const [currentScrollPosition, setCurrentScrollPosition] = useState<number>(0);
+
+  const handleScroll = () => {
+    setPrevScrollPosition(window.scrollY);
+  };
+
+  useEffect(() => {
+    setPrevScrollPosition(window.scrollY);
+
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+
   const openModal = (modalName: string | number) => {
+    setCurrentScrollPosition(prevScrollPosition);
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.top = `-${prevScrollPosition}px`;
+    document.body.style.overflowY = "scroll";
     setOpenModalName(modalName);
-    setIsScroll(false);
   };
 
   const closeModal = () => {
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.top = "";
+    document.body.style.overflowY = "";
+    window.scrollTo(0, currentScrollPosition);
     setOpenModalName(null);
-    setIsScroll(true);
   };
 
   return (
-    <ModalContext.Provider
-      value={{ openModal, closeModal, openModalName, isScroll }}
-    >
+    <ModalContext.Provider value={{ openModal, closeModal, openModalName }}>
       {children}
     </ModalContext.Provider>
   );
