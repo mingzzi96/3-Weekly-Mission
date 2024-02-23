@@ -1,11 +1,7 @@
 import Input from "@/components/ui/atoms/input/Input";
 
 const Signin = () => {
-  return (
-    <>
-      <Input />
-    </>
-  );
+  return <></>;
 };
 
 export default Signin;
