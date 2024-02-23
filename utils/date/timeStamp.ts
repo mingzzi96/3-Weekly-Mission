@@ -1,4 +1,7 @@
-export const timeStamp = (date: string) => {
+export const timeStamp = (date: string | undefined) => {
+  if (typeof date !== "string") {
+    return;
+  }
   const now = new Date();
   const createdAt = new Date(date);
 
