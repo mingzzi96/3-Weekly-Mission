@@ -5,11 +5,13 @@ import eyeOnIcon from "@/public/assets/images/icons/eye-on-icon.svg";
 import { useState } from "react";
 
 interface InputProps {
+  id?: string;
   placeholder?: string;
   password?: boolean;
 }
 
 const Input = ({
+  id,
   password = false,
   placeholder = "내용을 입력하세요",
 }: InputProps) => {
@@ -30,6 +32,7 @@ const Input = ({
         {password ? (
           <>
             <input
+              id={id}
               type={isEyeOff ? "password" : "text"}
               placeholder={placeholder}
               className={global.input}
@@ -48,6 +51,7 @@ const Input = ({
           </>
         ) : (
           <input
+            id={id}
             type="text"
             placeholder={placeholder}
             className={global.input}
