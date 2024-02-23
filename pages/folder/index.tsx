@@ -85,7 +85,7 @@ const Folder = () => {
         <div className={styles.sortingArea}>
           <FolderSortingList
             folderName={folderName}
-            selectedTagName={selectedTagInfo.selectedTag}
+            selectedTagName={selectedTagInfo.selectedTag as string}
             setFolderItem={setFolderItem}
             setErrorMessage={setErrorMessage}
             setSelectedTagInfo={setSelectedTagInfo}
