@@ -7,7 +7,7 @@ import googleIcon from "@/public/assets/images/icons/google-login-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { EMAIL_REGEX, PASSWORD_REGEX } from "@/constants/regex/regex";
+import { emailPattern, passwordPattern } from "@/utils/regex/checkRegex";
 
 const SignIn = () => {
   const {
@@ -16,16 +16,6 @@ const SignIn = () => {
     handleSubmit,
     getValues,
   } = useForm({ mode: "onChange" });
-
-  const emailPattern = {
-    value: new RegExp(EMAIL_REGEX),
-    message: "올바른 이메일 주소가 아닙니다.",
-  };
-
-  const passwordPattern = {
-    value: new RegExp(PASSWORD_REGEX),
-    message: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
-  };
 
   const handleSubmitRegister = (data) => {
     console.log(data);
