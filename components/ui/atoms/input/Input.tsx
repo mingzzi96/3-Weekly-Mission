@@ -3,35 +3,45 @@ import Image from "next/image";
 import eyeOffIcon from "@/public/assets/images/icons/eye-off-icon.svg";
 import eyeOnIcon from "@/public/assets/images/icons/eye-on-icon.svg";
 import { useState } from "react";
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
-interface InputProps {
+interface RegisterProps {
   id: string;
   type: string;
+  name: string;
   placeholder?: string;
   password?: boolean;
-  errorMessage?: string;
+  register?: UseFormRegister<FieldValues>;
+  errors?: FieldErrors<FieldValues>;
+  rules?: {
+    required?: boolean;
+    pattern?: {
+      value: RegExp;
+      message: string;
+    };
+    validate?: Record<string, (value: any) => boolean | string>;
+  };
 }
 
 const Input = ({
   id,
-  errorMessage,
   type,
+  name,
+  register,
+  errors,
+  rules,
   password = false,
   placeholder = "내용을 입력하세요",
-}: InputProps) => {
+}: RegisterProps) => {
+  const errorMessages = errors && errors[name] ? errors[name]?.message : null;
+  const hasError = !!(errors && errorMessages);
   const [isEyeOff, setIsEyeOff] = useState(true);
-
   const handleClickEyeToggle = () => {
     setIsEyeOff((currentBoolean) => !currentBoolean);
   };
-
   return (
     <>
-      <div
-        className={`${global.inputBox} ${
-          errorMessage && errorMessage.length > 0 ? global.red : ""
-        }`}
-      >
+      <div className={`${global.inputBox} ${hasError ? global.red : ""}`}>
         {password ? (
           <>
             <input
@@ -39,6 +49,7 @@ const Input = ({
               type={isEyeOff ? type : "text"}
               placeholder={placeholder}
               className={global.input}
+              {...(register && register(name, rules))}
             />
             <button
               type="button"
@@ -58,12 +69,13 @@ const Input = ({
             type={type}
             placeholder={placeholder}
             className={global.input}
+            {...(register && register(name, rules))}
           />
         )}
       </div>
-      {errorMessage && errorMessage.length > 0 ? (
+      {hasError && typeof errorMessages === "string" ? (
         <p aria-live="assertive" className={global.inputErrorMessage}>
-          {errorMessage}
+          {errorMessages}
         </p>
       ) : null}
     </>
