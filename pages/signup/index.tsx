@@ -45,7 +45,10 @@ const SignUp = () => {
               register={register}
               errors={errors}
               placeholder="이메일을 입력해 주세요."
-              rules={{ required: true, pattern: emailPattern }}
+              rules={{
+                required: "이메일을 입력해 주세요.",
+                pattern: emailPattern,
+              }}
             />
             <label htmlFor="password">비밀번호</label>
             <Input
@@ -56,7 +59,10 @@ const SignUp = () => {
               register={register}
               errors={errors}
               placeholder="영문, 숫자를 조합해 8자 이상 입력해 주세요."
-              rules={{ required: true, pattern: passwordPattern }}
+              rules={{
+                required: "영문, 숫자를 조합해 8자 이상 입력해 주세요.",
+                pattern: passwordPattern,
+              }}
             />
             <label htmlFor="passwordConfirm">비밀번호 확인</label>
             <Input
@@ -68,7 +74,7 @@ const SignUp = () => {
               errors={errors}
               placeholder="비밀번호와 일치하는 값을 입력해 주세요."
               rules={{
-                required: true,
+                required: "비밀번호와 일치하는 값을 입력해 주세요.",
                 validate: {
                   matchPassword: (value) => {
                     const { password } = getValues();
