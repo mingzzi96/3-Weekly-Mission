@@ -6,19 +6,28 @@ import kakaoIcon from "@/public/assets/images/icons/kakao-login-icon.svg";
 import googleIcon from "@/public/assets/images/icons/google-login-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { emailPattern, passwordPattern } from "@/utils/regex/checkRegex";
+import { postSignUp } from "@/api/postSignUp";
+import { useRouter } from "next/router";
 
 const SignUp = () => {
+  const router = useRouter();
   const {
     register,
     formState: { errors },
     handleSubmit,
     getValues,
-  } = useForm({ mode: "all" });
+  } = useForm({ mode: "all", shouldFocusError: true });
 
-  const handleSubmitRegister = (data) => {
-    console.log(data);
+  const handleSubmitRegister: SubmitHandler<FieldValues> = async (data) => {
+    const result = await postSignUp(data.email, data.password);
+    if (result.data.accessToken) {
+      localStorage.setItem("accessToken", result.data.accessToken);
+      router.push("/");
+    } else {
+      alert("회원가입에 실패하였습니다.");
+    }
   };
   return (
     <>
