@@ -30,7 +30,7 @@ const SignIn = () => {
             <Input id="passwordConfirm" password />
             <button
               className={`${global.button} ${global.gradation}`}
-              type="button"
+              type="submit"
             >
               회원가입
             </button>

@@ -28,7 +28,7 @@ const SignIn = () => {
             <Input id="password" password />
             <button
               className={`${global.button} ${global.gradation}`}
-              type="button"
+              type="submit"
             >
               로그인
             </button>

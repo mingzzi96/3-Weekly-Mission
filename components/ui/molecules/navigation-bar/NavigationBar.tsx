@@ -42,7 +42,9 @@ const Navigation = () => {
             <p>{user?.email}</p>
           </div>
         ) : (
-          <button className={`${global.gradientButton}`}>로그인</button>
+          <button type="button" className={`${global.gradientButton}`}>
+            로그인
+          </button>
         )}
       </div>
     </nav>
