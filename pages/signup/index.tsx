@@ -15,7 +15,7 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
     getValues,
-  } = useForm({ mode: "onChange" });
+  } = useForm({ mode: "all" });
 
   const handleSubmitRegister = (data) => {
     console.log(data);
