@@ -23,11 +23,11 @@ const SignIn = () => {
           </div>
           <form className={styles.formBox}>
             <label htmlFor="email">이메일</label>
-            <Input id="email" />
+            <Input id="email" type="email" />
             <label htmlFor="password">비밀번호</label>
-            <Input id="password" password />
+            <Input id="password" type="password" password />
             <label htmlFor="passwordConfirm">비밀번호 확인</label>
-            <Input id="passwordConfirm" password />
+            <Input id="passwordConfirm" type="password" password />
             <button
               className={`${global.button} ${global.gradation}`}
               type="submit"

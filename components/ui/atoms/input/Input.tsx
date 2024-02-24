@@ -6,6 +6,7 @@ import { useState } from "react";
 
 interface InputProps {
   id: string;
+  type: string;
   placeholder?: string;
   password?: boolean;
   errorMessage?: string;
@@ -14,6 +15,7 @@ interface InputProps {
 const Input = ({
   id,
   errorMessage,
+  type,
   password = false,
   placeholder = "내용을 입력하세요",
 }: InputProps) => {
@@ -34,7 +36,7 @@ const Input = ({
           <>
             <input
               id={id}
-              type={isEyeOff ? "password" : "text"}
+              type={isEyeOff ? type : "text"}
               placeholder={placeholder}
               className={global.input}
             />
@@ -53,7 +55,7 @@ const Input = ({
         ) : (
           <input
             id={id}
-            type="text"
+            type={type}
             placeholder={placeholder}
             className={global.input}
           />
