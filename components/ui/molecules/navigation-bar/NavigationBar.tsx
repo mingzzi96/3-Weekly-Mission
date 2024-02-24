@@ -4,7 +4,7 @@ import LinkbraryLogo from "public/assets/images/logos/logo.svg";
 import styles from "./NavigationBar.module.css";
 import global from "@/styles/global.module.css";
 import { useEffect, useState } from "react";
-import { User } from "@/types/userType";
+import { User } from "@/types/auth/userType";
 import { getUserData } from "@/api/getUserData";
 import ProfileImage from "../../atoms/profile-image/ProfileImage";
 import { usePathname } from "next/navigation";
