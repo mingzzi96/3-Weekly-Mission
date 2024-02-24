@@ -6,8 +6,20 @@ import kakaoIcon from "@/public/assets/images/icons/kakao-login-icon.svg";
 import googleIcon from "@/public/assets/images/icons/google-login-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
 
 const SignIn = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    getValues,
+  } = useForm({ mode: "all" });
+
+  const handleSubmitRegister = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <div className={styles.signPage}>
@@ -21,11 +33,33 @@ const SignIn = () => {
               <Link href="/signup/">회원 가입하기</Link>
             </div>
           </div>
-          <form className={styles.formBox}>
+          <form
+            className={styles.formBox}
+            onSubmit={handleSubmit(handleSubmitRegister)}
+          >
             <label htmlFor="email">이메일</label>
-            <Input id="email" name="email" type="email" />
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              register={register}
+              errors={errors}
+              rules={{ required: "이메일을 입력해 주세요." }}
+              placeholder="이메일을 입력해 주세요."
+            />
             <label htmlFor="password">비밀번호</label>
-            <Input id="password" name="password" type="password" password />
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              password
+              register={register}
+              errors={errors}
+              rules={{
+                required: "비밀번호를 입력해 주세요.",
+              }}
+              placeholder="비밀번호를 입력해 주세요."
+            />
             <button
               className={`${global.button} ${global.gradation}`}
               type="submit"

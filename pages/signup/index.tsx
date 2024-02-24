@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { emailPattern, passwordPattern } from "@/utils/regex/checkRegex";
 
-const SignIn = () => {
+const SignUp = () => {
   const {
     register,
     formState: { errors },
@@ -101,4 +101,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

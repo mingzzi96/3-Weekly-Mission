@@ -14,7 +14,7 @@ interface RegisterProps {
   register?: UseFormRegister<FieldValues>;
   errors?: FieldErrors<FieldValues>;
   rules?: {
-    required?: boolean;
+    required?: boolean | string;
     pattern?: {
       value: RegExp;
       message: string;
@@ -39,6 +39,7 @@ const Input = ({
   const handleClickEyeToggle = () => {
     setIsEyeOff((currentBoolean) => !currentBoolean);
   };
+
   return (
     <>
       <div className={`${global.inputBox} ${hasError ? global.red : ""}`}>
