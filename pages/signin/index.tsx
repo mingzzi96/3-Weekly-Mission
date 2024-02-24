@@ -6,18 +6,26 @@ import kakaoIcon from "@/public/assets/images/icons/kakao-login-icon.svg";
 import googleIcon from "@/public/assets/images/icons/google-login-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { postSignIn } from "@/api/postSignIn";
+import { useRouter } from "next/router";
 
 const SignIn = () => {
+  const router = useRouter();
   const {
     register,
     formState: { errors },
     handleSubmit,
     getValues,
-  } = useForm({ mode: "all" });
+  } = useForm({ mode: "all", shouldFocusError: true });
 
-  const handleSubmitRegister = (data) => {
-    console.log(data);
+  const handleSubmitRegister: SubmitHandler<FieldValues> = async (data) => {
+    const result = await postSignIn(data.email, data.password);
+    if (result.data.accessToken) {
+      router.push("/folder");
+    } else {
+      alert("로그인에 실패하였습니다.");
+    }
   };
 
   return (
