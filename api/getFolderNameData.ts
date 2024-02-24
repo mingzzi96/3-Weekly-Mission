@@ -1,4 +1,5 @@
-import { API_BASE_URL, FAIL_TO_LOAD_LIST } from "@/utils/constants";
+import { API_BASE_URL } from "@/constants/api/api";
+import { FAIL_TO_LOAD_LIST } from "@/constants/messages/error";
 
 export const getFolderNameData = async () => {
   try {

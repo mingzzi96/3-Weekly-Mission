@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "@/utils/constants";
+import { API_BASE_URL } from "@/constants/api/api";
 
 export const getUserData = async () => {
   try {

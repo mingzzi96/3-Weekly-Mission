@@ -11,11 +11,11 @@ import { getFolderNameData } from "@/api/getFolderNameData";
 import FolderSortingList from "@/components/ui/atoms/folder-sorting/FolderSortingList";
 import SelectedFolderTitle from "@/components/ui/molecules/card-folder-title/SelectedFolderTitle";
 import NoListError from "@/components/ui/atoms/no-list-error/NoListError";
-import { NO_LINK_FOUND } from "@/utils/constants";
 import { selectedTagInfo } from "@/types/selectedFolderNameInfo";
 import ModalContainer from "@/components/ui/atoms/modal/ModalContainer";
 import ModalAddFolder from "@/components/ui/atoms/modal/ModalAddFolder";
 import { useModal } from "@/components/ui/atoms/modal/context/modalProvider";
+import { NO_LINK_FOUND } from "@/constants/messages/error";
 
 const Folder = () => {
   const { openModal, closeModal, openModalName } = useModal();

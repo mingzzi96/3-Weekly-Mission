@@ -7,7 +7,7 @@ import googleIcon from "@/public/assets/images/icons/google-login-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { EMAIL_REGEX, PASSWORD_REGEX } from "@/utils/constants";
+import { EMAIL_REGEX, PASSWORD_REGEX } from "@/constants/regex/regex";
 
 const SignIn = () => {
   const {
