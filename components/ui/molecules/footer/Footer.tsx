@@ -5,11 +5,18 @@ import facebookIcon from "@/public/assets/images/icons/facebook.png";
 import twitterIcon from "@/public/assets/images/icons/twitter.png";
 import youtubeIcon from "@/public/assets/images/icons/youtube.png";
 import instagramIcon from "@/public/assets/images/icons/instagram.png";
+import { usePathname } from "next/navigation";
 
 const footerSns = ["facebook", "twitter", "youtube", "instagram"];
 const footerSnsImg = [facebookIcon, twitterIcon, youtubeIcon, instagramIcon];
 
 const Footer = () => {
+  const pathname = usePathname();
+
+  if (pathname === "/signin" || pathname === "/signup") {
+    return null;
+  }
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTitle}>

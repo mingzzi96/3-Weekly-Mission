@@ -5,17 +5,18 @@ import eyeOnIcon from "@/public/assets/images/icons/eye-on-icon.svg";
 import { useState } from "react";
 
 interface InputProps {
-  id?: string;
+  id: string;
   placeholder?: string;
   password?: boolean;
+  errorMessage?: string;
 }
 
 const Input = ({
   id,
+  errorMessage,
   password = false,
   placeholder = "내용을 입력하세요",
 }: InputProps) => {
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isEyeOff, setIsEyeOff] = useState(true);
 
   const handleClickEyeToggle = () => {

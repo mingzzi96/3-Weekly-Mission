@@ -1,0 +1,53 @@
+.signPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 238px;
+  padding-bottom: 117px;
+  background: var(--color--gray-bg);
+}
+
+.signBox {
+  max-width: 400px;
+  width: 100%;
+}
+
+.logoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logoBox > div {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.logoBox > div a {
+  font-size: 1.6rem;
+  color: var(--color--primary);
+  text-decoration: underline;
+}
+
+.formBox label {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+.formBox label ~ label {
+  margin-top: 24px;
+}
+
+.formBox > button {
+  margin-top: 30px;
+  line-height: 21px;
+}
+
+.snsBox {
+  margin-top: 32px;
+}
