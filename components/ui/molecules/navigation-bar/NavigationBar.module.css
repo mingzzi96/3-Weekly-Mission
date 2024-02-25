@@ -33,7 +33,7 @@
   object-fit: contain;
 }
 
-.nav button {
+.nav .loginButton {
   padding: 16px 40px;
   max-width: 128px;
 }
