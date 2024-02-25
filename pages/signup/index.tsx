@@ -11,6 +11,7 @@ import { emailPattern, passwordPattern } from "@/utils/regex/checkRegex";
 import { postSignUp } from "@/api/postSignUp";
 import { useRouter } from "next/router";
 import { postEmailCheck } from "@/api/postEmailCheck";
+import { useCallback, useEffect } from "react";
 
 const SignUp = () => {
   const router = useRouter();
@@ -21,11 +22,20 @@ const SignUp = () => {
     getValues,
   } = useForm({ mode: "onBlur", shouldFocusError: true });
 
+  const checkLocalStorage = useCallback(() => {
+    const hasAccessToken = localStorage.getItem("accessToken") ? true : false;
+    if (hasAccessToken) {
+      router.push("/folder");
+    }
+  }, [router]);
+
+  useEffect(() => {
+    checkLocalStorage();
+  }, [checkLocalStorage]);
+
   const handleSubmitRegister: SubmitHandler<FieldValues> = async (data) => {
     const result = await postSignUp(data.email, data.password);
-    if (result !== 200) {
-      return alert("입력 정보를 다시 한번 확인해 주세요.");
-    }
+
     if (result.data.accessToken) {
       localStorage.setItem("accessToken", result.data.accessToken);
       router.push("/");

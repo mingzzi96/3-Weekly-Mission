@@ -10,6 +10,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { postSignIn } from "@/api/postSignIn";
 import { useRouter } from "next/router";
 import { emailPattern } from "@/utils/regex/checkRegex";
+import { useCallback, useEffect } from "react";
 
 const SignIn = () => {
   const router = useRouter();
@@ -19,6 +20,17 @@ const SignIn = () => {
     handleSubmit,
     setError,
   } = useForm({ mode: "all", shouldFocusError: true });
+
+  const checkLocalStorage = useCallback(() => {
+    const hasAccessToken = localStorage.getItem("accessToken") ? true : false;
+    if (hasAccessToken) {
+      router.push("/folder");
+    }
+  }, [router]);
+
+  useEffect(() => {
+    checkLocalStorage();
+  }, [checkLocalStorage]);
 
   const handleSubmitRegister: SubmitHandler<FieldValues> = async (data) => {
     const result = await postSignIn(data.email, data.password);

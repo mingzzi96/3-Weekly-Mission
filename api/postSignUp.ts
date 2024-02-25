@@ -11,6 +11,7 @@ export const postSignUp = async (email: string, password: string) => {
     });
 
     if (!response.ok) {
+      console.log(response);
       return response.status;
     }
 
