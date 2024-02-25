@@ -33,8 +33,10 @@ const Input = ({
   password = false,
   placeholder = "내용을 입력하세요",
 }: RegisterProps) => {
+  console.log(errors);
   const errorMessages = errors && errors[name] ? errors[name]?.message : null;
   const hasError = !!(errors && errorMessages);
+
   const [isEyeOff, setIsEyeOff] = useState(true);
   const handleClickEyeToggle = () => {
     setIsEyeOff((currentBoolean) => !currentBoolean);

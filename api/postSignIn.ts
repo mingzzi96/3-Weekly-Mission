@@ -11,12 +11,12 @@ export const postSignIn = async (email: string, password: string) => {
     });
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      return response.status;
     }
 
     const responseData = await response.json();
     return responseData;
   } catch (error) {
-    throw error;
+    return null;
   }
 };

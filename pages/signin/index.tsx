@@ -9,6 +9,7 @@ import Image from "next/image";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { postSignIn } from "@/api/postSignIn";
 import { useRouter } from "next/router";
+import { emailPattern } from "@/utils/regex/checkRegex";
 
 const SignIn = () => {
   const router = useRouter();
@@ -16,15 +17,27 @@ const SignIn = () => {
     register,
     formState: { errors },
     handleSubmit,
-    getValues,
+    setError,
   } = useForm({ mode: "all", shouldFocusError: true });
 
   const handleSubmitRegister: SubmitHandler<FieldValues> = async (data) => {
     const result = await postSignIn(data.email, data.password);
+    console.log(result);
+
+    if (result !== 200) {
+      setError("email", {
+        type: "serverError",
+        message: "이메일을 다시 확인해 주세요.",
+      });
+      setError("password", {
+        type: "serverError",
+        message: "비밀번호를 다시 확인해 주세요.",
+      });
+      return;
+    }
+
     if (result.data.accessToken) {
       router.push("/folder");
-    } else {
-      alert("로그인에 실패하였습니다.");
     }
   };
 
@@ -52,7 +65,10 @@ const SignIn = () => {
               type="email"
               register={register}
               errors={errors}
-              rules={{ required: "이메일을 입력해 주세요." }}
+              rules={{
+                required: "이메일을 입력해 주세요.",
+                pattern: emailPattern,
+              }}
               placeholder="이메일을 입력해 주세요."
             />
             <label htmlFor="password">비밀번호</label>
