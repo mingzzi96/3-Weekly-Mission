@@ -22,9 +22,8 @@ const SignIn = () => {
 
   const handleSubmitRegister: SubmitHandler<FieldValues> = async (data) => {
     const result = await postSignIn(data.email, data.password);
-    console.log(result);
 
-    if (result !== 200) {
+    if (result === 400) {
       setError("email", {
         type: "serverError",
         message: "이메일을 다시 확인해 주세요.",
