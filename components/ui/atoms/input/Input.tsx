@@ -3,25 +3,7 @@ import Image from "next/image";
 import eyeOffIcon from "@/public/assets/images/icons/eye-off-icon.svg";
 import eyeOnIcon from "@/public/assets/images/icons/eye-on-icon.svg";
 import { useState } from "react";
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
-
-interface RegisterProps {
-  id: string;
-  type: string;
-  name: string;
-  placeholder?: string;
-  password?: boolean;
-  register?: UseFormRegister<FieldValues>;
-  errors?: FieldErrors<FieldValues>;
-  rules?: {
-    required?: boolean | string;
-    pattern?: {
-      value: RegExp;
-      message: string;
-    };
-    validate?: Record<string, (value: any) => boolean | string>;
-  };
-}
+import { inputProps } from "@/types/inputType";
 
 const Input = ({
   id,
@@ -32,7 +14,7 @@ const Input = ({
   rules,
   password = false,
   placeholder = "내용을 입력하세요",
-}: RegisterProps) => {
+}: inputProps) => {
   const errorMessages = errors && errors[name] ? errors[name]?.message : null;
   const hasError = !!(errors && errorMessages);
 

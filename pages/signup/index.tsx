@@ -10,6 +10,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { emailPattern, passwordPattern } from "@/utils/regex/checkRegex";
 import { postSignUp } from "@/api/postSignUp";
 import { useRouter } from "next/router";
+import { postEmailCheck } from "@/api/postEmailCheck";
 
 const SignUp = () => {
   const router = useRouter();
@@ -18,15 +19,16 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
     getValues,
-  } = useForm({ mode: "all", shouldFocusError: true });
+  } = useForm({ mode: "onBlur", shouldFocusError: true });
 
   const handleSubmitRegister: SubmitHandler<FieldValues> = async (data) => {
     const result = await postSignUp(data.email, data.password);
+    if (result !== 200) {
+      return alert("입력 정보를 다시 한번 확인해 주세요.");
+    }
     if (result.data.accessToken) {
       localStorage.setItem("accessToken", result.data.accessToken);
       router.push("/");
-    } else {
-      alert("회원가입에 실패하였습니다.");
     }
   };
   return (
@@ -57,6 +59,12 @@ const SignUp = () => {
               rules={{
                 required: "이메일을 입력해 주세요.",
                 pattern: emailPattern,
+                validate: {
+                  checkEmailExist: async (value) => {
+                    const result = await postEmailCheck(value);
+                    return result !== 409 || "이미 사용 중인 이메일입니다.";
+                  },
+                },
               }}
             />
             <label htmlFor="password">비밀번호</label>

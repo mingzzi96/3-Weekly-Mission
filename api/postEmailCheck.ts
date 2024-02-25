@@ -11,11 +11,7 @@ export const postEmailCheck = async (email: string) => {
     });
 
     if (response.status === 409) {
-      return null;
-    }
-
-    if (!response.ok) {
-      return response.statusText;
+      return response.status;
     }
 
     const responseData = await response.json();

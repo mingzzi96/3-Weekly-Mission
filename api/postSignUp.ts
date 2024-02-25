@@ -11,7 +11,7 @@ export const postSignUp = async (email: string, password: string) => {
     });
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      return response.status;
     }
 
     const responseData = await response.json();
