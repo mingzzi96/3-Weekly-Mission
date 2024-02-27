@@ -13,11 +13,7 @@ const footerSnsImg = [facebookIcon, twitterIcon, youtubeIcon, instagramIcon];
 const Footer = () => {
   const pathname = usePathname();
 
-  if (pathname === "/signin" || pathname === "/signup") {
-    return null;
-  }
-
-  return (
+  return pathname === "/signin" || pathname === "/signup" ? null : (
     <footer className={styles.footer}>
       <div className={styles.footerTitle}>
         <span>©codeit - 2023</span>
