@@ -20,7 +20,7 @@ const FolderSortingList = ({
   setSelectedTagInfo,
   setErrorMessage,
 }: FolderSortingList) => {
-  const handleActiveFolderTag = async (tagName?: string, tagId?: number) => {
+  const handleActiveFolderTag = async (tagName: string, tagId?: number) => {
     const newSelectedTagInfo: selectedTagInfo = {
       cardListTitleEdit: true,
       selectedTag: tagName,
