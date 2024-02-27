@@ -16,7 +16,7 @@ const Input = ({
   placeholder = "내용을 입력하세요",
 }: inputProps) => {
   const errorMessages = errors && errors[name] ? errors[name]?.message : null;
-  const hasError = !!(errors && errorMessages);
+  const isError = !!(errors && errorMessages);
 
   const [isEyeOff, setIsEyeOff] = useState(true);
   const handleClickEyeToggle = () => {
@@ -25,7 +25,7 @@ const Input = ({
 
   return (
     <>
-      <div className={`${global.inputBox} ${hasError ? global.red : ""}`}>
+      <div className={`${global.inputBox} ${isError ? global.red : ""}`}>
         {password ? (
           <>
             <input
@@ -57,7 +57,7 @@ const Input = ({
           />
         )}
       </div>
-      {hasError && typeof errorMessages === "string" ? (
+      {isError && typeof errorMessages === "string" ? (
         <p aria-live="assertive" className={global.inputErrorMessage}>
           {errorMessages}
         </p>
