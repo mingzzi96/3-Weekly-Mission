@@ -19,7 +19,7 @@ import { NO_LINK_FOUND } from "@/constants/messages/error";
 
 const Folder = () => {
   const { openModal, closeModal, openModalName } = useModal();
-  const [modalName, setModalName] = useState<string | null>("");
+  const [modalName, setModalName] = useState<string>("");
   const [folderName, setFolderName] = useState([]);
   const [initialFolderItem, setInitialFolderItem] = useState<
     CardItemTransformed[]
