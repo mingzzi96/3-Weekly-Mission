@@ -22,13 +22,9 @@ const Navigation = () => {
     if (pathname !== "/signin" && pathname === "/signup") {
       setUserData();
     }
-  }, [pathname]);
+  }, []);
 
-  if (pathname === "/signin" || pathname === "/signup") {
-    return null;
-  }
-
-  return (
+  return pathname === "/signin" || pathname === "/signup" ? null : (
     <nav className={styles.nav}>
       <div className={styles.navContainer}>
         <h1>
