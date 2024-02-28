@@ -7,11 +7,9 @@ import { useEffect, useState } from "react";
 import { User } from "@/types/auth/userType";
 import { getUserData } from "@/api/getUserData";
 import ProfileImage from "../../atoms/profile-image/ProfileImage";
-import { usePathname } from "next/navigation";
 
 const Navigation = () => {
   const [user, setUser] = useState<User>();
-  const pathname = usePathname();
 
   const setUserData = async () => {
     const userData = await getUserData();
@@ -19,12 +17,10 @@ const Navigation = () => {
   };
 
   useEffect(() => {
-    if (pathname !== "/signin" && pathname === "/signup") {
-      setUserData();
-    }
+    setUserData();
   }, []);
 
-  return pathname === "/signin" || pathname === "/signup" ? null : (
+  return (
     <nav className={styles.nav}>
       <div className={styles.navContainer}>
         <h1>
