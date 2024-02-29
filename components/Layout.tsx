@@ -14,9 +14,17 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      {isLoginPage ? null : <NavigationBar />}
-      {children}
-      {isLoginPage ? null : <Footer />}
+      {isLoginPage ? null : (
+        <header>
+          <NavigationBar />
+        </header>
+      )}
+      <main>{children}</main>
+      {isLoginPage ? null : (
+        <footer>
+          <Footer />
+        </footer>
+      )}
     </>
   );
 };
