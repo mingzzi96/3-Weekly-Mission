@@ -4,6 +4,7 @@ import "../styles/theme.css";
 import LinkbraryLogo from "@/public/assets/images/logos/logo.svg";
 import Layout from "@/components/Layout";
 import { NextPage } from "next";
+import { ModalProvider } from "@/components/ui/atoms/modal/context/modalProvider";
 
 interface MyAppProps {
   Component: NextPage;
@@ -22,9 +23,11 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
           content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
         />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ModalProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ModalProvider>
     </>
   );
 };

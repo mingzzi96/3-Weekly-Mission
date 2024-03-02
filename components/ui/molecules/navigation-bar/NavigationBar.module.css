@@ -3,7 +3,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 99999999;
   background: #f0f6ff;
 }
 
@@ -34,7 +33,7 @@
   object-fit: contain;
 }
 
-.nav button {
+.nav .loginButton {
   padding: 16px 40px;
   max-width: 128px;
 }

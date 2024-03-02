@@ -1,5 +1,5 @@
 export interface selectedTagInfo {
-  selectedTag: string;
+  selectedTag?: string;
   selectedTagId?: number;
   cardListTitleEdit: boolean;
 }

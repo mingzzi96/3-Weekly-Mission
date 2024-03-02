@@ -27,17 +27,17 @@ const FolderSortingList = ({
       selectedTagId: tagId,
     };
 
+    setSelectedTagInfo((prevSelectedTagInfo) => ({
+      ...prevSelectedTagInfo,
+      ...newSelectedTagInfo,
+    }));
+
     if (tagName === "전체") {
       setSelectedTagInfo((prevSelectedTagInfo) => ({
         ...prevSelectedTagInfo,
         cardListTitleEdit: false,
       }));
     }
-
-    setSelectedTagInfo((prevSelectedTagInfo) => ({
-      ...prevSelectedTagInfo,
-      ...newSelectedTagInfo,
-    }));
 
     try {
       const folderData = await getFolderData({

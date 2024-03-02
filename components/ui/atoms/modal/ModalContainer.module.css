@@ -1,0 +1,66 @@
+.modalWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modalContent {
+  position: relative;
+  max-width: 360px;
+  width: 100%;
+  background: #fff;
+  border-radius: 15px;
+  border: 1px solid #ccd5e3;
+  padding: 32px 40px;
+}
+
+.modalTitle {
+  color: #373740;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modalSubTitle {
+  color: var(--color--gray-60);
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+.modalCloseButton {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 24px;
+  height: 24px;
+}
+
+.modalCloseButton img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.addFolderContainer .modalTitle {
+  margin-bottom: 24px;
+}
+.addFolderContainer button {
+  margin-top: 15px;
+}

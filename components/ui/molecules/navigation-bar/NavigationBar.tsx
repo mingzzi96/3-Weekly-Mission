@@ -4,7 +4,7 @@ import LinkbraryLogo from "public/assets/images/logos/logo.svg";
 import styles from "./NavigationBar.module.css";
 import global from "@/styles/global.module.css";
 import { useEffect, useState } from "react";
-import { User } from "@/types/userType";
+import { User } from "@/types/auth/userType";
 import { getUserData } from "@/api/getUserData";
 import ProfileImage from "../../atoms/profile-image/ProfileImage";
 
@@ -34,7 +34,12 @@ const Navigation = () => {
             <p>{user?.email}</p>
           </div>
         ) : (
-          <button className={`${global.gradientButton}`}>로그인</button>
+          <Link
+            href="/signin"
+            className={`${global.gradientButton} ${styles.loginButton}`}
+          >
+            로그인
+          </Link>
         )}
       </div>
     </nav>
