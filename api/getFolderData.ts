@@ -1,6 +1,7 @@
-import { API_BASE_URL } from "@/constants/api/api";
+import { REQUEST_URLS } from "@/constants/api/api";
 import { FAIL_TO_LOAD_LIST } from "@/constants/messages/error";
 import { CardItem } from "@/types/cardItemType";
+import axiosInstance from "./instance/axiosInstance";
 
 interface folderData {
   folderId?: number;
@@ -8,17 +9,15 @@ interface folderData {
 
 export const getFolderData = async ({ folderId }: folderData = {}) => {
   try {
-    let apiUrl = `${API_BASE_URL}/users/1/links`;
+    let apiUrl = REQUEST_URLS.getFolderData;
 
     if (folderId) {
       apiUrl += `?folderId=${folderId}`;
     }
 
-    const response = await fetch(apiUrl);
+    const response = await axiosInstance.get(apiUrl);
 
-    const result = await response.json();
-
-    const transformData = result.data.map((item: CardItem) => ({
+    const transformData = response.data.data.map((item: CardItem) => ({
       id: item.id,
       createdAt: item.created_at,
       imageSource: item.image_source,

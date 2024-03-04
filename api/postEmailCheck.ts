@@ -1,22 +1,21 @@
-import { API_BASE_URL } from "@/constants/api/api";
+import { REQUEST_URLS } from "@/constants/api/api";
+import axiosInstance from "./instance/axiosInstance";
 
 export const postEmailCheck = async (email: string) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/check-email`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
+    const response = await axiosInstance.post(REQUEST_URLS.postEmailCheck, {
+      email,
     });
 
     if (response.status === 409) {
       return response.status;
     }
 
-    const responseData = await response.json();
+    const responseData = response;
     return responseData;
   } catch (error) {
-    return error;
+    if (error instanceof Error && "response" in error) {
+      return (error as any).response.request.status;
+    }
   }
 };

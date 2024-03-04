@@ -1,22 +1,20 @@
-import { API_BASE_URL } from "@/constants/api/api";
+import { AxiosError } from "axios";
+import { REQUEST_URLS } from "@/constants/api/api";
+import axiosInstance from "./instance/axiosInstance";
 
 export const postSignIn = async (email: string, password: string) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/sign-in`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
+    const response = await axiosInstance.post(REQUEST_URLS.postSignIn, {
+      email,
+      password,
     });
 
-    if (!response.ok) {
-      return response.status;
-    }
-
-    const responseData = await response.json();
+    const responseData = await response.data;
     return responseData;
-  } catch (error) {
-    return null;
+  } catch (e) {
+    const error = e as AxiosError;
+    if (error.response?.status) {
+      return error.response?.status;
+    }
   }
 };
