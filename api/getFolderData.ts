@@ -1,7 +1,6 @@
 import { API_BASE_URL } from "@/constants/api/api";
 import { FAIL_TO_LOAD_LIST } from "@/constants/messages/error";
 import { CardItem } from "@/types/cardItemType";
-import { filterLinkSearch } from "@/utils/search/filterLinkSearch";
 
 interface folderData {
   folderId?: number;
