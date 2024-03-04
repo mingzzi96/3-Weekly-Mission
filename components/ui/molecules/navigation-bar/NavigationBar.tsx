@@ -21,28 +21,30 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav className={styles.nav}>
-      <div className={styles.navContainer}>
-        <h1>
-          <Link href="/">
-            <Image src={LinkbraryLogo} alt="클릭하여 Linkbrary 홈으로 이동" />
-          </Link>
-        </h1>
-        {user?.email ? (
-          <div className={styles.navUserInfo}>
-            <ProfileImage src={user?.image_source} userName={user?.name} />
-            <p>{user?.email}</p>
-          </div>
-        ) : (
-          <Link
-            href="/signin"
-            className={`${global.gradientButton} ${styles.loginButton}`}
-          >
-            로그인
-          </Link>
-        )}
-      </div>
-    </nav>
+    <header>
+      <nav className={styles.nav}>
+        <div className={styles.navContainer}>
+          <h1>
+            <Link href="/">
+              <Image src={LinkbraryLogo} alt="클릭하여 Linkbrary 홈으로 이동" />
+            </Link>
+          </h1>
+          {user?.email ? (
+            <div className={styles.navUserInfo}>
+              <ProfileImage src={user?.image_source} userName={user?.name} />
+              <p>{user?.email}</p>
+            </div>
+          ) : (
+            <Link
+              href="/signin"
+              className={`${global.gradientButton} ${styles.loginButton}`}
+            >
+              로그인
+            </Link>
+          )}
+        </div>
+      </nav>
+    </header>
   );
 };
 
