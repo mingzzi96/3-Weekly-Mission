@@ -1,9 +1,16 @@
-.nav {
+/*
+*** z-index 
+*** - navigation bar : 10
+*** - modalWrap : 20
+*/
+
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background: #f0f6ff;
+  z-index: 10;
 }
 
 .nav.folder {

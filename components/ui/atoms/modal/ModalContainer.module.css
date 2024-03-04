@@ -1,3 +1,9 @@
+/*
+*** z-index 
+*** - navigation bar : 10
+*** - modalWrap : 20
+*/
+
 .modalWrap {
   position: fixed;
   top: 0;
@@ -7,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 20;
 }
 
 .modalDim {
